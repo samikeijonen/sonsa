@@ -10,31 +10,25 @@
 if ( ! function_exists( 'sonsa_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
+ *
+ * @since 1.0.0
  */
 function sonsa_posted_on() {
-	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
-	}
 
-	$time_string = sprintf( $time_string,
+	/* Set up entry date. */
+	printf( '<span class="entry-date"><span class="screen-reader-text">%1$s </span><a href="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s"' . hybrid_get_attr( 'entry-published' ) . '>%4$s</time></a></span>',
+		_x( 'Posted on', 'Used before publish date.', 'sonsa' ),
+		esc_url( get_permalink() ),
 		esc_attr( get_the_date( 'c' ) ),
-		esc_html( get_the_date() ),
-		esc_attr( get_the_modified_date( 'c' ) ),
-		esc_html( get_the_modified_date() )
+		esc_html( get_the_date() )
 	);
-
-	$posted_on = sprintf(
-		esc_html_x( 'Posted on %s', 'post date', 'sonsa' ),
-		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+	
+	/* Set up byline. */
+	printf( '<span class="byline"><span class="entry-author" ' . hybrid_get_attr( 'entry-author' ) . '><span class="screen-reader-text">%1$s </span><a class="entry-author-link" href="%2$s" rel="author" itemprop="url"><span itemprop="name">%3$s</span></a></span></span>',
+		_x( 'Author', 'Used before post author name.', 'sonsa' ),
+		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+		get_the_author()
 	);
-
-	$byline = sprintf(
-		esc_html_x( 'by %s', 'post author', 'sonsa' ),
-		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
-	);
-
-	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
 
 }
 endif;
@@ -64,10 +58,66 @@ function sonsa_entry_footer() {
 		comments_popup_link( esc_html__( 'Leave a comment', 'sonsa' ), esc_html__( '1 Comment', 'sonsa' ), esc_html__( '% Comments', 'sonsa' ) );
 		echo '</span>';
 	}
-
-	edit_post_link( esc_html__( 'Edit', 'sonsa' ), '<span class="edit-link">', '</span>' );
+	
 }
 endif;
+
+/**
+ * This template tag is meant to replace template tags like `the_category()`, `the_terms()`, etc.  These core 
+ * WordPress template tags don't offer proper translation and RTL support without having to write a lot of 
+ * messy code within the theme's templates.  This is why theme developers often have to resort to custom 
+ * functions to handle this (even the default WordPress themes do this).  Particularly, the core functions 
+ * don't allow for theme developers to add the terms as placeholders in the accompanying text (ex: "Posted in %s"). 
+ * This funcion is a wrapper for the WordPress `get_the_terms_list()` function.  It uses that to build a 
+ * better post terms list.
+ *
+ * @author    Justin Tadlock
+ * @link      https://github.com/justintadlock/hybrid-core/blob/2.0/functions/template-post.php
+ * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ *
+ * @since  1.0.0
+ * @param  array   $args
+ * @return string
+ */
+function sonsa_get_post_terms( $args = array() ) {
+
+	$html = '';
+
+	$defaults = array(
+		'post_id'    => get_the_ID(),
+		'taxonomy'   => 'category',
+		'text'       => '%s',
+		'before'     => '',
+		'after'      => '',
+		'items_wrap' => '<span %s>%s</span>',
+		/* Translators: Separates tags, categories, etc. when displaying a post. */
+		'sep'        => _x( ', ', 'taxonomy terms separator', 'sonsa' )
+	);
+
+	$args = wp_parse_args( $args, $defaults );
+
+	$terms = get_the_term_list( $args['post_id'], $args['taxonomy'], '', $args['sep'], '' );
+
+	if ( !empty( $terms ) ) {
+		$html .= $args['before'];
+		$html .= sprintf( $args['items_wrap'], 'class="entry-terms ' . $args['taxonomy'] . '" ' . hybrid_get_attr( 'entry-terms', $args['taxonomy'] ) . '', sprintf( $args['text'], $terms ) );
+		$html .= $args['after'];
+	}
+
+	return $html;
+}
+
+/**
+ * Outputs a post's taxonomy terms.
+ *
+ * @since  1.0.0
+ * @access public
+ * @param  array   $args
+ * @return void
+ */
+function sonsa_post_terms( $args = array() ) {
+	echo sonsa_get_post_terms( $args );
+}
 
 if ( ! function_exists( 'sonsa_post_thumbnail' ) ) :
 /**
@@ -79,26 +129,58 @@ if ( ! function_exists( 'sonsa_post_thumbnail' ) ) :
  * @since 1.0.0
  */
 function sonsa_post_thumbnail() {
-	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
+
+	if ( post_password_required() || is_attachment() ) {
 		return;
 	}
 
-	if ( is_singular() ) :
+	if ( is_singular() && has_post_thumbnail() ) :
 	?>
 
-	<div class="post-thumbnail">
-		<?php the_post_thumbnail(); ?>
-	</div><!-- .post-thumbnail -->
+		<div class="post-thumbnail">
+			<?php the_post_thumbnail(); ?>
+		</div><!-- .post-thumbnail -->
 
-	<?php else : ?>
-
-	<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
-		<?php
-			the_post_thumbnail( 'post-thumbnail', array( 'alt' => get_the_title() ) );
-		?>
-	</a>
+	<?php elseif( ! is_singular() ) : ?>
+	
+		<?php // Get default post image from the Customizer or from theme image folder.
+			if( get_theme_mod( 'default_post_image' ) ) :
+				$sonsa_default_image = wp_get_attachment_image_src( absint( get_theme_mod( '404_image' ) ), 'full' );
+				$sonsa_default_image = $sonsa_default_image[0];
+			else :
+				$sonsa_default_image = get_stylesheet_directory_uri() . '/images/default-post-image.png';
+			endif;
+		 ?>
+		
+		<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
+			<?php
+				if ( has_post_thumbnail() ) :
+					the_post_thumbnail( 'post-thumbnail', array( 'alt' => get_the_title() ) );
+				else :
+					echo '<img src="' . esc_url( $sonsa_default_image ) . '" alt="' . get_the_title() . '" />';
+				endif;
+			?>
+		</a>
 
 	<?php endif; // End is_singular()
+}
+endif;
+
+if ( ! function_exists( 'sonsa_post_format' ) ) :
+/**
+ * Return post format name. This is used to get svg images.
+ *
+ * @since 1.0.0
+ */
+function sonsa_post_format() {
+	
+	$sonsa_post_format = get_post_format();
+	if ( false === $sonsa_post_format ) {
+		$sonsa_post_format = 'standard';
+	}
+	
+	return '<div class="sonsa-post-format genericon genericon-' . $sonsa_post_format . '" aria-hidden="true"><span class="screen-reader-text">' . get_post_format_string( $sonsa_post_format ) . '</span></div>';
+	
 }
 endif;
 

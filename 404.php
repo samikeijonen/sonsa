@@ -9,50 +9,56 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+	<?php if( get_theme_mod( '404_image' ) ) : // Check if there is 404 image
+	
+		// Get 404 page image.
+		$sonsa_404_image = wp_get_attachment_image_src( absint( get_theme_mod( '404_image' ) ), 'full' );
+	?>
 
-			<section class="error-404 not-found">
-				<header class="page-header">
-					<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'sonsa' ); ?></h1>
-				</header><!-- .page-header -->
+		<div class="post-thumbnail">
+			<img src="<?php echo esc_url( $sonsa_404_image[0] ); ?>" alt="<?php esc_html_e( '404 page', 'sonsa' ) ?>" />
+		</div><!-- .post-thumbnail -->
+		
+	<?php endif; ?>
 
-				<div class="page-content">
-					<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'sonsa' ); ?></p>
+	<section class="error-404 not-found">
+		<header class="page-header">
+			<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'sonsa' ); ?></h1>
+		</header><!-- .page-header -->
 
-					<?php get_search_form(); ?>
+		<div class="page-content">
+			<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'sonsa' ); ?></p>
 
-					<?php the_widget( 'WP_Widget_Recent_Posts' ); ?>
+			<?php get_search_form(); ?>
 
-					<?php if ( sonsa_categorized_blog() ) : // Only show the widget if site has multiple categories. ?>
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'sonsa' ); ?></h2>
-						<ul>
-						<?php
-							wp_list_categories( array(
-								'orderby'    => 'count',
-								'order'      => 'DESC',
-								'show_count' => 1,
-								'title_li'   => '',
-								'number'     => 10,
-							) );
-						?>
-						</ul>
-					</div><!-- .widget -->
-					<?php endif; ?>
+			<?php the_widget( 'WP_Widget_Recent_Posts' ); ?>
 
+			<?php if ( sonsa_categorized_blog() ) : // Only show the widget if site has multiple categories. ?>
+				<div class="widget widget_categories">
+					<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'sonsa' ); ?></h2>
+					<ul>
 					<?php
-						/* translators: %1$s: smiley */
-						$archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'sonsa' ), convert_smilies( ':)' ) ) . '</p>';
-						the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$archive_content" );
+						wp_list_categories( array(
+							'orderby'    => 'count',
+							'order'      => 'DESC',
+							'show_count' => 1,
+							'title_li'   => '',
+							'number'     => 10,
+						) );
 					?>
+					</ul>
+				</div><!-- .widget -->
+			<?php endif; ?>
 
-					<?php the_widget( 'WP_Widget_Tag_Cloud' ); ?>
+			<?php
+				/* translators: %1$s: smiley */
+				$archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'sonsa' ), convert_smilies( ':)' ) ) . '</p>';
+				the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$archive_content" );
+			?>
 
-				</div><!-- .page-content -->
-			</section><!-- .error-404 -->
+			<?php the_widget( 'WP_Widget_Tag_Cloud' ); ?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+		</div><!-- .page-content -->
+	</section><!-- .error-404 -->
 
 <?php get_footer(); ?>

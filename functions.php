@@ -106,7 +106,7 @@ add_action( 'after_setup_theme', 'sonsa_setup' );
  * @global int $content_width
  */
 function sonsa_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'sonsa_content_width', 800 );
+	$GLOBALS['content_width'] = apply_filters( 'sonsa_content_width', 960 );
 }
 add_action( 'after_setup_theme', 'sonsa_content_width', 0 );
 
@@ -215,6 +215,71 @@ function sonsa_scripts() {
 add_action( 'wp_enqueue_scripts', 'sonsa_scripts' );
 
 /**
+ * Add featured image as background image to post navigation elements.
+ *
+ * @author    Twenty Fifteen
+ * @copyright Automattic
+ * @license  http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ *
+ * @since 1.0.0
+ * @see wp_add_inline_style()
+ */
+function sonsa_post_nav_background() {
+	
+	if ( ! is_single() ) {
+		return;
+	}
+	
+	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
+	$next     = get_adjacent_post( false, '', false );
+	$css      = '';
+	
+	if ( is_attachment() && 'attachment' == $previous->post_type ) {
+		return;
+	}
+	
+	if ( $previous &&  has_post_thumbnail( $previous->ID ) ) {
+		$prevthumb = wp_get_attachment_image_src( get_post_thumbnail_id( $previous->ID ), 'thumbnail' );
+		$css .= '
+			@media screen and (min-width: 400px) {
+				.post-navigation .nav-previous { background-image: url(' . esc_url( $prevthumb[0] ) . '); }
+				.post-navigation .nav-previous { background-repeat: no-repeat; }
+				.post-navigation .nav-previous { background-position: left center; }
+				.post-navigation .nav-previous { padding-left: 0; }
+				.post-navigation .nav-previous a { padding-left: 171px; }
+			}
+		';
+	}
+	
+	if ( $next && has_post_thumbnail( $next->ID ) ) {
+		$nextthumb = wp_get_attachment_image_src( get_post_thumbnail_id( $next->ID ), 'thumbnail' );
+		$css .= '
+			@media screen and (min-width: 400px) {
+				.post-navigation .nav-next { background-image: url(' . esc_url( $nextthumb[0] ) . '); }
+				.post-navigation .nav-next { background-repeat: no-repeat; }
+				.post-navigation .nav-next { background-position: right center; }
+				.post-navigation .nav-next { padding-right: 0; }
+				.post-navigation .nav-next a { padding-right: 171px; }
+			}
+		';
+	}
+	
+	if ( $previous &&  has_post_thumbnail( $previous->ID ) || $next && has_post_thumbnail( $next->ID ) ) {
+		$css .= '
+			@media screen and (min-width: 400px) {
+				.post-navigation .nav-previous a, .post-navigation .nav-next a { min-height: 150px; }
+				.post-navigation a { padding-top: 21px; padding-bottom: 21px }
+			}
+		';
+	
+	}
+	
+	wp_add_inline_style( 'sonsa-style', $css );
+	
+}
+add_action( 'wp_enqueue_scripts', 'sonsa_post_nav_background' );
+
+/**
  * Add placeholders for comment form.
  *
  * @since 1.0.0
@@ -321,6 +386,19 @@ function sonsa_comment_form_textarea( $fields ) {
 add_filter( 'comment_form_defaults', 'sonsa_comment_form_textarea' );
 
 /**
+ * Use a template for individual comment output.
+ *
+ * @param object $comment Comment to display.
+ * @param int    $depth   Depth of comment.
+ * @param array  $args    An array of arguments.
+ *
+ * @since 1.0.0
+ */
+function sonsa_comment_callback( $comment, $args, $depth ) {
+	include( locate_template( 'comment.php') );
+}
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
@@ -354,3 +432,8 @@ require get_template_directory() . '/inc/jetpack.php';
  * Load Schema.org file.
  */
 require get_template_directory() . '/inc/schema.php';
+
+/**
+ * Load media grabber file.
+ */
+require get_template_directory() . '/inc/media-grabber.php';

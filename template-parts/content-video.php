@@ -1,19 +1,16 @@
 <?php
 /**
- * Template part for displaying posts.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
+ * The template for displaying video post format content.
  *
  * @package Sonsa
  */
-
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php hybrid_attr( 'post' ); ?>>
 
 	<?php if ( is_single() ) : // If single. ?>
 	
-		<?php sonsa_post_thumbnail(); ?>
+		<?php echo ( $video = hybrid_media_grabber( array( 'type' => 'video', 'split_media' => true, 'before' => '<div class="entry-media">', 'after' => '</div>' ) ) ); ?>
 	
 		<header class="entry-header">
 			<?php the_title( '<h1 class="entry-title" ' . hybrid_get_attr( 'entry-title' ) . '>', '</h1>' ); ?>
@@ -49,7 +46,7 @@
 		</header><!-- .entry-header-info -->
 		
 		<?php echo sonsa_post_format(); ?>
-
+		
 	<?php endif; // End check single. ?>
 	
 </article><!-- #post-## -->

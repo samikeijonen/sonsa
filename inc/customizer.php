@@ -4,18 +4,45 @@
  *
  * @package Sonsa
  */
+ 
+/**
+ * Add the Customizer functionality.
+ *
+ * @since 1.0.0
+ */
+function sonsa_customize_register( $wp_customize ) {
+
+	/* === Theme panel === */
+
+	/* Add the theme panel. */
+	$wp_customize->add_panel(
+		'theme',
+		array(
+			'title'    => esc_html__( 'Theme Settings', 'sonsa' ),
+			'priority' => 10
+		)
+	);
+	
+	/* Load different part of the Customizer. */
+	if( class_exists( 'WP_Customize_Cropped_Image_Control' ) ) {
+		require_once( get_template_directory() . '/inc/customizer/functions-default-image.php' );
+		require_once( get_template_directory() . '/inc/customizer/functions-404.php' );
+	}
+	
+}
+add_action( 'customize_register', 'sonsa_customize_register' );
 
 /**
  * Add postMessage support for site title and description for the Theme Customizer.
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
-function sonsa_customize_register( $wp_customize ) {
+function sonsa_customize_register_pm( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 }
-add_action( 'customize_register', 'sonsa_customize_register' );
+add_action( 'customize_register', 'sonsa_customize_register_pm' );
 
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
