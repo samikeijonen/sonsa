@@ -132,7 +132,7 @@ function sonsa_widgets_init() {
 	$sidebar_header_args = array(
 		'id'            => 'header',
 		'name'          => esc_html_x( 'Header', 'sidebar', 'sonsa' ),
-		'description'   => esc_html__( 'A sidebar located in the header of the site.', 'sonsa' ),
+		'description'   => esc_html__( 'A sidebar located in the header of the site. For optimal layout it is recommended to use only one short widget.', 'sonsa' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h3 class="widget-title">',
@@ -197,15 +197,20 @@ function sonsa_scripts() {
 	wp_enqueue_style( 'sonsa-style', get_stylesheet_uri() );
 	
 	// Enqueue responsive navigation for off-canvas sidebar and menu.
-	if ( has_nav_menu( 'primary' ) || is_active_sidebar( 'primary' ) ) {
-		wp_enqueue_script( 'sonsa-navigation', trailingslashit( get_template_directory_uri() ) . 'js/responsive-nav.js', array(), '20150815', true );
-	}
+	wp_enqueue_script( 'sonsa-navigation', trailingslashit( get_template_directory_uri() ) . 'js/responsive-nav.js', array(), '20150815', true );
+	
+	// Enqueue perfect scrollbar script.
+	wp_enqueue_script( 'sonsa-perfect-scrollbar', trailingslashit( get_template_directory_uri() ). 'js/perfect-scrollbar.js', array(), '20150815', true );
+	
+	// Enqueue enquire script.
+	wp_enqueue_script( 'sonsa-enquire', trailingslashit( get_template_directory_uri() ). 'js/enquire.js', array(), '20150815', true );
 	
 	// Enqueue theme scripts.
-	wp_enqueue_script( 'sonsa-scripts', trailingslashit( get_template_directory_uri() ) . 'js/scripts.js', array( 'sonsa-navigation' ), '20150815', true );
-
-	wp_enqueue_script( 'sonsa-skip-link-focus-fix', trailingslashit( get_template_directory_uri() ). 'js/skip-link-focus-fix.js', array(), '20150815', true );
+	wp_enqueue_script( 'sonsa-scripts', trailingslashit( get_template_directory_uri() ) . 'js/scripts.js', array( 'sonsa-navigation', 'sonsa-perfect-scrollbar', 'sonsa-enquire' ), '20150815', true );
 	
+	// Enqueue skip link script.
+	wp_enqueue_script( 'sonsa-skip-link-focus-fix', trailingslashit( get_template_directory_uri() ). 'js/skip-link-focus-fix.js', array(), '20150815', true );
+		
 	// Enqueue comment reply script.
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -213,6 +218,18 @@ function sonsa_scripts() {
 
 }
 add_action( 'wp_enqueue_scripts', 'sonsa_scripts' );
+
+/**
+ * JavaScript Detection.
+ *
+ * Adds a `js-enabled` class to the root `<html>` element when JavaScript is detected.
+ *
+ * @since 1.0.0
+ */
+function sonsa_javascript_detection() {
+	echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js-enabled')})(document.documentElement);</script>\n";
+}
+add_action( 'wp_head', 'sonsa_javascript_detection', 0 );
 
 /**
  * Add featured image as background image to post navigation elements.

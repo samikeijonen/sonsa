@@ -8,9 +8,8 @@
 	
 	// Off-canvas sidebar
 	container = document.getElementById( 'secondary' );
-	if ( ! container ) {
-		return;
-	}
+	if ( container ) {
+
 	
 		button = document.getElementById( 'sidebar-nav-toggle' );
 		page   = document.getElementById( 'page' );
@@ -33,6 +32,41 @@
 				removeClass( page, 'sidebar-active' );
 			},
 		});
+		
+	} // End check for container.
+	
+	// Get window width.
+	var w = window,
+		e = document.documentElement,
+		g = document.getElementsByTagName('body')[0],
+		x = w.innerWidth || e.clientWidth || g.clientWidth;
+	
+	// initialize perfect scrollbar
+	var content = document.getElementById( 'content' );
+	var header = document.getElementById( 'masthead' );
+	
+	// Initiliaze scrollbar at certain breakpoint.
+	enquire.register( "screen and (min-width: 960px)", {
+		
+		match : function() {
+			
+			Ps.initialize( content, {
+				wheelSpeed: 10,
+				suppressScrollX: true,
+			});
+			
+			Ps.initialize( header, {
+				wheelSpeed: 10,
+				suppressScrollX: true,
+			});
+			
+		},  
+		unmatch : function() {
+			Ps.destroy( content );
+			Ps.destroy( header );
+		}
+
+	});
 
 } )();
 
