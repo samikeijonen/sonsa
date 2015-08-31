@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Sonsa 1.0.0\n"
 "Report-Msgid-Bugs-To: https://foxland.fi/contact/\n"
-"POT-Creation-Date: 2015-08-29 12:37:21+00:00\n"
+"POT-Creation-Date: 2015-08-30 07:59:12+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -65,28 +65,28 @@ msgstr ""
 msgid "Edit this post"
 msgstr ""
 
-#: footer.php:23 search.php:34
+#: footer.php:16 search.php:34
 msgid "Previous page"
 msgstr ""
 
-#: footer.php:24 search.php:35
+#: footer.php:17 search.php:35
 msgid "Next page"
 msgstr ""
 
-#: footer.php:25 search.php:36 template-parts/content-page.php:26
+#: footer.php:18 search.php:36 template-parts/content-page.php:26
 #: template-parts/content-video.php:28 template-parts/content.php:31
 msgid "Page"
 msgstr ""
 
-#: footer.php:32
+#: footer.php:25
 msgid "https://wordpress.org/"
 msgstr ""
 
-#: footer.php:32
+#: footer.php:25
 msgid "Proudly powered by %s"
 msgstr ""
 
-#: footer.php:34
+#: footer.php:27
 msgid "Theme: %1$s by %2$s."
 msgstr ""
 
@@ -271,22 +271,22 @@ msgctxt "Roboto font: on or off"
 msgid "on"
 msgstr ""
 
-#: functions.php:296
+#: functions.php:300
 msgctxt "comment form placeholder for name"
 msgid "Name"
 msgstr ""
 
-#: functions.php:309
+#: functions.php:313
 msgctxt "comment form placeholder for email"
 msgid "Email"
 msgstr ""
 
-#: functions.php:322
+#: functions.php:326
 msgctxt "comment form placeholder for website"
 msgid "Website"
 msgstr ""
 
-#: functions.php:366
+#: functions.php:370
 msgctxt "comment form placeholder for comment field. It is noun."
 msgid "Comment"
 msgstr ""
