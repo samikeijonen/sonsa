@@ -12,6 +12,5 @@
 		<?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
 			<span class="comments-link"><?php comments_popup_link( false, false, false, 'comments-link', false ); ?></span>
 		<?php endif; ?>
-		<?php edit_post_link( '<span class="screen-reader-text">' . esc_html__( 'Edit this post', 'sonsa' ) . '</span>', '<span class="edit-link">', '</span>' ); ?>
 	</div><!-- .entry-meta -->
 <?php endif;

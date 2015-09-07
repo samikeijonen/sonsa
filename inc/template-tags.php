@@ -119,6 +119,26 @@ function sonsa_post_terms( $args = array() ) {
 	echo sonsa_get_post_terms( $args );
 }
 
+if ( ! function_exists( 'sonsa_post_background' ) ) :
+/**
+ * Display an optional post background.
+ *
+ * @since 1.0.0
+ */
+function sonsa_post_background( $post_thumbnail = 'post-thumbnail' ) {
+	if ( has_post_thumbnail() && ! is_single() ) :
+		$thumb_id        = get_the_ID();
+		$thumb_url_array = wp_get_attachment_image_src( get_post_thumbnail_id( $thumb_id ), esc_attr( $post_thumbnail ), true );
+		$thumb_url       = $thumb_url_array[0];
+		$bg              = 'style = "background-image : url(' . esc_url( $thumb_url ) . ');"';
+	else :
+		$bg = '';
+	endif;
+	
+	return $bg;
+}
+endif;
+
 if ( ! function_exists( 'sonsa_post_thumbnail' ) ) :
 /**
  * Display an optional post thumbnail.
@@ -151,16 +171,23 @@ function sonsa_post_thumbnail() {
 				$sonsa_default_image = get_stylesheet_directory_uri() . '/images/default-post-image.png';
 			endif;
 		 ?>
-		
-		<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
+		 
 			<?php
-				if ( has_post_thumbnail() ) :
-					the_post_thumbnail( 'post-thumbnail', array( 'alt' => get_the_title() ) );
-				else :
-					echo '<img src="' . esc_url( $sonsa_default_image ) . '" alt="' . get_the_title() . '" />';
-				endif;
+			$sonsa_post_format = get_post_format();
+			if ( false === $sonsa_post_format ) {
+				$sonsa_post_format = 'standard';
+			}
+			
+			if ( 'status' === $sonsa_post_format ) :
+				return;
+			elseif ( has_post_thumbnail() ) :
 			?>
-		</a>
+		
+				<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
+					<?php the_post_thumbnail( 'post-thumbnail', array( 'alt' => get_the_title() ) ); ?>
+				</a>
+			
+			<?php endif; ?>
 
 	<?php endif; // End is_singular()
 }
@@ -168,15 +195,23 @@ endif;
 
 if ( ! function_exists( 'sonsa_post_format' ) ) :
 /**
- * Return post format name. This is used to get svg images.
+ * Return post format element.
  *
  * @since 1.0.0
  */
 function sonsa_post_format() {
 	
+	// Get post format.
 	$sonsa_post_format = get_post_format();
+	
+	// Set default to standard.
 	if ( false === $sonsa_post_format ) {
 		$sonsa_post_format = 'standard';
+	}
+	
+	// For link use external icon.
+	if ( 'link' === $sonsa_post_format ) {
+		$sonsa_post_format = 'external';
 	}
 	
 	return '<div class="sonsa-post-format genericon genericon-' . $sonsa_post_format . '" aria-hidden="true"><span class="screen-reader-text">' . get_post_format_string( $sonsa_post_format ) . '</span></div>';

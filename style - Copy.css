@@ -272,7 +272,8 @@ select,
 textarea {
 	color: #444;
 	font-family: "Roboto", sans-serif;
-	font-size: 112.5%;
+	font-size: 16px;
+	font-size: 1rem;
 	line-height: 1.5;
 }
 
@@ -299,11 +300,11 @@ h6,
 
 h1,
 .site-title {
-	font-size: 1.5em; /* 1.5 = 27 / 18 */
+	font-size: 1.6875rem; /* 1.6875 = 27 / 16 */
 	line-height: 1.25;
 }
 .site-title {
-	font-size: 2.5em;
+	font-size: 3rem;
 }
 .site-title,
 .site-title a {
@@ -314,20 +315,20 @@ h1,
 }
 
 h2 {
-	font-size: 1.3333333em;
+	font-size: 1.5rem;
 }
 h3 {
-	font-size: 1.1777777em;
+	font-size: 1.3249999125rem;
 }
 h4,
 h5,
 h6 {
-	font-size: 1em;
+	font-size: 1rem;
 }
 
 .widget-title,
 .widgettitle {
-	font-size: 1em;
+	font-size: 1rem;
 	letter-spacing: 1px;
 	margin-bottom: 3px;
 	text-transform: uppercase;
@@ -347,7 +348,7 @@ i {
 
 blockquote {
 	border-left: 1px solid #e5e5e5;
-	font-size: 1.3333333em;
+	font-size: 1.5rem;
 	padding: 0 5%;
 	margin: 0;
 }
@@ -488,7 +489,6 @@ button#social-nav-toggle:before,
 .byline .entry-author a::before,
 .entry-date a::before,
 .comments-link a::before,
-.post-edit-link::before,
 .entry-permalink a::before,
 .post-format-link::before,
 .entry-terms::before,
@@ -525,7 +525,6 @@ a[href^="mailto:"]::before,
 a[href^="tel:"]::before,
 .entry-date a::before,
 .byline .entry-author a::before,
-.post-edit-link::before,
 .comment-edit-link::before,
 .comments-link a::before,
 .comment-reply-link::before,
@@ -550,11 +549,6 @@ a[href^="tel:"]::before {
 }
 .entry-permalink a::before {
 	content: '\f107';
-}
-.post-edit-link::before {
-	content: '\f411';
-	color: #f7941d;
-	font-size: 48px;
 }
 .comments-link a::before {
 	content: '\f300';
@@ -691,9 +685,11 @@ textarea:focus {
 	margin-bottom: 0;
 }
 
+
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
+
 /*--------------------------------------------------------------
 ## Links
 --------------------------------------------------------------*/
@@ -702,6 +698,10 @@ a,
 a:visited {
 	color: #000;
 	transition: all 0.25s ease-in-out;
+}
+.page-template-featured .entry-content a,
+.page-template-featured .entry-content a:visited {
+	color: #fff;
 }
 
 a:hover,
@@ -768,6 +768,9 @@ a:active {
 .site-main .post-navigation {
 	margin-bottom: 48px;
 	overflow: hidden;
+}
+.site-main .pagination {
+	margin-bottom: 0;
 }
 
 .post-navigation {
@@ -1277,7 +1280,6 @@ a:active {
 .page-header,
 .entry-header,
 .entry-content,
-.entry-summary,
 .entry-footer,
 .comments-area,
 .site-footer,
@@ -1285,6 +1287,10 @@ a:active {
 .page-content {
 	padding-left: 5%;
 	padding-right: 5%;
+}
+.entry-summary {
+	padding-left: 10%;
+	padding-right: 10%;
 }
 
 .post-navigation .nav-next {
@@ -1300,7 +1306,6 @@ a:active {
 	.page-header,
 	.entry-header,
 	.entry-content,
-	.entry-summary,
 	.entry-footer,
 	.comments-area,
 	.site-footer,
@@ -1308,6 +1313,10 @@ a:active {
 	.page-content {
 		padding-left: 10%;
 		padding-right: 10%;
+	}
+	.entry-summary {
+		padding-left: 19%;
+		padding-right: 19%;
 	}
 	
 	.post-navigation .nav-next {
@@ -1371,21 +1380,153 @@ a:active {
 	text-decoration: none;
 }
 
+body:not(.single) .entry:not(.has-post-thumbnail),
+body:not(.single) .entry.format-aside,
+body:not(.single) .entry.format-chat,
+body:not(.single) .entry.format-link,
+body:not(.single) .entry.format-quote,
+body:not(.single) .entry.format-status {
+	background-color: rgba(0,0,0,0.8);
+	background-image: url("images/blank-image.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 0;
+	padding-bottom: 56.25%;
+	width: 100%;
+}
+body:not(.single) .entry.format-chat {
+	background-color: rgba(0,0,0,0.02);
+}
+
+.entry.format-aside > .wrap::before,
+.entry.format-chat > .wrap::before ,
+.entry.format-link > .wrap::before ,
+.entry.format-quote > .wrap::before ,
+.entry.format-status > .wrap::before {
+	background-color: rgba(42,26,42,0.90);
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 0;
+}
+.entry.format-aside > .wrap::before {
+	background-color: rgba(42,26,26,0.90);
+}
+.entry.format-chat > .wrap::before {
+	background-color: transparent;
+}
+.entry.format-link > .wrap::before {
+	background-color: rgba(26,30,42,0.90);
+}
+.entry.format-quote > .wrap::before {
+	background-color: rgba(42,34,26,0.90);
+}
+
+.entry.format-aside .entry-summary,
+.entry.format-link .entry-summary,
+.entry.format-quote .entry-summary,
+.entry.format-status .entry-summary {
+	color: #fff;
+	font-size: 1.5rem;
+	position: absolute;
+	top: 40%;
+	text-align: center;
+	width: 100%
+}
+.entry.format-aside .entry-content,
+.entry.format-link .entry-summary {
+	font-size: 1.125rem;
+}
+.entry.format-status .entry-content {
+	font-size: 1.5rem;
+}
+body:not(.single) .entry.format-chat {
+	background-image: linear-gradient(#fff, #f8f8f8 80%);
+	padding-top: 12%;
+	overflow: hidden;
+}
+body:not(.single) .entry.format-chat a {
+	text-decoration: none;
+}
+
+.chat-author {
+	font-size: 0.875rem;
+	padding-left: 8px;
+	margin-bottom: 21px;
+}
+.chat-author .fn {
+	font-style: normal;
+}
+
+.chat-text {
+	background-color: #f2f2f2;
+	padding: 8px 10px;
+	position: relative;
+	margin-bottom: 21px;
+}
+.chat-text p:last-child {
+	margin-bottom: 0;
+}
+.chat-text:after {
+	bottom: 100%;
+	left: 18px;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: rgba(242, 242, 242, 0);
+	border-bottom-color: #f2f2f2;
+	border-width: 6px;
+	margin-left: -6px;
+}
+
+.chat-speaker-1 .chat-author {
+	color: #00bff3;
+}
+.chat-speaker-2 .chat-author {
+	color: #ec008c;
+}
+.chat-speaker-3 .chat-author {
+	color: #000;
+}
+
 @media screen and (min-width: 960px) {
 	
 	.site > .site-wrapper {
 		flex-direction: row;
-		flex-wrap: wrap;
+		height: 90vh;
+	}
+	.admin-bar .site > .site-wrapper {
+		margin-top: -32px; /* This will disable scrollbar when admin bar is around. */
+		padding-top: 32px
 	}
 	
 	.site-header {
 		text-align: left;
+		height: 100%;
 		order: 2;
+	}
+	.admin-bar .site-header {
+		height: calc(100% + 32px); /* This will disable scrollbar when admin bar is around. */
 	}
 	
 	.site-content {
-		box-shadow: inset 10px 0 5px -7px rgba( 0, 0, 0, 0.1 );
+		box-shadow: inset 10px 0 5px -7px rgba( 0, 0, 0, 0.08 );
 		order: 3;
+		position: relative;
+		height: 100%;
+	}
+	
+	.no-js .site-header,
+	.no-js .site-content {
+		overflow-y: scroll; /* Fallback for scrolling if js is disabled. */
+		-webkit-overflow-scrolling: touch;
 	}
 	
 	.pagination {
@@ -1401,7 +1542,7 @@ a:active {
 		position: relative;
 	}
 	.post-thumbnail::before {
-		box-shadow: inset 10px 0 5px -7px rgba( 0, 0, 0, 0.1 );
+		box-shadow: inset 10px 0 5px -7px rgba( 0, 0, 0, 0.08 );
 		display: block;
 		content: "";
 		position: absolute;
@@ -1411,8 +1552,9 @@ a:active {
 	
 	.site-header,
 	.site-content {
-		width: 50%;
+		flex: 1 1 50%;
 	}
+	
 	.site-footer,
 	.pagination {
 		width: 100%;
@@ -1472,12 +1614,22 @@ a:active {
 .entry {
 	position: relative;
 }
+.page-template-featured .entry {
+	height: 100vh;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
 
 .entry-header-info {
 	position: absolute;
 	left: 5.25%;     /* 42 / 800 = 0.525 */
 	top: 9.3333333%; /* 5.25 * 16/9 */
 	padding-right: calc(5.25% + 48px);
+}
+.entry-header-info,
+.page-template-featured .entry-title,
+.page-template-featured .entry-inner {
 	transition: all 0.25s ease-in-out;
 }
 
@@ -1494,12 +1646,25 @@ a:active {
 	padding: 6px 12px;
 }
 
+.page-template-featured .entry-inner {
+	background-color: rgba(42,34,26,0.90);
+	color: #fff;
+	opacity: 0;
+}
+.page-template-featured .entry-title {
+	color: #fff;
+}
+
 .entry:hover .entry-header-info .entry-title a,
 .entry:focus .entry-header-info .entry-title a,
 .entry:active .entry-header-info .entry-title a,
 .entry-header-info .entry-title a:hover,
 .entry-header-info .entry-title a:focus,
-.entry-header-info .entry-title a:active {
+.entry-header-info .entry-title a:active,
+.page-template-featured .entry:hover .entry-inner,
+.page-template-featured .entry:focus .entry-inner,
+.page-template-featured .entry.focus .entry-inner,
+.page-template-featured .entry:active .entry-inner {
 	opacity: 1;
 }
 
@@ -1519,10 +1684,10 @@ a:active {
 }
 
 .entry-header {
-	margin-top: 90px;
+	padding-top: 90px;
 }
 .page .entry-header {
-	margin-top: 54px;
+	padding-top: 54px;
 }
 
 .entry {
@@ -1562,12 +1727,6 @@ a:active {
 .entry-meta a:visited {
 	color: #777;
 	text-decoration: none;
-}
-
-.edit-link {
-	position: absolute;
-	top: -150px;
-	right: 0;
 }
 
 .byline,
@@ -1856,3 +2015,135 @@ object {
 .gallery-caption {
 	display: block;
 }
+
+/* Perfect Scrollbar CSS. */
+@media screen and (min-width: 960px) {
+
+	.ps-container {
+		-ms-touch-action: none;
+		overflow: hidden !important;
+	}
+	.ps-container.ps-active-x > .ps-scrollbar-x-rail,
+	.ps-container.ps-active-y > .ps-scrollbar-y-rail {
+		display: block;
+	}
+	.ps-container.ps-in-scrolling {
+		pointer-events: none;
+	}
+	.ps-container.ps-in-scrolling.ps-x > .ps-scrollbar-x-rail {
+		background-color: #eee;
+		opacity: 0.9;
+	}
+	.ps-container.ps-in-scrolling.ps-x > .ps-scrollbar-x-rail > .ps-scrollbar-x {
+		background-color: #999;
+	}
+	.ps-container.ps-in-scrolling.ps-y > .ps-scrollbar-y-rail {
+		background-color: #eee;
+		opacity: 0.9;
+	}
+	.ps-container.ps-in-scrolling.ps-y > .ps-scrollbar-y-rail > .ps-scrollbar-y {
+		background-color: #999;
+	}
+	.ps-container > .ps-scrollbar-x-rail {
+		display: none;
+		position: absolute;
+		/* please don't change 'position' */
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+		-ms-border-radius: 4px;
+		border-radius: 4px;
+		opacity: 0;
+		-webkit-transition: background-color .2s linear, opacity .2s linear;
+		-moz-transition: background-color .2s linear, opacity .2s linear;
+		-o-transition: background-color .2s linear, opacity .2s linear;
+		transition: background-color .2s linear, opacity .2s linear;
+		bottom: 3px;
+		/* there must be 'bottom' for ps-scrollbar-x-rail */
+		height: 8px;
+	}
+	.ps-container > .ps-scrollbar-x-rail > .ps-scrollbar-x {
+		position: absolute;
+		/* please don't change 'position' */
+		background-color: #aaa;
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+		-ms-border-radius: 4px;
+		border-radius: 4px;
+		-webkit-transition: background-color .2s linear;
+		-moz-transition: background-color .2s linear;
+		-o-transition: background-color .2s linear;
+		transition: background-color .2s linear;
+		bottom: 0;
+		/* there must be 'bottom' for ps-scrollbar-x */
+		height: 8px;
+	}
+	.ps-container > .ps-scrollbar-y-rail {
+		display: none;
+		position: absolute;
+		/* please don't change 'position' */
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+		-ms-border-radius: 4px;
+		border-radius: 4px;
+		opacity: 0;
+		-webkit-transition: background-color .2s linear, opacity .2s linear;
+		-moz-transition: background-color .2s linear, opacity .2s linear;
+		-o-transition: background-color .2s linear, opacity .2s linear;
+		transition: background-color .2s linear, opacity .2s linear;
+		right: 3px;
+		/* there must be 'right' for ps-scrollbar-y-rail */
+		width: 8px;
+	}
+	.ps-container > .ps-scrollbar-y-rail > .ps-scrollbar-y {
+		position: absolute;
+		/* please don't change 'position' */
+		background-color: #aaa;
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+		-ms-border-radius: 4px;
+		border-radius: 4px;
+		-webkit-transition: background-color .2s linear;
+		-moz-transition: background-color .2s linear;
+		-o-transition: background-color .2s linear;
+		transition: background-color .2s linear;
+		right: 0;
+		/* there must be 'right' for ps-scrollbar-y */
+		width: 8px;
+	}
+	.ps-container:hover.ps-in-scrolling {
+		pointer-events: none;
+	}
+	.ps-container:hover.ps-in-scrolling.ps-x > .ps-scrollbar-x-rail {
+		background-color: #eee;
+		opacity: 0.9;
+	}
+	.ps-container:hover.ps-in-scrolling.ps-x > .ps-scrollbar-x-rail > .ps-scrollbar-x {
+		background-color: #999;
+	}
+	.ps-container:hover.ps-in-scrolling.ps-y > .ps-scrollbar-y-rail {
+		background-color: #eee;
+		opacity: 0.9;
+	}
+	.ps-container:hover.ps-in-scrolling.ps-y > .ps-scrollbar-y-rail > .ps-scrollbar-y {
+		background-color: #999;
+	}
+	.ps-container:hover > .ps-scrollbar-x-rail, .ps-container:hover > .ps-scrollbar-y-rail {
+		opacity: 0.6;
+	}
+	.ps-container:hover > .ps-scrollbar-x-rail:hover {
+		background-color: #eee;
+		opacity: 0.9;
+	}
+	.ps-container:hover > .ps-scrollbar-x-rail:hover > .ps-scrollbar-x {
+		background-color: #999;
+	}
+	.ps-container:hover > .ps-scrollbar-y-rail:hover {
+		background-color: #eee;
+		opacity: 0.9;
+	}
+	.ps-container:hover > .ps-scrollbar-y-rail:hover > .ps-scrollbar-y {
+		background-color: #999;
+	}
+	  
+}
+

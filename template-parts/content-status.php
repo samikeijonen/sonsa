@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying posts.
+ * Template part for displaying status posts.
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
@@ -9,14 +9,18 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php hybrid_attr( 'post' ); ?>>
+<?php
+	// Get post background image.
+	$bg = sonsa_post_background();
+?>
+
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php hybrid_attr( 'post' ); ?> <?php echo $bg; ?>>
 
 	<?php if ( is_single() ) : // If single. ?>
 	
 		<?php sonsa_post_thumbnail(); ?>
 	
 		<header class="entry-header">
-			<?php the_title( '<h1 class="entry-title" ' . hybrid_get_attr( 'entry-title' ) . '>', '</h1>' ); ?>
 			<?php get_template_part( 'entry', 'meta' ); // Loads the entry-meta.php template. ?>
 		</header><!-- .entry-header -->
 		
@@ -42,17 +46,17 @@
 		
 	<?php else : ?>
 	
-		<?php sonsa_post_thumbnail(); ?>
+		<div class="wrap">
 		
-		<header class="entry-header-info">
-			<?php the_title( sprintf( '<h2 class="entry-title" ' . hybrid_get_attr( 'entry-title' ) . '><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
-		</header><!-- .entry-header-info -->
+			<?php echo sonsa_post_format(); ?>
 		
-		<?php echo sonsa_post_format(); ?>
-		
-		<div class="entry-summary screen-reader-text" <?php hybrid_attr( 'entry-summary' ); ?>>
-			<?php the_excerpt(); ?>
-		</div><!-- .entry-content -->
+			<a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
+				<div class="entry-summary" <?php hybrid_attr( 'entry-summary' ); ?>>
+					<?php the_excerpt(); ?>
+				</div><!-- .entry-summary -->
+			</a>
+			
+		</div><!-- .wrap -->
 
 	<?php endif; // End check single. ?>
 	

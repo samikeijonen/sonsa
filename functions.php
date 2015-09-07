@@ -224,6 +224,10 @@ add_action( 'wp_enqueue_scripts', 'sonsa_scripts' );
  *
  * Adds a `js-enabled` class to the root `<html>` element when JavaScript is detected.
  *
+ * @author    Twenty Fifteen
+ * @copyright Automattic
+ * @license  http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ *
  * @since 1.0.0
  */
 function sonsa_javascript_detection() {
@@ -258,7 +262,7 @@ function sonsa_post_nav_background() {
 	if ( $previous &&  has_post_thumbnail( $previous->ID ) ) {
 		$prevthumb = wp_get_attachment_image_src( get_post_thumbnail_id( $previous->ID ), 'thumbnail' );
 		$css .= '
-			@media screen and (min-width: 400px) {
+			@media screen and (min-width: 300px) {
 				.post-navigation .nav-previous { background-image: url(' . esc_url( $prevthumb[0] ) . '); }
 				.post-navigation .nav-previous { background-repeat: no-repeat; }
 				.post-navigation .nav-previous { background-position: left center; }
@@ -271,7 +275,7 @@ function sonsa_post_nav_background() {
 	if ( $next && has_post_thumbnail( $next->ID ) ) {
 		$nextthumb = wp_get_attachment_image_src( get_post_thumbnail_id( $next->ID ), 'thumbnail' );
 		$css .= '
-			@media screen and (min-width: 400px) {
+			@media screen and (min-width: 300px) {
 				.post-navigation .nav-next { background-image: url(' . esc_url( $nextthumb[0] ) . '); }
 				.post-navigation .nav-next { background-repeat: no-repeat; }
 				.post-navigation .nav-next { background-position: right center; }
@@ -283,7 +287,7 @@ function sonsa_post_nav_background() {
 	
 	if ( $previous &&  has_post_thumbnail( $previous->ID ) || $next && has_post_thumbnail( $next->ID ) ) {
 		$css .= '
-			@media screen and (min-width: 400px) {
+			@media screen and (min-width: 300px) {
 				.post-navigation .nav-previous a, .post-navigation .nav-next a { min-height: 150px; }
 				.post-navigation a { padding-top: 21px; padding-bottom: 21px }
 			}
@@ -370,6 +374,48 @@ function sonsa_comment_form_fields( $fields ) {
 add_filter( 'comment_form_default_fields', 'sonsa_comment_form_fields' );
 
 /**
+ * Add body classes.
+ *
+ * @param  array  $classes  body classes.
+ * @return array  $classes  body classes.
+ * @since  1.0.0
+ */
+function sonsa_extra_body_classes( $classes ) {
+	
+	// Add the '.custom-header-image' class if the user is using a custom header image.
+	if ( get_header_image() ) {
+		$classes[] = 'custom-header-image';
+	}
+	
+    return $classes;
+	
+}
+add_filter( 'body_class', 'sonsa_extra_body_classes' );
+
+/**
+ * Change excerpt length.
+ *
+ * @since 1.0.0
+ */
+function sonsa_excerpt_length( $length ) {
+	return 14;
+}
+add_filter( 'excerpt_length', 'sonsa_excerpt_length' );
+
+/**
+ * Change [...] to ... Read more.
+ *
+ * @since 1.0.0
+ */
+function sonsa_excerpt_more() {
+
+	$more = esc_html_x( '&hellip;', 'mark after excerpt', 'sonsa' );
+	return $more;
+
+}
+add_filter( 'excerpt_more', 'sonsa_excerpt_more' );
+
+/**
  * Add placeholder for comment form textarea field.
  *
  * @since 1.0.0
@@ -454,3 +500,14 @@ require get_template_directory() . '/inc/schema.php';
  * Load media grabber file.
  */
 require get_template_directory() . '/inc/media-grabber.php';
+
+/**
+ * Load post format file.
+ */
+require get_template_directory() . '/inc/functions-formats.php';
+
+
+/**
+ * Load chat format file.
+ */
+require get_template_directory() . '/inc/class-chat.php';

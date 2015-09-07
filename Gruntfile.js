@@ -93,6 +93,26 @@ grunt.initConfig({
 			dest: 'fonts/genericons/genericons/genericons.min.css'
 		}
 	},
+	
+	postcss: {
+		options: {
+		map: true, // inline sourcemaps
+
+		// or
+		map: {
+			inline: false, // save all sourcemaps as separate files...
+			annotation: 'dist/css/maps/' // ...to the specified directory
+		},
+
+		processors: [
+			require('pixrem')(), // add fallbacks for rem units
+			require('autoprefixer-core')({browsers: 'last 2 versions'}), // add vendor prefixes
+		]
+		},
+		dist: {
+		src: 'css/*.css'
+		}
+	},
 
     // Clean up build directory
     clean: {
