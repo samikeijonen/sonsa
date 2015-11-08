@@ -1,6 +1,6 @@
 <?php
 /**
- * The sidebar containing the main widget area.
+ * The sidebar containing the main widget area and the main navigation.
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
@@ -12,6 +12,8 @@ if ( has_nav_menu( 'primary' ) || is_active_sidebar( 'primary' ) ) : ?>
 	<div id="secondary" class="secondary">
 	
 		<div class="wrap">
+		
+		<button id="sidebar-nav-close" class="sidebar-nav-close sidebar-nav-toggle button-toggle"><span class="genericon genericon-close"></span><span class="screen-reader-text"><?php _e( 'Close Menu', 'toivo' ); ?></span></button>
 		
 			<?php if ( has_nav_menu( 'primary' ) ) : ?>
 			

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Sonsa 1.0.0\n"
 "Report-Msgid-Bugs-To: https://foxland.fi/contact/\n"
-"POT-Creation-Date: 2015-08-30 07:59:12+00:00\n"
+"POT-Creation-Date: 2015-11-08 10:03:34+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -61,10 +61,6 @@ msgstr ""
 msgid "Comments are closed."
 msgstr ""
 
-#: entry-meta.php:15
-msgid "Edit this post"
-msgstr ""
-
 #: footer.php:16 search.php:34
 msgid "Previous page"
 msgstr ""
@@ -73,7 +69,10 @@ msgstr ""
 msgid "Next page"
 msgstr ""
 
-#: footer.php:18 search.php:36 template-parts/content-page.php:26
+#: footer.php:18 search.php:36 template-parts/content-aside.php:36
+#: template-parts/content-chat.php:31 template-parts/content-featured.php:33
+#: template-parts/content-link.php:36 template-parts/content-page.php:26
+#: template-parts/content-quote.php:36 template-parts/content-status.php:35
 #: template-parts/content-video.php:28 template-parts/content.php:31
 msgid "Page"
 msgstr ""
@@ -95,15 +94,21 @@ msgid "The main sidebar. It is displayed in the off-canvas menu."
 msgstr ""
 
 #: functions.php:135
-msgid "A sidebar located in the header of the site."
+msgid ""
+"A sidebar located in the header of the site. For optimal layout it is "
+"recommended to use only one short widget."
 msgstr ""
 
-#: header.php:26
+#: header.php:27
 msgid "Skip to content"
 msgstr ""
 
-#: header.php:31
+#: header.php:32
 msgid "Toggle Menu"
+msgstr ""
+
+#: header.php:50 sidebar-primary.php:16
+msgid "Close Menu"
 msgstr ""
 
 #: inc/customizer/functions-404.php:14
@@ -166,7 +171,7 @@ msgstr ""
 msgid "Search Results for: %s"
 msgstr ""
 
-#: sidebar-primary.php:18 sidebar-primary.php:19
+#: sidebar-primary.php:20 sidebar-primary.php:21
 msgid "Primary Menu"
 msgstr ""
 
@@ -176,6 +181,28 @@ msgstr ""
 
 #: single.php:24
 msgid "Previous post"
+msgstr ""
+
+#: template-parts/content-aside.php:34 template-parts/content-chat.php:29
+#: template-parts/content-featured.php:31 template-parts/content-link.php:34
+#: template-parts/content-page.php:24 template-parts/content-quote.php:34
+#: template-parts/content-status.php:33 template-parts/content-video.php:26
+#: template-parts/content.php:29
+msgid "Pages:"
+msgstr ""
+
+#: template-parts/content-aside.php:44 template-parts/content-chat.php:39
+#: template-parts/content-link.php:44 template-parts/content-quote.php:44
+#: template-parts/content-status.php:43 template-parts/content-video.php:36
+#: template-parts/content.php:39
+msgid "<span class=\"screen-reader-text\">Posted in</span> %s"
+msgstr ""
+
+#: template-parts/content-aside.php:45 template-parts/content-chat.php:40
+#: template-parts/content-link.php:45 template-parts/content-quote.php:45
+#: template-parts/content-status.php:44 template-parts/content-video.php:37
+#: template-parts/content.php:40
+msgid "<span class=\"screen-reader-text\">Tagged</span> %s"
 msgstr ""
 
 #: template-parts/content-none.php:15
@@ -198,19 +225,6 @@ msgid ""
 "searching can help."
 msgstr ""
 
-#: template-parts/content-page.php:24 template-parts/content-video.php:26
-#: template-parts/content.php:29
-msgid "Pages:"
-msgstr ""
-
-#: template-parts/content-video.php:36 template-parts/content.php:39
-msgid "<span class=\"screen-reader-text\">Posted in</span> %s"
-msgstr ""
-
-#: template-parts/content-video.php:37 template-parts/content.php:40
-msgid "<span class=\"screen-reader-text\">Tagged</span> %s"
-msgstr ""
-
 #. Theme Name of the plugin/theme
 msgid "Sonsa"
 msgstr ""
@@ -229,6 +243,10 @@ msgstr ""
 
 #. Author URI of the plugin/theme
 msgid "http://foxland.fi/"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Featured"
 msgstr ""
 
 #: comment.php:25
@@ -271,22 +289,27 @@ msgctxt "Roboto font: on or off"
 msgid "on"
 msgstr ""
 
-#: functions.php:300
+#: functions.php:321
 msgctxt "comment form placeholder for name"
 msgid "Name"
 msgstr ""
 
-#: functions.php:313
+#: functions.php:334
 msgctxt "comment form placeholder for email"
 msgid "Email"
 msgstr ""
 
-#: functions.php:326
+#: functions.php:347
 msgctxt "comment form placeholder for website"
 msgid "Website"
 msgstr ""
 
-#: functions.php:370
+#: functions.php:416
+msgctxt "mark after excerpt"
+msgid "&hellip;"
+msgstr ""
+
+#: functions.php:433
 msgctxt "comment form placeholder for comment field. It is noun."
 msgid "Comment"
 msgstr ""

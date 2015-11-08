@@ -22,13 +22,14 @@
 
 <body <?php body_class(); ?> <?php hybrid_attr( 'body' ); ?>>
 <div id="page" class="site">
-	<div class="site-wrapper">
+	<div id="site-wrapper" class="site-wrapper">
+		
 		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'sonsa' ); ?></a>
 
 		<header id="masthead" class="site-header" role="banner" <?php hybrid_attr( 'header' ); ?>>
 	
 			<?php if ( has_nav_menu( 'primary' ) || is_active_sidebar( 'primary' ) ) : ?>
-				<button id="sidebar-nav-toggle" class="sidebar-nav-toggle"><span class="genericon genericon-menu"></span><span class="screen-reader-text"><?php _e( 'Toggle Menu', 'toivo' ); ?></span></button>
+				<button id="sidebar-nav-toggle" class="sidebar-nav-toggle button-toggle"><span class="genericon genericon-menu"></span><span class="screen-reader-text"><?php _e( 'Toggle Menu', 'toivo' ); ?></span></button>
 			<?php endif; ?>
 		
 			<div class="wrap">
@@ -44,9 +45,18 @@
 					<?php endif; ?>
 					<p class="site-description" <?php hybrid_attr( 'site-description' ); ?>><?php bloginfo( 'description' ); ?></p>
 			
-					<?php get_sidebar( 'header' ); // Loads the sidebar-header.php template. ?>
-				
-					<?php get_template_part( 'menu', 'social' ); // Loads the menu-social.php template. ?>
+					<?php if ( is_active_sidebar( 'header' ) || has_nav_menu( 'social' ) ) : ?>
+							
+						<button id="header-social-button" class="header-social-button header-social-toggle button-toggle"><span class="genericon genericon-close"></span><span class="screen-reader-text"><?php _e( 'Close Menu', 'toivo' ); ?></span></button>	
+						
+						<div id="header-social-wrap" class="header-social-wrap">
+						
+							<?php get_sidebar( 'header' ); // Loads the sidebar-header.php template. ?>
+							<?php get_template_part( 'menu', 'social' ); // Loads the menu-social.php template. ?>
+						
+						</div><!-- .header-social-wrap -->
+						
+					<?php endif; ?>
 				
 				</div><!-- .site-branding -->
 			

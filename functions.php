@@ -185,7 +185,7 @@ function sonsa_scripts() {
 	// Enqueue fonts.
 	wp_enqueue_style( 'sonsa-fonts', sonsa_fonts_url(), array(), null );
 	
-	/* Add Genericons font, used in the main stylesheet. */
+	// Add Genericons font, used in the main stylesheet.
 	wp_enqueue_style( 'genericons', trailingslashit( get_template_directory_uri() ) . 'genericons/genericons.css', array(), '3.3.1' );
 	
 	// Enqueue parent theme styles if using child theme.
@@ -207,6 +207,10 @@ function sonsa_scripts() {
 	
 	// Enqueue theme scripts.
 	wp_enqueue_script( 'sonsa-scripts', trailingslashit( get_template_directory_uri() ) . 'js/scripts.js', array( 'sonsa-navigation', 'sonsa-perfect-scrollbar', 'sonsa-enquire' ), '20150815', true );
+	
+	// Enqueue theme settings.
+	wp_enqueue_script( 'sonsa-settings', trailingslashit( get_template_directory_uri() ) . 'js/settings.js', array( 'jquery' ), '20150815', true );
+	
 	
 	// Enqueue skip link script.
 	wp_enqueue_script( 'sonsa-skip-link-focus-fix', trailingslashit( get_template_directory_uri() ). 'js/skip-link-focus-fix.js', array(), '20150815', true );
@@ -231,7 +235,7 @@ add_action( 'wp_enqueue_scripts', 'sonsa_scripts' );
  * @since 1.0.0
  */
 function sonsa_javascript_detection() {
-	echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js-enabled')})(document.documentElement);</script>\n";
+	echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
 }
 add_action( 'wp_head', 'sonsa_javascript_detection', 0 );
 

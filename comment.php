@@ -2,7 +2,7 @@
 /**
  * The template for displaying comment.
  *
- * @package Toivo
+ * @package Sonsa
  */
 ?>
 

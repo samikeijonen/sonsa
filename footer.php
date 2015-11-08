@@ -13,9 +13,9 @@
 
 					<?php
 						the_posts_pagination( array(
-							'prev_text'          => __( 'Previous page', 'sonsa' ),
-							'next_text'          => __( 'Next page', 'sonsa' ),
-							'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'sonsa' ) . ' </span>',
+							'prev_text'          => esc_html__( 'Previous page', 'sonsa' ),
+							'next_text'          => esc_html__( 'Next page', 'sonsa' ),
+							'before_page_number' => '<span class="meta-nav screen-reader-text">' . esc_html__( 'Page', 'sonsa' ) . ' </span>',
 						) );
 					?>
 		
@@ -32,10 +32,11 @@
 			</div><!-- #primary -->
 
 		</div><!-- #content -->
-	
-		<?php get_sidebar( 'primary' ); // Loads the sidebar-primary.php template. ?>
 		
 	</div><!-- .site-wrapper -->
+	
+	<?php get_sidebar( 'primary' ); // Loads the sidebar-primary.php template. ?>
+	
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

@@ -98,19 +98,12 @@ grunt.initConfig({
 		options: {
 		map: true, // inline sourcemaps
 
-		// or
-		map: {
-			inline: false, // save all sourcemaps as separate files...
-			annotation: 'dist/css/maps/' // ...to the specified directory
-		},
-
 		processors: [
-			require('pixrem')(), // add fallbacks for rem units
-			require('autoprefixer-core')({browsers: 'last 2 versions'}), // add vendor prefixes
+			require('autoprefixer')({browsers: 'last 3 versions'}), // add vendor prefixes
 		]
 		},
 		dist: {
-		src: 'css/*.css'
+		src: 'style.css'
 		}
 	},
 
@@ -185,6 +178,6 @@ grunt.initConfig({
 grunt.registerTask( 'default', [ 'makepot' ] );
 
 // Build task(s).
-grunt.registerTask( 'build', [ 'clean', 'replace:styleVersion', 'copy', 'compress' ] );
+grunt.registerTask( 'build', [ 'postcss', 'clean', 'replace:styleVersion', 'copy', 'compress' ] );
 
 };
