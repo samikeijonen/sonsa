@@ -7,14 +7,14 @@
  * microdata while being forward compatible with the ever-changing Web. Currently, the default microdata 
  * vocabulary supported is Schema.org.
  *
- * @package    Toivo
+ * @package    Sonsa
  * @author     Justin Tadlock <justin@justintadlock.com>
- * @copyright  Copyright (c) 2008 - 2014, Justin Tadlock
+ * @copyright  Copyright (c) 2008 - 2015, Justin Tadlock
  * @link       http://themehybrid.com/hybrid-core
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
-/* Attributes for major structural elements. */
+// Attributes for major structural elements.
 add_filter( 'hybrid_attr_body',    'hybrid_attr_body',    5    );
 add_filter( 'hybrid_attr_header',  'hybrid_attr_header',  5    );
 add_filter( 'hybrid_attr_footer',  'hybrid_attr_footer',  5    );
@@ -22,15 +22,16 @@ add_filter( 'hybrid_attr_content', 'hybrid_attr_content', 5    );
 add_filter( 'hybrid_attr_sidebar', 'hybrid_attr_sidebar', 5, 2 );
 add_filter( 'hybrid_attr_menu',    'hybrid_attr_menu',    5, 2 );
 
-/* Header attributes. */
+// Header attributes.
+add_filter( 'hybrid_attr_head',             'hybrid_attr_head',             5 );
 add_filter( 'hybrid_attr_branding',         'hybrid_attr_branding',         5 );
 add_filter( 'hybrid_attr_site-title',       'hybrid_attr_site_title',       5 );
 add_filter( 'hybrid_attr_site-description', 'hybrid_attr_site_description', 5 );
 
-/* Loop attributes. */
-add_filter( 'hybrid_attr_loop-meta',        'hybrid_attr_loop_meta',        5 );
-add_filter( 'hybrid_attr_loop-title',       'hybrid_attr_loop_title',       5 );
-add_filter( 'hybrid_attr_loop-description', 'hybrid_attr_loop_description', 5 );
+// Archive page header attributes.
+add_filter( 'hybrid_attr_archive-header',      'hybrid_attr_archive_header',      5 );
+add_filter( 'hybrid_attr_archive-title',       'hybrid_attr_archive_title',       5 );
+add_filter( 'hybrid_attr_archive-description', 'hybrid_attr_archive_description', 5 );
 
 /* Post-specific attributes. */
 add_filter( 'hybrid_attr_post',            'hybrid_attr_post',            5    );
@@ -58,8 +59,8 @@ add_filter( 'hybrid_attr_comment-content',   'hybrid_attr_comment_content',   5 
  * @param  string  $context  A specific context (e.g., 'primary').
  * @return void
  */
-function hybrid_attr( $slug, $context = '' ) {
-	echo hybrid_get_attr( $slug, $context );
+function hybrid_attr( $slug, $context = '', $attr = array() ) {
+	echo hybrid_get_attr( $slug, $context, $attr );
 }
 
 /**
@@ -74,17 +75,18 @@ function hybrid_attr( $slug, $context = '' ) {
  * @param  string  $context  A specific context (e.g., 'primary').
  * @return string
  */
-function hybrid_get_attr( $slug, $context = '' ) {
+function hybrid_get_attr( $slug, $context = '', $attr = array() ) {
 
-	$out    = '';
-	$attr   = apply_filters( "hybrid_attr_{$slug}", array(), $context );
+	$out  = '';
+	$attr = wp_parse_args( $attr, apply_filters( "hybrid_attr_{$slug}", array(), $context ) );
 
 	//if ( empty( $attr ) )
 		//$attr['class'] = $slug;
 
-	foreach ( $attr as $name => $value )
-		$out .= !empty( $value ) ? sprintf( ' %s="%s"', esc_html( $name ), esc_attr( $value ) ) : esc_html( " {$name}" );
-
+	foreach ( $attr as $name => $value ) {
+		$out .= $value ? sprintf( ' %s="%s"', esc_html( $name ), esc_attr( $value ) ) : esc_html( " {$name}" );
+	}
+	
 	return trim( $out );
 }
 
@@ -103,11 +105,10 @@ function hybrid_attr_body( $attr ) {
 	$attr['itemscope'] = 'itemscope';
 	$attr['itemtype']  = 'http://schema.org/WebPage';
 	
-	if ( is_singular( 'post' ) || is_home() || is_time() || is_author() || is_category() || is_tag() ) {
-		$attr['itemscope'] = '';
-		$attr['itemtype']  = 'http://schema.org/Blog';
+	if ( is_singular( 'post' ) || is_home() || is_archive() ) {
+		$attr['itemtype'] = 'http://schema.org/Blog';
 	}
-	if ( is_search() ) {
+	elseif ( is_search() ) {
 		$attr['itemtype']  = 'http://schema.org/SearchResultsPage';
 	}
 
@@ -156,7 +157,7 @@ function hybrid_attr_footer( $attr ) {
  */
 function hybrid_attr_content( $attr ) {
 
-	if ( ! ( is_home() || is_time() || is_author() || is_category() || is_tag() ) ) {
+	if ( ! is_singular( 'post' ) && ! is_home() && ! is_archive() ) {
 		$attr['itemprop'] = 'mainContentOfPage';
 	}
 
@@ -198,6 +199,22 @@ function hybrid_attr_menu( $attr, $context ) {
 }
 
 /* === header === */
+
+/**
+ * <head> attributes.
+ *
+ * @since  3.0.0
+ * @access public
+ * @param  array   $attr
+ * @return array
+ */
+function hybrid_attr_head( $attr ) {
+	
+	$attr['itemscope'] = 'itemscope';
+	$attr['itemtype']  = 'http://schema.org/WebSite';
+	
+	return $attr;	
+}
 
 /**
  * Branding (usually a wrapper for title and tagline) attributes.
@@ -246,52 +263,51 @@ function hybrid_attr_site_description( $attr ) {
 
 /* === loop === */
 
+
 /**
- * Loop meta attributes.
+ * Archive header attributes.
  *
- * @since  2.0.0
+ * @since  3.0.0
  * @access public
  * @param  array   $attr
  * @param  string  $context
  * @return array
  */
-function hybrid_attr_loop_meta( $attr ) {
-
+function hybrid_attr_archive_header( $attr ) {
+	
 	$attr['itemscope'] = 'itemscope';
 	$attr['itemtype']  = 'http://schema.org/WebPageElement';
-
+	
 	return $attr;
 }
-
 /**
- * Loop title attributes.
+ * Archive title attributes.
  *
- * @since  2.0.0
+ * @since  3.0.0
  * @access public
  * @param  array   $attr
  * @param  string  $context
  * @return array
  */
-function hybrid_attr_loop_title( $attr ) {
-
-	$attr['itemprop']  = 'headline';
-
+function hybrid_attr_archive_title( $attr ) {
+	
+	$attr['itemprop'] = 'headline';
+	
 	return $attr;
 }
-
 /**
- * Loop description attributes.
+ * Archive description attributes.
  *
- * @since  2.0.0
+ * @since  3.0.0
  * @access public
  * @param  array   $attr
  * @param  string  $context
  * @return array
  */
-function hybrid_attr_loop_description( $attr ) {
-
-	$attr['itemprop']  = 'text';
-
+function hybrid_attr_archive_description( $attr ) {
+	
+	$attr['itemprop'] = 'text';
+	
 	return $attr;
 }
 
@@ -326,17 +342,14 @@ function hybrid_attr_post( $attr ) {
 		}
 
 		elseif ( 'attachment' === get_post_type() && wp_attachment_is_image() ) {
-
 			$attr['itemtype'] = 'http://schema.org/ImageObject';
 		}
 
 		elseif ( 'attachment' === get_post_type() && hybrid_attachment_is_audio() ) {
-
 			$attr['itemtype'] = 'http://schema.org/AudioObject';
 		}
 
 		elseif ( 'attachment' === get_post_type() && hybrid_attachment_is_video() ) {
-
 			$attr['itemtype'] = 'http://schema.org/VideoObject';
 		}
 
@@ -539,6 +552,10 @@ function hybrid_attr_comment_content( $attr ) {
 	return $attr;
 }
 
+
+/* === Other related filters and functions === */
+
+
 /**
  * Checks if the current post has a mime type of 'audio'.
  *
@@ -603,23 +620,6 @@ function hybrid_entry_markup( $classes ) {
 add_filter( 'post_class', 'hybrid_entry_markup' );
 
 /**
- * Adds microdata to the comment reply link.
- *
- * @author  Justin Tadlock, justintadlock.com
- * @link    http://themehybrid.com/hybrid-core
- * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
- *
- * @since  1.0.0
- * @access public
- * @param  string  $link
- * @return string
- */
-function hybrid_comment_reply_link_filter( $link ) {
-	return preg_replace( '/(<a\s)/i', '$1itemprop="replyToUrl"', $link );
-}
-add_filter( 'comment_reply_link', 'hybrid_comment_reply_link_filter', 5 );
-
-/**
  * Adds microdata to the comments popup link.
  *
  * @author  Justin Tadlock, justintadlock.com
@@ -635,3 +635,16 @@ function hybrid_comments_popup_link_attributes( $attr ) {
 	return 'itemprop="discussionURL"';
 }
 add_filter( 'comments_popup_link_attributes', 'hybrid_comments_popup_link_attributes', 5 );
+
+/**
+ * Adds microdata to the post thumbnail HTML.
+ *
+ * @since  2.0.0
+ * @access public
+ * @param  string  $html
+ * @return string
+ */
+function hybrid_post_thumbnail_html( $html ) {
+	return function_exists( 'get_the_image' ) ? $html : preg_replace( '/(<img.*?)(\/>)/i', '$1itemprop="image" $2', $html );
+}
+add_filter( 'post_thumbnail_html', 'hybrid_post_thumbnail_html', 5 );
