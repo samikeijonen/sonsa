@@ -9,7 +9,7 @@
  * and display it on archive pages alongside the post excerpt or pull it out of the content to display
  * it above the post on single post views.
  *
- * @package    Hybrid
+ * @package    Sonsa
  * @subpackage Includes
  * @author     Justin Tadlock <justin@justintadlock.com>
  * @copyright  Copyright (c) 2008 - 2015, Justin Tadlock
