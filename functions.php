@@ -210,7 +210,11 @@ function sonsa_scripts() {
 	
 	// Enqueue theme settings.
 	wp_enqueue_script( 'sonsa-settings', trailingslashit( get_template_directory_uri() ) . 'js/settings.js', array( 'jquery' ), '20150815', true );
-	
+	wp_localize_script( 'sonsa-settings', 'screenReaderText', array(
+		'expand'   => '<span class="screen-reader-text">' . esc_html__( 'Expand sidebar', 'sonsa' ) . '</span>',
+		'collapse' => '<span class="screen-reader-text">' . esc_html__( 'Collapse sidebar', 'sonsa' ) . '</span>',
+		'dropdown' => get_theme_mod( 'disable_dropdown' ) ? false : true,
+	) );
 	
 	// Enqueue skip link script.
 	wp_enqueue_script( 'sonsa-skip-link-focus-fix', trailingslashit( get_template_directory_uri() ). 'js/skip-link-focus-fix.js', array(), '20150815', true );

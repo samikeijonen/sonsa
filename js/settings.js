@@ -54,6 +54,9 @@
 				
 			}
 			
+			// Change button text when opening and closing the sidebar.
+			menuButton.html( menuButton.html() === screenReaderText.expand ? screenReaderText.collapse : screenReaderText.expand );
+			
 			// If aria-expanded is false, set it to true. And vica versa.
 			$( menuToggle ).attr( 'aria-expanded', $( menuToggle ).attr( 'aria-expanded' ) === 'false' ? 'true' : 'false' );
 			$( mainNav ).attr( 'aria-expanded', $( mainNav ).attr( 'aria-expanded' ) === 'false' ? 'true' : 'false' );
@@ -80,6 +83,10 @@
 				//mainNav.blur();
 				// Enable focus on toggle button.
 				menuButton.focus();
+				
+				// Change button text when opening and closing the sidebar.
+				menuButton.html( menuButton.html() === screenReaderText.expand ? screenReaderText.collapse : screenReaderText.expand );
+			
 				
 			}
 				

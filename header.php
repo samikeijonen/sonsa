@@ -29,7 +29,7 @@
 		<header id="masthead" class="site-header" role="banner" <?php hybrid_attr( 'header' ); ?>>
 	
 			<?php if ( has_nav_menu( 'primary' ) || is_active_sidebar( 'primary' ) ) : ?>
-				<button id="sidebar-nav-toggle" class="sidebar-nav-toggle sidebar-nav-open button-toggle"><span class="screen-reader-text"><?php esc_html_e( 'Toggle Menu', 'sonsa' ); ?></span></button>
+				<button id="sidebar-nav-toggle" class="sidebar-nav-toggle sidebar-nav-open button-toggle"><span class="screen-reader-text"><?php esc_html_e( 'Expand sidebar', 'sonsa' ); ?></span></button>
 			<?php endif; ?>
 		
 			<div class="wrap">
