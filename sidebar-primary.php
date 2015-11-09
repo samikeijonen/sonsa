@@ -13,7 +13,7 @@ if ( has_nav_menu( 'primary' ) || is_active_sidebar( 'primary' ) ) : ?>
 	
 		<div class="wrap">
 		
-		<button id="sidebar-nav-close" class="sidebar-nav-close sidebar-nav-toggle button-toggle"><span class="genericon genericon-close"></span><span class="screen-reader-text"><?php _e( 'Close Menu', 'toivo' ); ?></span></button>
+		<button id="sidebar-nav-close" class="sidebar-nav-close sidebar-nav-toggle button-toggle"><span class="screen-reader-text"><?php esc_html_e( 'Close Menu', 'sonsa' ); ?></span></button>
 		
 			<?php if ( has_nav_menu( 'primary' ) ) : ?>
 			

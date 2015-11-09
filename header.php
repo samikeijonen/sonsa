@@ -29,7 +29,7 @@
 		<header id="masthead" class="site-header" role="banner" <?php hybrid_attr( 'header' ); ?>>
 	
 			<?php if ( has_nav_menu( 'primary' ) || is_active_sidebar( 'primary' ) ) : ?>
-				<button id="sidebar-nav-toggle" class="sidebar-nav-toggle button-toggle"><span class="genericon genericon-menu"></span><span class="screen-reader-text"><?php _e( 'Toggle Menu', 'toivo' ); ?></span></button>
+				<button id="sidebar-nav-toggle" class="sidebar-nav-toggle sidebar-nav-open button-toggle"><span class="screen-reader-text"><?php esc_html_e( 'Toggle Menu', 'sonsa' ); ?></span></button>
 			<?php endif; ?>
 		
 			<div class="wrap">
@@ -47,7 +47,7 @@
 			
 					<?php if ( is_active_sidebar( 'header' ) || has_nav_menu( 'social' ) ) : ?>
 							
-						<button id="header-social-button" class="header-social-button header-social-toggle button-toggle"><span class="genericon genericon-close"></span><span class="screen-reader-text"><?php _e( 'Close Menu', 'toivo' ); ?></span></button>	
+						<button id="header-social-button" class="header-social-button header-social-toggle button-toggle"><span class="screen-reader-text"><?php esc_html_e( 'Toggle Header', 'sonsa' ); ?></span></button>	
 						
 						<div id="header-social-wrap" class="header-social-wrap">
 						
