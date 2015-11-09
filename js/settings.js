@@ -5,13 +5,15 @@
  */
 ( function( $ ) {
 	
-	var body, page, mainNav, mainNavWrap, menuToggle;
+	var body, page, mainNav, mainNavWrap, menuButton, menuToggle, menuClose;
 	
 	// Set up vars.
 	page        = $( '#page' );
 	mainNav     = page.find( '#secondary' );
 	mainNavWrap = page.find( '#secondary > .wrap' );
+	menuButton  = page.find( '#sidebar-nav-toggle' );
 	menuToggle  = page.find( '.sidebar-nav-toggle' );
+	menuClose   = page.find( '#sidebar-nav-close' );
 
 	/**
 	 * Set up the main navigation toggle. This sets
@@ -38,19 +40,17 @@
 			// Hide or show element after animation.
 			if ( mainNav.hasClass( 'open' ) ) {
 				
-				$( mainNav ).css( 'display', 'block' );
-				
-				//$( mainNav ).addClass( 'fadeInLeft' );
-				//$( mainNavWrap ).removeClass( 'fadeOutLeft' );
+				// Enable focus.
+				mainNav.attr( 'tabindex', -1 );
+				mainNav.focus();
 				
 			} else {
 				
-				setTimeout( function() {
-					$( mainNav ).css( 'display', 'none' );
-				}, 550 );
-				
-				//$( mainNavWrap ).addClass( 'fadeOutLeft' );
-				//$( mainNav ).removeClass( 'fadeInLeft' );
+				// Disable focus.
+				mainNav.removeAttr( 'tabindex' );
+				//mainNav.blur();
+				// Enable focus on toggle button.
+				menuButton.focus();
 				
 			}
 			
@@ -75,16 +75,16 @@
 				$( 'body' ).removeClass( 'main-navigation-open' );
 				mainNav.removeClass( 'open' );
 				
-				setTimeout( function() {
-					$( mainNav ).css( 'display', 'none' );
-				}, 550 );
-				
-				//$( mainNav ).addClass( 'fadeOutLeft' );
-				$( mainNav ).removeClass( 'fadeInLeft' );
+				// Disable focus.
+				mainNav.removeAttr( 'tabindex' );
+				//mainNav.blur();
+				// Enable focus on toggle button.
+				menuButton.focus();
 				
 			}
 				
 		}
 		
-	});
+	});	
+	
 } )( jQuery );
