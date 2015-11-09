@@ -4,15 +4,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Sonsa 1.0.0\n"
 "Report-Msgid-Bugs-To: https://foxland.fi/contact/\n"
-"POT-Creation-Date: 2015-11-09 07:50:44+00:00\n"
+"POT-Creation-Date: 2015-11-09 09:51+0200\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"X-Generator: grunt-wp-i18n 0.5.0\n"
-"Language: en_US\n"
+"PO-Revision-Date: 2015-11-09 09:56+0200\n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.8.5\n"
+"Last-Translator: Sami Keijonen <sami.keijonen@foxnet.fi>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: fi\n"
 
 #: 404.php:19
 msgid "404 page"
@@ -20,22 +21,24 @@ msgstr ""
 
 #: 404.php:26
 msgid "Oops! That page can&rsquo;t be found."
-msgstr ""
+msgstr "Ups! Tätä sivua ei löydy."
 
 #: 404.php:30
 msgid ""
-"It looks like nothing was found at this location. Maybe try one of the "
-"links below or a search?"
+"It looks like nothing was found at this location. Maybe try one of the links "
+"below or a search?"
 msgstr ""
+"Näyttää siltä, että mitään ei löytynyt tästä osoitteesta. Koita navigoida "
+"alla olevista linkeistä tai etsiä haluamaasi."
 
 #: 404.php:38
 msgid "Most Used Categories"
-msgstr ""
+msgstr "Käytetyimmät kategoriat"
 
-#: 404.php:55
 #. translators: %1$s: smiley
+#: 404.php:55
 msgid "Try looking in the monthly archives. %1$s"
-msgstr ""
+msgstr "Koita etsiä kuukausiarkistosta. %1$s"
 
 #: comment.php:26
 msgid "<span class=\"screen-reader-text\">Reply</span>"
@@ -43,11 +46,11 @@ msgstr ""
 
 #: comment.php:31
 msgid "Your comment is awaiting moderation."
-msgstr ""
+msgstr "Kommenttisi odottaa hyväksymistä."
 
 #: comments.php:48
 msgid "Comment navigation"
-msgstr ""
+msgstr "Kommenttien selaus"
 
 #: comments.php:51
 msgid "Older Comments"
@@ -59,15 +62,15 @@ msgstr ""
 
 #: comments.php:64
 msgid "Comments are closed."
-msgstr ""
+msgstr "Kommentointi on suljettu."
 
 #: footer.php:16 search.php:34
 msgid "Previous page"
-msgstr ""
+msgstr "Edellinen sivu"
 
 #: footer.php:17 search.php:35
 msgid "Next page"
-msgstr ""
+msgstr "Seuraava sivu"
 
 #: footer.php:18 search.php:36 template-parts/content-aside.php:36
 #: template-parts/content-chat.php:31 template-parts/content-featured.php:33
@@ -75,19 +78,21 @@ msgstr ""
 #: template-parts/content-quote.php:36 template-parts/content-status.php:35
 #: template-parts/content-video.php:28 template-parts/content.php:31
 msgid "Page"
-msgstr ""
+msgstr "Sivu"
 
 #: footer.php:25
+#, fuzzy
 msgid "https://wordpress.org/"
-msgstr ""
+msgstr "https://wordpress.org/"
 
 #: footer.php:25
+#, fuzzy
 msgid "Proudly powered by %s"
-msgstr ""
+msgstr "Voimanlähteenä %s"
 
 #: footer.php:27
 msgid "Theme: %1$s by %2$s."
-msgstr ""
+msgstr "Teeman %1$s on tehnyt %2$s."
 
 #: functions.php:124
 msgid "The main sidebar. It is displayed in the off-canvas menu."
@@ -101,7 +106,7 @@ msgstr ""
 
 #: header.php:27
 msgid "Skip to content"
-msgstr ""
+msgstr "Hyppää sisältöön"
 
 #: header.php:32
 msgid "Toggle Menu"
@@ -136,32 +141,32 @@ msgstr ""
 
 #: inc/customizer.php:21
 msgid "Theme Settings"
-msgstr ""
+msgstr "Teeman asetukset"
 
-#: inc/template-tags.php:44 inc/template-tags.php:50
 #. translators: used between list items, there is a space after the comma
+#: inc/template-tags.php:44 inc/template-tags.php:50
 msgid ", "
 msgstr ""
 
 #: inc/template-tags.php:46
 msgid "Posted in %1$s"
-msgstr ""
+msgstr "Artikkeli kategoriassa %1$s"
 
 #: inc/template-tags.php:52
 msgid "Tagged %1$s"
-msgstr ""
+msgstr "Avainsanat %1$s"
 
 #: inc/template-tags.php:58
 msgid "Leave a comment"
-msgstr ""
+msgstr "Jätä kommentti"
 
 #: inc/template-tags.php:58
 msgid "1 Comment"
-msgstr ""
+msgstr "Yksi kommentti"
 
 #: inc/template-tags.php:58
 msgid "% Comments"
-msgstr ""
+msgstr "% Kommenttia"
 
 #: menu-social.php:11 menu-social.php:12
 msgid "Social Menu"
@@ -169,7 +174,7 @@ msgstr ""
 
 #: search.php:15
 msgid "Search Results for: %s"
-msgstr ""
+msgstr "Hakutulokset haulle: %s"
 
 #: sidebar-primary.php:16
 msgid "Close Menu"
@@ -181,11 +186,11 @@ msgstr ""
 
 #: single.php:22
 msgid "Next post"
-msgstr ""
+msgstr "Seuraava artikkeli"
 
 #: single.php:24
 msgid "Previous post"
-msgstr ""
+msgstr "Edellinen artikkeli"
 
 #: template-parts/content-aside.php:34 template-parts/content-chat.php:29
 #: template-parts/content-featured.php:31 template-parts/content-link.php:34
@@ -193,7 +198,7 @@ msgstr ""
 #: template-parts/content-status.php:33 template-parts/content-video.php:26
 #: template-parts/content.php:29
 msgid "Pages:"
-msgstr ""
+msgstr "Sivut:"
 
 #: template-parts/content-aside.php:44 template-parts/content-chat.php:39
 #: template-parts/content-link.php:44 template-parts/content-quote.php:44
@@ -214,49 +219,57 @@ msgid "Nothing Found"
 msgstr ""
 
 #: template-parts/content-none.php:21
-msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
+"Oletko valmis julkaisemaan ensimmäisen kirjoituksesi? <a href=\"%1$s"
+"\">Aloita tästä</a>."
 
 #: template-parts/content-none.php:25
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
+"Hakusi ei valitettavasti tuottanut yhtään tulosta. Yritä uudelleen eri "
+"hakusanoilla."
 
 #: template-parts/content-none.php:30
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
-msgstr ""
+msgstr "Emme valitettavasti löytäneet etsimääsi. Ehkä hakutoiminnosta on apua."
 
 #. Theme Name of the plugin/theme
 msgid "Sonsa"
 msgstr ""
 
 #. Theme URI of the plugin/theme
+#, fuzzy
 msgid "http://underscores.me/"
-msgstr ""
+msgstr "http://underscores.me/"
 
 #. Description of the plugin/theme
 msgid "Sonsa Theme"
 msgstr ""
 
 #. Author of the plugin/theme
+#, fuzzy
 msgid "Sami Keijonen"
-msgstr ""
+msgstr "Sami Keijonen"
 
 #. Author URI of the plugin/theme
+#, fuzzy
 msgid "http://foxland.fi/"
-msgstr ""
+msgstr "https://foxland.fi/"
 
 #. Template Name of the plugin/theme
 msgid "Featured"
-msgstr ""
+msgstr "Nostot"
 
 #: comment.php:25
 msgctxt "%1%s is for comment date"
 msgid "%1$s"
-msgstr ""
+msgstr "%1$s"
 
 #: comments.php:29
 msgctxt "comments title"
@@ -266,29 +279,32 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: functions.php:51
+#, fuzzy
 msgctxt "nav menu location"
 msgid "Primary"
-msgstr ""
+msgstr "Sivupalkki"
 
 #: functions.php:52
 msgctxt "nav menu location"
 msgid "Social"
-msgstr ""
+msgstr "Some"
 
 #: functions.php:123
+#, fuzzy
 msgctxt "sidebar"
 msgid "Primary"
-msgstr ""
+msgstr "Sivupalkki"
 
 #: functions.php:134
+#, fuzzy
 msgctxt "sidebar"
 msgid "Header"
-msgstr ""
+msgstr "Yläsivupalkki"
 
-#: functions.php:160
 #. Translators: If there are characters in your language that are not
 #. * supported by Roboto, translate this to 'off'. Do not translate
 #. * into your own language.
+#: functions.php:160
 msgctxt "Roboto font: on or off"
 msgid "on"
 msgstr ""
@@ -296,17 +312,17 @@ msgstr ""
 #: functions.php:321
 msgctxt "comment form placeholder for name"
 msgid "Name"
-msgstr ""
+msgstr "Nimi"
 
 #: functions.php:334
 msgctxt "comment form placeholder for email"
 msgid "Email"
-msgstr ""
+msgstr "Sähköposti"
 
 #: functions.php:347
 msgctxt "comment form placeholder for website"
 msgid "Website"
-msgstr ""
+msgstr "Kotisivu"
 
 #: functions.php:416
 msgctxt "mark after excerpt"
@@ -316,20 +332,20 @@ msgstr ""
 #: functions.php:433
 msgctxt "comment form placeholder for comment field. It is noun."
 msgid "Comment"
-msgstr ""
+msgstr "Kommentti"
 
 #: inc/template-tags.php:20
 msgctxt "Used before publish date."
 msgid "Posted on"
-msgstr ""
+msgstr "Kirjoitettu"
 
 #: inc/template-tags.php:28
 msgctxt "Used before post author name."
 msgid "Author"
-msgstr ""
+msgstr "Kirjoittaja"
 
-#: inc/template-tags.php:94
 #. Translators: Separates tags, categories, etc. when displaying a post.
+#: inc/template-tags.php:94
 msgctxt "taxonomy terms separator"
 msgid ", "
 msgstr ""
@@ -337,22 +353,23 @@ msgstr ""
 #: searchform.php:11 searchform.php:12
 msgctxt "label"
 msgid "Search for:"
-msgstr ""
+msgstr "Haku:"
 
 #: searchform.php:12
 msgctxt "placeholder"
 msgid "Search &hellip;"
-msgstr ""
+msgstr "Etsi &hellip;"
 
 #: searchform.php:14
 msgctxt "submit button"
 msgid "Search"
-msgstr ""
+msgstr "Hae"
 
 #: sidebar-header.php:12
+#, fuzzy
 msgctxt "Sidebar aria label"
 msgid "Header Sidebar"
-msgstr ""
+msgstr "Yläpalkin vimpain"
 
 #: single.php:23
 msgctxt "dots after next post link"
