@@ -5,7 +5,7 @@
  */
 ( function( $ ) {
 	
-	var body, page, mainNav, mainNavWrap, menuButton, menuToggle, menuClose;
+	var body, page, mainNav, mainNavWrap, menuButton, menuToggle;
 	
 	// Set up vars.
 	page        = $( '#page' );
@@ -13,7 +13,6 @@
 	mainNavWrap = page.find( '#secondary > .wrap' );
 	menuButton  = page.find( '#sidebar-nav-toggle' );
 	menuToggle  = page.find( '.sidebar-nav-toggle' );
-	menuClose   = page.find( '#sidebar-nav-close' );
 
 	/**
 	 * Set up the main navigation toggle. This sets
@@ -46,16 +45,16 @@
 				
 			} else {
 				
-				// Disable focus.
+				// Remove tabindex.
 				mainNav.removeAttr( 'tabindex' );
-				//mainNav.blur();
+
 				// Enable focus on toggle button.
 				menuButton.focus();
 				
 			}
 			
 			// Change button text when opening and closing the sidebar.
-			menuButton.html( menuButton.html() === screenReaderText.expand ? screenReaderText.collapse : screenReaderText.expand );
+			menuToggle.html( menuToggle.html() === screenReaderText.expand ? screenReaderText.collapse : screenReaderText.expand );
 			
 			// If aria-expanded is false, set it to true. And vica versa.
 			$( menuToggle ).attr( 'aria-expanded', $( menuToggle ).attr( 'aria-expanded' ) === 'false' ? 'true' : 'false' );
@@ -78,14 +77,14 @@
 				$( 'body' ).removeClass( 'main-navigation-open' );
 				mainNav.removeClass( 'open' );
 				
-				// Disable focus.
+				// Remove tabindex.
 				mainNav.removeAttr( 'tabindex' );
-				//mainNav.blur();
+				
 				// Enable focus on toggle button.
 				menuButton.focus();
 				
 				// Change button text when opening and closing the sidebar.
-				menuButton.html( menuButton.html() === screenReaderText.expand ? screenReaderText.collapse : screenReaderText.expand );
+				menuToggle.html( menuToggle.html() === screenReaderText.expand ? screenReaderText.collapse : screenReaderText.expand );
 			
 				
 			}
