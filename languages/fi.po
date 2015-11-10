@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-11-09 09:56+0200\n"
+"PO-Revision-Date: 2015-11-10 10:21+0200\n"
 "Language-Team: \n"
 "X-Generator: Poedit 1.8.5\n"
 "Last-Translator: Sami Keijonen <sami.keijonen@foxnet.fi>\n"
@@ -81,12 +81,10 @@ msgid "Page"
 msgstr "Sivu"
 
 #: footer.php:25
-#, fuzzy
 msgid "https://wordpress.org/"
 msgstr "https://wordpress.org/"
 
 #: footer.php:25
-#, fuzzy
 msgid "Proudly powered by %s"
 msgstr "Voimanlähteenä %s"
 
@@ -258,7 +256,6 @@ msgid "Sami Keijonen"
 msgstr "Sami Keijonen"
 
 #. Author URI of the plugin/theme
-#, fuzzy
 msgid "http://foxland.fi/"
 msgstr "https://foxland.fi/"
 
