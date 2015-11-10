@@ -51,9 +51,13 @@
 						
 						<div id="header-social-wrap" class="header-social-wrap">
 						
-							<?php get_sidebar( 'header' ); // Loads the sidebar-header.php template. ?>
-							<?php get_template_part( 'menu', 'social' ); // Loads the menu-social.php template. ?>
+							<div class="wrap">
 						
+								<?php get_sidebar( 'header' ); // Loads the sidebar-header.php template. ?>
+								<?php get_template_part( 'menu', 'social' ); // Loads the menu-social.php template. ?>
+							
+							</div><!-- .wrap -->
+							
 						</div><!-- .header-social-wrap -->
 						
 					<?php endif; ?>
