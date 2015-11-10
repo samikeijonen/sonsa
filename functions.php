@@ -213,7 +213,6 @@ function sonsa_scripts() {
 	wp_localize_script( 'sonsa-settings', 'screenReaderText', array(
 		'expand'   => '<span class="screen-reader-text">' . esc_html__( 'Expand sidebar', 'sonsa' ) . '</span>',
 		'collapse' => '<span class="screen-reader-text">' . esc_html__( 'Collapse sidebar', 'sonsa' ) . '</span>',
-		'dropdown' => get_theme_mod( 'disable_dropdown' ) ? false : true,
 	) );
 	
 	// Enqueue skip link script.
