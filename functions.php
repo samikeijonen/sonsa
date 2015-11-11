@@ -41,7 +41,7 @@ function sonsa_setup() {
 	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 	 */
 	add_theme_support( 'post-thumbnails' );
-	set_post_thumbnail_size( 960, 540, true );
+	set_post_thumbnail_size( 960, 9999, false );
 	
 	// Add custom image sizes.
 	add_image_size( 'sonsa-site-logo', 192, 192, true );
@@ -405,7 +405,7 @@ add_filter( 'body_class', 'sonsa_extra_body_classes' );
  * @since 1.0.0
  */
 function sonsa_excerpt_length( $length ) {
-	return 14;
+	return 30;
 }
 add_filter( 'excerpt_length', 'sonsa_excerpt_length' );
 
