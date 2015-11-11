@@ -125,17 +125,36 @@ if ( ! function_exists( 'sonsa_post_background' ) ) :
  *
  * @since 1.0.0
  */
-function sonsa_post_background( $post_thumbnail = 'post-thumbnail' ) {
-	if ( has_post_thumbnail() && ! is_single() ) :
-		$thumb_id        = get_the_ID();
-		$thumb_url_array = wp_get_attachment_image_src( get_post_thumbnail_id( $thumb_id ), esc_attr( $post_thumbnail ), true );
-		$thumb_url       = $thumb_url_array[0];
-		$bg              = 'style = "background-image : url(' . esc_url( $thumb_url ) . ');"';
-	else :
-		$bg = '';
+function sonsa_post_background( $post_thumbnail = null, $id = null ) {
+
+	// Set default size.
+	if ( null === $post_thumbnail ) {
+		$post_thumbnail = 'post-thumbnail';
+	}
+	
+	// Set default ID.
+	if ( null === $id ) {
+		$id = get_the_ID();
+	}
+	
+	// Get default post image from the Customizer.
+	if( get_theme_mod( 'default_post_image' ) ) :
+		$sonsa_default_image = wp_get_attachment_image_src( absint( get_theme_mod( 'default_post_image' ) ), 'full' );
+		$sonsa_default_image = $sonsa_default_image[0];
 	endif;
 	
+	// Return post thumbnail url if it's set, else return false.
+	if ( has_post_thumbnail( $id ) ) {
+		$thumb_url_array = wp_get_attachment_image_src( get_post_thumbnail_id( $id ), esc_attr( $post_thumbnail ), true );
+		$bg              = $thumb_url_array[0];
+	} elseif( get_theme_mod( 'default_post_image' ) ) {
+		$bg = $sonsa_default_image;
+	} else {
+		$bg = false;
+	}
+	
 	return $bg;
+
 }
 endif;
 
@@ -162,15 +181,6 @@ function sonsa_post_thumbnail() {
 		</div><!-- .post-thumbnail -->
 
 	<?php elseif( ! is_singular() ) : ?>
-	
-		<?php // Get default post image from the Customizer or from theme image folder.
-			if( get_theme_mod( 'default_post_image' ) ) :
-				$sonsa_default_image = wp_get_attachment_image_src( absint( get_theme_mod( '404_image' ) ), 'full' );
-				$sonsa_default_image = $sonsa_default_image[0];
-			else :
-				$sonsa_default_image = get_stylesheet_directory_uri() . '/images/default-post-image.png';
-			endif;
-		 ?>
 		 
 			<?php
 			$sonsa_post_format = get_post_format();
