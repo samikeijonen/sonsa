@@ -11,10 +11,10 @@
 
 <?php
 	// Get post background image.
-	$bg = sonsa_post_background( $post_thumbnail = 'full' );
+	$sonsa_bg = sonsa_post_background( $post_thumbnail = 'full' );
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php hybrid_attr( 'post' ); ?> <?php echo $bg; ?> tabindex="0">
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php hybrid_attr( 'post' ); ?> tabindex="0"<?php if ( has_post_thumbnail() ) echo ' style="background-image:url(' . esc_url( $sonsa_bg ) . ');"' ?>>
 		
 	<div class="entry-inner">
 		

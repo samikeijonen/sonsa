@@ -9,12 +9,7 @@
 
 ?>
 
-<?php
-	// Get post background image.
-	$bg = sonsa_post_background();
-?>
-
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php hybrid_attr( 'post' ); ?> <?php echo $bg; ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php hybrid_attr( 'post' ); ?>>
 
 	<?php if ( is_single() ) : // If single. ?>
 	
@@ -47,18 +42,16 @@
 		
 	<?php else : ?>
 	
-		<div class="wrap">
+		<?php echo sonsa_post_format(); ?>
 		
-			<?php echo sonsa_post_format(); ?>
-		
-			<a href="<?php echo esc_url( sonsa_get_link_url() ); ?>" rel="bookmark">
-				<div class="entry-summary" <?php hybrid_attr( 'entry-summary' ); ?>>
+		<a href="<?php echo esc_url( sonsa_get_link_url() ); ?>" rel="bookmark">
+			<div class="entry-summary" <?php hybrid_attr( 'entry-summary' ); ?>>
+				<div class="wrap">
 					<?php the_title(); ?>
-				</div><!-- .entry-summary -->
-			</a>
-			
-		</div><!-- .wrap -->
-
+				</div><!-- .wrap -->
+			</div><!-- .entry-summary -->
+		</a>
+	
 	<?php endif; // End check single. ?>
 	
 </article><!-- #post-## -->
