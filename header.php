@@ -21,6 +21,7 @@
 </head>
 
 <body <?php body_class(); ?> <?php hybrid_attr( 'body' ); ?>>
+
 <div id="page" class="site">
 	<div id="site-wrapper" class="site-wrapper">
 		
@@ -42,9 +43,13 @@
 						<h1 class="site-title" <?php hybrid_attr( 'site-title' ); ?>><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 					<?php else : ?>
 						<p class="site-title" <?php hybrid_attr( 'site-title' ); ?>><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+					<?php endif;
+					
+					$description = get_bloginfo( 'description', 'display' );
+					if ( $description || is_customize_preview() ) : ?>
+						<p class="site-description" <?php hybrid_attr( 'site-description' ); ?>><?php echo $description; ?></p>
 					<?php endif; ?>
-					<p class="site-description" <?php hybrid_attr( 'site-description' ); ?>><?php bloginfo( 'description' ); ?></p>
-			
+					
 					<?php if ( is_active_sidebar( 'header' ) || has_nav_menu( 'social' ) ) : ?>
 							
 						<button id="header-social-button" class="header-social-button header-social-toggle button-toggle"><span class="screen-reader-text"><?php esc_html_e( 'Toggle Header', 'sonsa' ); ?></span></button>	
@@ -68,6 +73,18 @@
 		</header><!-- #masthead -->
 
 		<div id="content" class="site-content">
+		
+		<!-- Preloader -->
+<div id="preloader" class="preloader">
+    <div id="status" class="status">
+		<span class="screen-reader-text"><?php esc_html_e( 'Site is loading', 'sonsa' ); ?></span>
+		<div class="sk-three-bounce">
+			<div class="sk-child sk-bounce1"></div>
+			<div class="sk-child sk-bounce2"></div>
+			<div class="sk-child sk-bounce3"></div>
+		</div>
+	</div>
+</div>
 		
 			<div id="primary" class="content-area">
 				<main id="main" class="site-main" role="main" <?php hybrid_attr( 'content' ); ?>>
