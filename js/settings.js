@@ -13,6 +13,12 @@
 	mainNavWrap = page.find( '#secondary > .wrap' );
 	menuButton  = page.find( '#sidebar-nav-toggle' );
 	menuToggle  = page.find( '.sidebar-nav-toggle' );
+	
+	// Preload page and fade the content.
+	$( window ).load( function() { // makes sure the whole site is loaded
+		$( '#status' ).fadeOut(); // will first fade out the loading animation
+		$( '#preloader' ).delay( 350 ).fadeOut( 'slow' ); // will fade out the white DIV that covers the website.
+	});
 
 	/**
 	 * Set up the main navigation toggle. This sets
