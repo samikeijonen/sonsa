@@ -13,9 +13,10 @@
  */
 function sonsa_jetpack_setup() {
 	add_theme_support( 'infinite-scroll', array(
+		'type'      => 'click',
 		'container' => 'main',
 		'render'    => 'sonsa_infinite_scroll_render',
-		'footer'    => 'page',
+		'footer'    => 'content',
 	) );
 } // end function sonsa_jetpack_setup
 add_action( 'after_setup_theme', 'sonsa_jetpack_setup' );
