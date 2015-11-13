@@ -74,27 +74,3 @@
 	});
 
 } )();
-
-	/**
-	 * Adds a class to any element
-	 *
-	 * @param {element} element
-	 * @param {string}  class
-	 */
-      addClass = function (el, cls) {
-        if (el.className.indexOf(cls) !== 0) {
-          el.className += " " + cls;
-          el.className = el.className.replace(/(^\s*)|(\s*$)/g,"");
-        }
-      }
-    
-      /**
-       * Remove a class from any element
-       *
-       * @param  {element} element
-       * @param  {string}  class
-       */
-      removeClass = function (el, cls) {
-        var reg = new RegExp("(\\s|^)" + cls + "(\\s|$)");
-        el.className = el.className.replace(reg, " ").replace(/(^\s*)|(\s*$)/g,"");
-      }
