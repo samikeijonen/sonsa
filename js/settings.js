@@ -21,8 +21,8 @@
 	});
 
 	/**
-	 * Set up the main navigation toggle. This sets
-	 * up a toggle for navigation to overlay the window.
+	 * Set up the off canvas navigation toggle. This sets
+	 * up a toggle for off canvas sidebar navigation.
 	 */
 	( function() {
 		
@@ -71,7 +71,7 @@
 	} )();
 
 	/**
-	 * Closes the main navigation or sidebar when
+	 * Closes the off canvas sidebar navigation when
 	 * the esc key is pressed.
 	*/
 	$( document ).keyup( function( event ) {
@@ -91,12 +91,11 @@
 				
 				// Change button text when opening and closing the sidebar.
 				menuToggle.html( menuToggle.html() === screenReaderText.expand ? screenReaderText.collapse : screenReaderText.expand );
-			
-				
+					
 			}
 				
 		}
 		
-	});	
+	});
 	
 } )( jQuery );
