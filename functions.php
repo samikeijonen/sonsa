@@ -196,7 +196,7 @@ function sonsa_scripts() {
 	// Enqueue active theme styles.
 	wp_enqueue_style( 'sonsa-style', get_stylesheet_uri() );
 	
-	// Enqueue responsive navigation for off-canvas sidebar and menu.
+	// Enqueue responsive navigation.
 	wp_enqueue_script( 'sonsa-navigation', trailingslashit( get_template_directory_uri() ) . 'js/responsive-nav.js', array(), '20150815', true );
 	
 	// Enqueue perfect scrollbar script.
@@ -454,6 +454,43 @@ function sonsa_comment_form_textarea( $fields ) {
 }
 
 add_filter( 'comment_form_defaults', 'sonsa_comment_form_textarea' );
+
+/**
+ * Add an HTML class to MediaElement.js container elements to aid styling.
+ *
+ * Extends the core _wpmejsSettings object to add a new feature via the
+ * MediaElement.js plugin API.
+ *
+ * @author     Brady Vercher
+ * @copyright  Brady Vercher
+ * @link       http://www.cedaro.com/blog/customizing-mediaelement-wordpress/
+ * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ *
+ * @since  1.0.0
+ * @return void
+ */
+function sonsa_mejs_add_container_class() {
+	
+	// Check do we have media element.
+	if ( ! wp_script_is( 'mediaelement', 'done' ) ) {
+		return;
+	}
+
+	?>
+	<script>
+	(function() {
+		var settings = window._wpmejsSettings || {};
+		settings.features = settings.features || mejs.MepDefaults.features;
+		settings.features.push( 'exampleclass' );
+
+		MediaElementPlayer.prototype.buildexampleclass = function( player ) {
+			player.container.addClass( 'sonsa-mejs-container' );
+		};
+	})();
+	</script>
+	<?php
+}
+add_action( 'wp_print_footer_scripts', 'sonsa_mejs_add_container_class' );
 
 /**
  * Use a template for individual comment output.
