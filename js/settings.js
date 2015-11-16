@@ -5,14 +5,16 @@
  */
 ( function( $ ) {
 	
-	var body, page, mainNav, mainNavWrap, menuButton, menuToggle;
+	var body, page, mainNav, menuButton, menuToggle, headerSocial, headerSocialButton, headerSocialToggle;
 	
 	// Set up vars.
-	page        = $( '#page' );
-	mainNav     = page.find( '#secondary' );
-	mainNavWrap = page.find( '#secondary > .wrap' );
-	menuButton  = page.find( '#sidebar-nav-toggle' );
-	menuToggle  = page.find( '.sidebar-nav-toggle' );
+	page               = $( '#page' );
+	mainNav            = page.find( '#secondary' );
+	menuButton         = page.find( '#sidebar-nav-toggle' );
+	menuToggle         = page.find( '.sidebar-nav-toggle' );
+	headerSocial       = page.find( '#header-social-wrap' );
+	headerSocialButton = page.find( '#header-social-button' );
+	headerSocialToggle = page.find( '.header-social-toggle' );
 	
 	// Preload page and fade the content.
 	$( window ).load( function() { // makes sure the whole site is loaded
@@ -69,6 +71,56 @@
 		});
 		
 	} )();
+	
+	/**
+	 * Set up the off canvas header toggle. This sets
+	 * up a toggle for off canvas header widget and social navigation on smaller screens.
+	 */
+	( function() {
+		
+		// Return early if headerSocialToggle is missing.
+		if ( ! headerSocialToggle.length ) {
+			return;
+		}
+		
+		// Add an initial values for the attribute.
+		headerSocialToggle.attr( 'aria-expanded', 'false' );
+		headerSocial.attr( 'aria-expanded', 'false' );
+	
+		headerSocialToggle.on( 'click', function( event ) {
+			
+			// Toggle classes.
+			$( 'html' ).toggleClass( 'disable-scroll' );
+			$( 'body' ).toggleClass( 'header-social-open' );
+			headerSocial.toggleClass( 'open' );
+			
+			// Hide or show element after animation.
+			if ( headerSocial.hasClass( 'open' ) ) {
+				
+				// Enable focus.
+				headerSocial.attr( 'tabindex', -1 );
+				headerSocial.focus();
+				
+			} else {
+				
+				// Remove tabindex.
+				headerSocial.removeAttr( 'tabindex' );
+
+				// Enable focus on toggle button.
+				headerSocialButton.focus();
+				
+			}
+			
+			// Change button text when opening and closing the sidebar.
+			headerSocialToggle.html( headerSocialToggle.html() === screenReaderText.expandHeader ? screenReaderText.collapseHeader : screenReaderText.expandHeader );
+			
+			// If aria-expanded is false, set it to true. And vica versa.
+			$( headerSocialToggle ).attr( 'aria-expanded', $( headerSocialToggle ).attr( 'aria-expanded' ) === 'false' ? 'true' : 'false' );
+			$( headerSocial ).attr( 'aria-expanded', $( headerSocial ).attr( 'aria-expanded' ) === 'false' ? 'true' : 'false' );
+		
+		});
+		
+	} )();
 
 	/**
 	 * Closes the off canvas sidebar navigation when
@@ -91,7 +143,30 @@
 				
 				// Change button text when opening and closing the sidebar.
 				menuToggle.html( menuToggle.html() === screenReaderText.expand ? screenReaderText.collapse : screenReaderText.expand );
-					
+			
+				// If aria-expanded is false, set it to true. And vica versa.
+				$( menuToggle ).attr( 'aria-expanded', $( menuToggle ).attr( 'aria-expanded' ) === 'false' ? 'true' : 'false' );
+				$( mainNav ).attr( 'aria-expanded', $( mainNav ).attr( 'aria-expanded' ) === 'false' ? 'true' : 'false' );			
+			
+			} else if ( $( 'body' ).hasClass( 'header-social-open' ) ) {
+
+				$( 'html' ).removeClass( 'disable-scroll' );
+				$( 'body' ).removeClass( 'header-social-open' );
+				headerSocial.removeClass( 'open' );
+				
+				// Remove tabindex.
+				headerSocial.removeAttr( 'tabindex' );
+				
+				// Enable focus on toggle button.
+				headerSocialButton.focus();
+				
+				// Change button text when opening and closing the sidebar.
+				headerSocialToggle.html( headerSocialToggle.html() === screenReaderText.expandHeader ? screenReaderText.collapseHeader : screenReaderText.expandHeader );
+				
+				// If aria-expanded is false, set it to true. And vica versa.
+				$( headerSocialToggle ).attr( 'aria-expanded', $( headerSocialToggle ).attr( 'aria-expanded' ) === 'false' ? 'true' : 'false' );
+				$( headerSocial ).attr( 'aria-expanded', $( headerSocial ).attr( 'aria-expanded' ) === 'false' ? 'true' : 'false' );
+				
 			}
 				
 		}
