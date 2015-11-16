@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Sonsa 1.0.0\n"
 "Report-Msgid-Bugs-To: https://foxland.fi/contact/\n"
-"POT-Creation-Date: 2015-11-09 07:50:44+00:00\n"
+"POT-Creation-Date: 2015-11-16 10:17:34+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -61,31 +61,32 @@ msgstr ""
 msgid "Comments are closed."
 msgstr ""
 
-#: footer.php:16 search.php:34
+#: footer.php:18 search.php:34
 msgid "Previous page"
 msgstr ""
 
-#: footer.php:17 search.php:35
+#: footer.php:19 search.php:35
 msgid "Next page"
 msgstr ""
 
-#: footer.php:18 search.php:36 template-parts/content-aside.php:36
-#: template-parts/content-chat.php:31 template-parts/content-featured.php:33
-#: template-parts/content-link.php:36 template-parts/content-page.php:26
-#: template-parts/content-quote.php:36 template-parts/content-status.php:35
-#: template-parts/content-video.php:28 template-parts/content.php:31
+#: footer.php:20 search.php:36 template-parts/content-aside.php:31
+#: template-parts/content-audio.php:28 template-parts/content-chat.php:31
+#: template-parts/content-featured.php:33 template-parts/content-link.php:31
+#: template-parts/content-page.php:28 template-parts/content-quote.php:31
+#: template-parts/content-status.php:30 template-parts/content-video.php:28
+#: template-parts/content.php:31
 msgid "Page"
 msgstr ""
 
-#: footer.php:25
+#: footer.php:27
 msgid "https://wordpress.org/"
 msgstr ""
 
-#: footer.php:25
+#: footer.php:27
 msgid "Proudly powered by %s"
 msgstr ""
 
-#: footer.php:27
+#: footer.php:29
 msgid "Theme: %1$s by %2$s."
 msgstr ""
 
@@ -99,16 +100,32 @@ msgid ""
 "recommended to use only one short widget."
 msgstr ""
 
-#: header.php:27
+#: functions.php:214 header.php:33
+msgid "Expand sidebar"
+msgstr ""
+
+#: functions.php:215 sidebar-primary.php:16
+msgid "Collapse sidebar"
+msgstr ""
+
+#: functions.php:216
+msgid "Expand header and social menu"
+msgstr ""
+
+#: functions.php:217
+msgid "Collapse header and social menu"
+msgstr ""
+
+#: header.php:28
 msgid "Skip to content"
 msgstr ""
 
-#: header.php:32
-msgid "Toggle Menu"
+#: header.php:55 header.php:61
+msgid "Toggle Header"
 msgstr ""
 
-#: header.php:50
-msgid "Toggle Header"
+#: header.php:82
+msgid "Site is loading"
 msgstr ""
 
 #: inc/customizer/functions-404.php:14
@@ -171,10 +188,6 @@ msgstr ""
 msgid "Search Results for: %s"
 msgstr ""
 
-#: sidebar-primary.php:16
-msgid "Close Menu"
-msgstr ""
-
 #: sidebar-primary.php:20 sidebar-primary.php:21
 msgid "Primary Menu"
 msgstr ""
@@ -187,25 +200,25 @@ msgstr ""
 msgid "Previous post"
 msgstr ""
 
-#: template-parts/content-aside.php:34 template-parts/content-chat.php:29
-#: template-parts/content-featured.php:31 template-parts/content-link.php:34
-#: template-parts/content-page.php:24 template-parts/content-quote.php:34
-#: template-parts/content-status.php:33 template-parts/content-video.php:26
-#: template-parts/content.php:29
+#: template-parts/content-aside.php:29 template-parts/content-audio.php:26
+#: template-parts/content-chat.php:29 template-parts/content-featured.php:31
+#: template-parts/content-link.php:29 template-parts/content-page.php:26
+#: template-parts/content-quote.php:29 template-parts/content-status.php:28
+#: template-parts/content-video.php:26 template-parts/content.php:29
 msgid "Pages:"
 msgstr ""
 
-#: template-parts/content-aside.php:44 template-parts/content-chat.php:39
-#: template-parts/content-link.php:44 template-parts/content-quote.php:44
-#: template-parts/content-status.php:43 template-parts/content-video.php:36
-#: template-parts/content.php:39
+#: template-parts/content-aside.php:39 template-parts/content-audio.php:36
+#: template-parts/content-chat.php:39 template-parts/content-link.php:39
+#: template-parts/content-quote.php:39 template-parts/content-status.php:38
+#: template-parts/content-video.php:36 template-parts/content.php:39
 msgid "<span class=\"screen-reader-text\">Posted in</span> %s"
 msgstr ""
 
-#: template-parts/content-aside.php:45 template-parts/content-chat.php:40
-#: template-parts/content-link.php:45 template-parts/content-quote.php:45
-#: template-parts/content-status.php:44 template-parts/content-video.php:37
-#: template-parts/content.php:40
+#: template-parts/content-aside.php:40 template-parts/content-audio.php:37
+#: template-parts/content-chat.php:40 template-parts/content-link.php:40
+#: template-parts/content-quote.php:40 template-parts/content-status.php:39
+#: template-parts/content-video.php:37 template-parts/content.php:40
 msgid "<span class=\"screen-reader-text\">Tagged</span> %s"
 msgstr ""
 
@@ -234,11 +247,13 @@ msgid "Sonsa"
 msgstr ""
 
 #. Theme URI of the plugin/theme
-msgid "http://underscores.me/"
+msgid "https://theme.wordpress.com/themes/sonsa/"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "Sonsa Theme"
+msgid ""
+"Sonsa is a modern and clean photo centric blog theme. It's perfect for "
+"sharing your stories with images."
 msgstr ""
 
 #. Author of the plugin/theme
@@ -293,27 +308,27 @@ msgctxt "Roboto font: on or off"
 msgid "on"
 msgstr ""
 
-#: functions.php:321
+#: functions.php:326
 msgctxt "comment form placeholder for name"
 msgid "Name"
 msgstr ""
 
-#: functions.php:334
+#: functions.php:339
 msgctxt "comment form placeholder for email"
 msgid "Email"
 msgstr ""
 
-#: functions.php:347
+#: functions.php:352
 msgctxt "comment form placeholder for website"
 msgid "Website"
 msgstr ""
 
-#: functions.php:416
+#: functions.php:421
 msgctxt "mark after excerpt"
 msgid "&hellip;"
 msgstr ""
 
-#: functions.php:433
+#: functions.php:438
 msgctxt "comment form placeholder for comment field. It is noun."
 msgid "Comment"
 msgstr ""
