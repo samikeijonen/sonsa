@@ -52,11 +52,13 @@
 					
 					<?php if ( is_active_sidebar( 'header' ) || has_nav_menu( 'social' ) ) : ?>
 							
-						<button id="header-social-button" class="header-social-button header-social-toggle button-toggle"><span class="screen-reader-text"><?php esc_html_e( 'Toggle Header', 'sonsa' ); ?></span></button>	
+						<button id="header-social-button" class="header-social-button header-social-toggle button-toggle"><span class="screen-reader-text"><?php esc_html_e( 'Toggle Header', 'sonsa' ); ?></span></button>
 						
 						<div id="header-social-wrap" class="header-social-wrap">
 						
 							<div class="wrap">
+							
+							<button id="header-social-close" class="header-social-close header-social-toggle button-toggle"><span class="screen-reader-text"><?php esc_html_e( 'Toggle Header', 'sonsa' ); ?></span></button>
 						
 								<?php get_sidebar( 'header' ); // Loads the sidebar-header.php template. ?>
 								<?php get_template_part( 'menu', 'social' ); // Loads the menu-social.php template. ?>
@@ -74,17 +76,17 @@
 
 		<div id="content" class="site-content">
 		
-		<!-- Preloader -->
-<div id="preloader" class="preloader">
-    <div id="status" class="status">
-		<span class="screen-reader-text"><?php esc_html_e( 'Site is loading', 'sonsa' ); ?></span>
-		<div class="sk-three-bounce">
-			<div class="sk-child sk-bounce1"></div>
-			<div class="sk-child sk-bounce2"></div>
-			<div class="sk-child sk-bounce3"></div>
-		</div>
-	</div>
-</div>
+			<!-- Preloader -->
+			<div id="preloader" class="preloader">
+				<div id="status" class="status">
+					<span class="screen-reader-text"><?php esc_html_e( 'Site is loading', 'sonsa' ); ?></span>
+					<div class="sk-three-bounce">
+						<div class="sk-child sk-bounce1"></div>
+						<div class="sk-child sk-bounce2"></div>
+						<div class="sk-child sk-bounce3"></div>
+					</div>
+				</div>
+			</div>
 		
 			<div id="primary" class="content-area">
 				<main id="main" class="site-main" role="main" <?php hybrid_attr( 'content' ); ?>>
