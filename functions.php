@@ -196,9 +196,6 @@ function sonsa_scripts() {
 	// Enqueue active theme styles.
 	wp_enqueue_style( 'sonsa-style', get_stylesheet_uri() );
 	
-	// Enqueue responsive navigation.
-	wp_enqueue_script( 'sonsa-navigation', trailingslashit( get_template_directory_uri() ) . 'js/responsive-nav.js', array(), '20150815', true );
-	
 	// Enqueue perfect scrollbar script.
 	wp_enqueue_script( 'sonsa-perfect-scrollbar', trailingslashit( get_template_directory_uri() ). 'js/perfect-scrollbar.js', array(), '20150815', true );
 	
@@ -211,8 +208,10 @@ function sonsa_scripts() {
 	// Enqueue theme settings.
 	wp_enqueue_script( 'sonsa-settings', trailingslashit( get_template_directory_uri() ) . 'js/settings.js', array( 'jquery' ), '20150815', true );
 	wp_localize_script( 'sonsa-settings', 'screenReaderText', array(
-		'expand'   => '<span class="screen-reader-text">' . esc_html__( 'Expand sidebar', 'sonsa' ) . '</span>',
-		'collapse' => '<span class="screen-reader-text">' . esc_html__( 'Collapse sidebar', 'sonsa' ) . '</span>',
+		'expand'         => '<span class="screen-reader-text">' . esc_html__( 'Expand sidebar', 'sonsa' ) . '</span>',
+		'collapse'       => '<span class="screen-reader-text">' . esc_html__( 'Collapse sidebar', 'sonsa' ) . '</span>',
+		'expandHeader'   => '<span class="screen-reader-text">' . esc_html__( 'Expand header and social menu', 'sonsa' ) . '</span>',
+		'collapseHeader' => '<span class="screen-reader-text">' . esc_html__( 'Collapse header and social menu', 'sonsa' ) . '</span>',
 	) );
 	
 	// Enqueue skip link script.
