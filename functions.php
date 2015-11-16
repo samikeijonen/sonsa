@@ -203,7 +203,7 @@ function sonsa_scripts() {
 	wp_enqueue_script( 'sonsa-enquire', trailingslashit( get_template_directory_uri() ). 'js/enquire.js', array(), '20150815', true );
 	
 	// Enqueue theme scripts.
-	wp_enqueue_script( 'sonsa-scripts', trailingslashit( get_template_directory_uri() ) . 'js/scripts.js', array( 'sonsa-navigation', 'sonsa-perfect-scrollbar', 'sonsa-enquire' ), '20150815', true );
+	wp_enqueue_script( 'sonsa-scripts', trailingslashit( get_template_directory_uri() ) . 'js/scripts.js', array( 'sonsa-perfect-scrollbar', 'sonsa-enquire' ), '20150815', true );
 	
 	// Enqueue theme settings.
 	wp_enqueue_script( 'sonsa-settings', trailingslashit( get_template_directory_uri() ) . 'js/settings.js', array( 'jquery' ), '20150815', true );
