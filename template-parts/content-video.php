@@ -32,10 +32,7 @@
 			
 		</div><!-- .entry-content -->
 		
-		<footer class="entry-footer">
-			<?php sonsa_post_terms( array( 'taxonomy' => 'category', 'text' => __( '<span class="screen-reader-text">Posted in</span> %s', 'sonsa' ) ) ); ?>
-			<?php sonsa_post_terms( array( 'taxonomy' => 'post_tag', 'text' => __( '<span class="screen-reader-text">Tagged</span> %s', 'sonsa' ) ) ); ?>
-		</footer><!-- .entry-footer -->
+		<?php get_template_part( 'entry', 'footer' ); // Loads the entry-footer.php template. ?>
 		
 	<?php else : ?>
 	
@@ -50,10 +47,6 @@
 				</header><!-- .entry-header-info -->
 				
 				<?php echo sonsa_post_format(); ?>
-				
-				<div class="entry-summary screen-reader-text" <?php hybrid_attr( 'entry-summary' ); ?>>
-					<?php the_excerpt(); ?>
-				</div><!-- .entry-summary -->
 				
 			</div><!-- .entry-bg-image -->
 			

@@ -1,19 +1,16 @@
 <?php
 /**
- * Template part for displaying quote posts.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
+ * The template for displaying audio post format content.
  *
  * @package Sonsa
  */
-
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php hybrid_attr( 'post' ); ?>>
 
 	<?php if ( is_single() ) : // If single. ?>
 	
-		<?php sonsa_post_thumbnail(); ?>
+		<?php echo ( $video = hybrid_media_grabber( array( 'type' => 'audio', 'split_media' => true, 'before' => '<div class="entry-media">', 'after' => '</div>' ) ) ); ?>
 	
 		<header class="entry-header">
 			<?php the_title( '<h1 class="entry-title" ' . hybrid_get_attr( 'entry-title' ) . '>', '</h1>' ); ?>
@@ -38,17 +35,23 @@
 		<?php get_template_part( 'entry', 'footer' ); // Loads the entry-footer.php template. ?>
 		
 	<?php else : ?>
-		
-		<?php echo sonsa_post_format(); ?>
-		
+	
+		<?php $sonsa_bg = sonsa_post_background(); // Get featured image as post background image. ?>
+			
 		<a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
-			<div class="entry-summary" <?php hybrid_attr( 'entry-summary' ); ?>>
-				<div class="wrap">
-					<?php the_excerpt(); ?>
-				</div><!-- .wrap -->
-			</div><!-- .entry-summary -->
+			
+			<div class="entry-bg-image"<?php if ( has_post_thumbnail() ) echo ' style="background-image:url(' . esc_url( $sonsa_bg ) . ');"' ?>>
+				
+				<header class="entry-header-info">
+					<?php the_title( '<h2 class="entry-title" ' . hybrid_get_attr( 'entry-title' ) . '>', '</h2>' ); ?>
+				</header><!-- .entry-header-info -->
+				
+				<?php echo sonsa_post_format(); ?>
+				
+			</div><!-- .entry-bg-image -->
+			
 		</a>
-
+		
 	<?php endif; // End check single. ?>
 	
 </article><!-- #post-## -->
