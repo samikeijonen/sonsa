@@ -228,11 +228,11 @@ add_action( 'wp_enqueue_scripts', 'sonsa_scripts' );
 /**
  * JavaScript Detection.
  *
- * Adds a `js-enabled` class to the root `<html>` element when JavaScript is detected.
+ * Adds a `js` class to the root `<html>` element when JavaScript is detected.
  *
  * @author    Twenty Fifteen
  * @copyright Automattic
- * @license  http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  *
  * @since 1.0.0
  */
@@ -246,7 +246,7 @@ add_action( 'wp_head', 'sonsa_javascript_detection', 0 );
  *
  * @author    Twenty Fifteen
  * @copyright Automattic
- * @license  http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  *
  * @since 1.0.0
  * @see wp_add_inline_style()
@@ -320,7 +320,7 @@ function sonsa_comment_form_fields( $fields ) {
 	$fields['author'] = str_replace(
 		'<input',
 		'<input placeholder="'
-			. _x(
+			. esc_html_x(
 				'Name',
 				'comment form placeholder for name',
 				'sonsa'
@@ -333,7 +333,7 @@ function sonsa_comment_form_fields( $fields ) {
 	$fields['email'] = str_replace(
 		'<input',
 		'<input placeholder="'
-			. _x(
+			. esc_html_x(
 				'Email',
 				'comment form placeholder for email',
 				'sonsa'
@@ -346,7 +346,7 @@ function sonsa_comment_form_fields( $fields ) {
 	$fields['url'] = str_replace(
 		'<input',
 		'<input placeholder="'
-			. _x(
+			. esc_html_x(
 				'Website',
 				'comment form placeholder for website',
 				'sonsa'
@@ -393,6 +393,16 @@ function sonsa_extra_body_classes( $classes ) {
 		$classes[] = 'custom-header-image';
 	}
 	
+	// Adds a class of group-blog to blogs with more than 1 published author.
+	if ( is_multi_author() ) {
+		$classes[] = 'group-blog';
+	}
+	
+	// Adds a class to 404 page if there is image set in the Customizer.
+	if ( is_404() && get_theme_mod( '404_image' ) ) {
+		$classes[] = 'has-404-image';
+	}
+	
     return $classes;
 	
 }
@@ -432,7 +442,7 @@ function sonsa_comment_form_textarea( $fields ) {
 	$fields['comment_field'] = str_replace(
 		'<textarea',
 		'<textarea placeholder="'
-			. _x(
+			. esc_html_x(
 				'Comment',
 				'comment form placeholder for comment field. It is noun.',
 				'sonsa'
@@ -520,11 +530,6 @@ require get_template_directory() . '/inc/custom-background.php';
 require get_template_directory() . '/inc/template-tags.php';
 
 /**
- * Custom functions that act independently of the theme templates.
- */
-require get_template_directory() . '/inc/extras.php';
-
-/**
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
@@ -548,7 +553,6 @@ require get_template_directory() . '/inc/media-grabber.php';
  * Load post format file.
  */
 require get_template_directory() . '/inc/functions-formats.php';
-
 
 /**
  * Load chat format file.
