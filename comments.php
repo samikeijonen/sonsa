@@ -22,48 +22,52 @@ if ( post_password_required() ) {
 
 <div id="comments" class="comments-area">
 
-	<?php if ( have_comments() ) : ?>
-		<h2 class="comments-title">
-			<?php
-				printf( // WPCS: XSS OK.
-					esc_html( _nx( 'One comment', '%1$s comments', get_comments_number(), 'comments title', 'sonsa' ) ),
-					number_format_i18n( get_comments_number() )
-				);
-			?>
-		</h2>
+	<div class="comments-wrap">
 
-		<ol class="comment-list">
-			<?php
-				wp_list_comments( array(
-					'style'       => 'ol',
-					'short_ping'  => true,
-					'avatar_size' => 50,
-					'callback'    => 'sonsa_comment_callback'
-				) );
-			?>
-		</ol><!-- .comment-list -->
+		<?php if ( have_comments() ) : ?>
+			<h2 class="comments-title">
+				<?php
+					printf( // WPCS: XSS OK.
+						esc_html( _nx( 'One comment', '%1$s comments', get_comments_number(), 'comments title', 'sonsa' ) ),
+						number_format_i18n( get_comments_number() )
+					);
+				?>
+			</h2>
 
-		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
-		<nav id="comment-nav-below" class="comment-nav-below navigation comment-navigation" role="navigation">
-			<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'sonsa' ); ?></h2>
-			<div class="nav-links">
+			<ol class="comment-list">
+				<?php
+					wp_list_comments( array(
+						'style'       => 'ol',
+						'short_ping'  => true,
+						'avatar_size' => 50,
+						'callback'    => 'sonsa_comment_callback'
+					) );
+				?>
+			</ol><!-- .comment-list -->
 
-				<div class="nav-previous"><?php previous_comments_link( esc_html__( 'Older Comments', 'sonsa' ) ); ?></div>
-				<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'sonsa' ) ); ?></div>
+			<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
+			<nav id="comment-nav-below" class="comment-nav-below navigation comment-navigation" role="navigation">
+				<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'sonsa' ); ?></h2>
+				<div class="nav-links">
 
-			</div><!-- .nav-links -->
-		</nav><!-- #comment-nav-below -->
-		<?php endif; // Check for comment navigation. ?>
+					<div class="nav-previous"><?php previous_comments_link( esc_html__( 'Older Comments', 'sonsa' ) ); ?></div>
+					<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'sonsa' ) ); ?></div>
 
-	<?php endif; // Check for have_comments(). ?>
+				</div><!-- .nav-links -->
+			</nav><!-- #comment-nav-below -->
+			<?php endif; // Check for comment navigation. ?>
 
-	<?php
-		// If comments are closed and there are comments, let's leave a little note, shall we?
-		if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
-	?>
-		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'sonsa' ); ?></p>
-	<?php endif; ?>
+		<?php endif; // Check for have_comments(). ?>
 
-	<?php comment_form(); ?>
+		<?php
+			// If comments are closed and there are comments, let's leave a little note, shall we?
+			if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
+		?>
+			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'sonsa' ); ?></p>
+		<?php endif; ?>
+
+		<?php comment_form(); ?>
+		
+	</div><!-- .comments-wrap -->
 
 </div><!-- #comments -->
