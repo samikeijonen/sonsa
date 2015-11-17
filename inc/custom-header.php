@@ -14,13 +14,13 @@
  */
 function sonsa_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'sonsa_custom_header_args', array(
-		'default-image'          => '',
-		'default-text-color'     => '000000',
-		'width'                  => 1200,
-		'height'                 => 1200,
-		'flex-height'            => true,
-		'flex-width'             => true,
-		'wp-head-callback'       => 'sonsa_header_style',
+		'default-image'      => '',
+		'default-text-color' => '000000',
+		'width'              => 1200,
+		'height'             => 1200,
+		'flex-height'        => true,
+		'flex-width'         => true,
+		'wp-head-callback'   => 'sonsa_header_style',
 	) ) );
 }
 add_action( 'after_setup_theme', 'sonsa_custom_header_setup', 15 );
@@ -67,8 +67,7 @@ function sonsa_header_style() {
 	
 	/* Site title styles. */
 	if ( display_header_text() ) {
-		$style .= ".site-title, .site-title a, .site-description { color: #{$header_color} }";
-		$style .= ".site-title a { border-color: #{$header_color} }";
+		$style .= ".site-title, .site-title a, .site-title a:visited, .site-description { color: #{$header_color} }";
 	}
 	
 	if ( ! display_header_text() ) {
