@@ -12,9 +12,7 @@
  */
 function sonsa_customize_register( $wp_customize ) {
 
-	/* === Theme panel === */
-
-	/* Add the theme panel. */
+	// Add the theme panel.
 	$wp_customize->add_panel(
 		'theme',
 		array(
@@ -23,7 +21,7 @@ function sonsa_customize_register( $wp_customize ) {
 		)
 	);
 	
-	/* Load different part of the Customizer. */
+	// Load different part of the Customizer.
 	if( class_exists( 'WP_Customize_Cropped_Image_Control' ) ) {
 		require_once( get_template_directory() . '/inc/customizer/functions-default-image.php' );
 		require_once( get_template_directory() . '/inc/customizer/functions-404.php' );
