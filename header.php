@@ -11,7 +11,7 @@
 
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js">
-<head>
+<head <?php hybrid_attr( 'head' ); ?>>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
@@ -52,13 +52,13 @@
 					
 					<?php if ( is_active_sidebar( 'header' ) || has_nav_menu( 'social' ) ) : ?>
 							
-						<button id="header-social-button" class="header-social-button header-social-toggle button-toggle"><span class="screen-reader-text"><?php esc_html_e( 'Toggle Header', 'sonsa' ); ?></span></button>
+						<button id="header-social-button" class="header-social-button header-social-toggle button-toggle"><span class="screen-reader-text"><?php esc_html_e( 'Expand header and social menu', 'sonsa' ); ?></span></button>
 						
 						<div id="header-social-wrap" class="header-social-wrap">
 						
 							<div class="wrap">
 							
-							<button id="header-social-close" class="header-social-close header-social-toggle button-toggle"><span class="screen-reader-text"><?php esc_html_e( 'Toggle Header', 'sonsa' ); ?></span></button>
+							<button id="header-social-close" class="header-social-close header-social-toggle button-toggle"><span class="screen-reader-text"><?php esc_html_e( 'Expand header and social menu', 'sonsa' ); ?></span></button>
 						
 								<?php get_sidebar( 'header' ); // Loads the sidebar-header.php template. ?>
 								<?php get_template_part( 'menu', 'social' ); // Loads the menu-social.php template. ?>
