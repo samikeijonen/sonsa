@@ -17,7 +17,7 @@ function sonsa_posted_on() {
 
 	/* Set up entry date. */
 	printf( '<span class="entry-date"><span class="screen-reader-text">%1$s </span><a href="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s"' . hybrid_get_attr( 'entry-published' ) . '>%4$s</time></a></span>',
-		_x( 'Posted on', 'Used before publish date.', 'sonsa' ),
+		esc_html_x( 'Posted on', 'Used before publish date.', 'sonsa' ),
 		esc_url( get_permalink() ),
 		esc_attr( get_the_date( 'c' ) ),
 		esc_html( get_the_date() )
@@ -25,40 +25,11 @@ function sonsa_posted_on() {
 	
 	/* Set up byline. */
 	printf( '<span class="byline"><span class="entry-author" ' . hybrid_get_attr( 'entry-author' ) . '><span class="screen-reader-text">%1$s </span><a class="entry-author-link" href="%2$s" rel="author" itemprop="url"><span itemprop="name">%3$s</span></a></span></span>',
-		_x( 'Author', 'Used before post author name.', 'sonsa' ),
+		esc_html_x( 'Author', 'Used before post author name.', 'sonsa' ),
 		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 		get_the_author()
 	);
 
-}
-endif;
-
-if ( ! function_exists( 'sonsa_entry_footer' ) ) :
-/**
- * Prints HTML with meta information for the categories, tags and comments.
- */
-function sonsa_entry_footer() {
-	// Hide category and tag text for pages.
-	if ( 'post' === get_post_type() ) {
-		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_html__( ', ', 'sonsa' ) );
-		if ( $categories_list && sonsa_categorized_blog() ) {
-			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'sonsa' ) . '</span>', $categories_list ); // WPCS: XSS OK.
-		}
-
-		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'sonsa' ) );
-		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'sonsa' ) . '</span>', $tags_list ); // WPCS: XSS OK.
-		}
-	}
-
-	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-		echo '<span class="comments-link">';
-		comments_popup_link( esc_html__( 'Leave a comment', 'sonsa' ), esc_html__( '1 Comment', 'sonsa' ), esc_html__( '% Comments', 'sonsa' ) );
-		echo '</span>';
-	}
-	
 }
 endif;
 
@@ -71,13 +42,13 @@ endif;
  * This funcion is a wrapper for the WordPress `get_the_terms_list()` function.  It uses that to build a 
  * better post terms list.
  *
- * @author    Justin Tadlock
- * @link      https://github.com/justintadlock/hybrid-core/blob/2.0/functions/template-post.php
- * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ * @author  Justin Tadlock
+ * @link    https://github.com/justintadlock/hybrid-core/blob/2.0/functions/template-post.php
+ * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  *
- * @since  1.0.0
- * @param  array   $args
- * @return string
+ * @since   1.0.0
+ * @param   array   $args
+ * @return  string
  */
 function sonsa_get_post_terms( $args = array() ) {
 
@@ -169,47 +140,35 @@ if ( ! function_exists( 'sonsa_post_thumbnail' ) ) :
  */
 function sonsa_post_thumbnail() {
 
-	if ( post_password_required() || is_attachment() ) {
+	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 		return;
 	}
 
-	if ( is_singular() && has_post_thumbnail() ) :
+	if ( is_singular() ) :
 	?>
 
 		<div class="post-thumbnail">
 			<?php the_post_thumbnail(); ?>
 		</div><!-- .post-thumbnail -->
 
-	<?php elseif( ! is_singular() ) : ?>
-		 
-			<?php
-			$sonsa_post_format = get_post_format();
-			if ( false === $sonsa_post_format ) {
-				$sonsa_post_format = 'standard';
-			}
-			
-			if ( 'status' === $sonsa_post_format ) :
-				return;
-			elseif ( has_post_thumbnail() ) :
-			?>
+	<?php else : ?>
 		
-				<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
-					<?php the_post_thumbnail( 'post-thumbnail', array( 'alt' => get_the_title() ) ); ?>
-				</a>
-			
-			<?php endif; ?>
-
+		<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
+			<?php the_post_thumbnail( 'post-thumbnail', array( 'alt' => get_the_title() ) ); ?>
+		</a>
+		
 	<?php endif; // End is_singular()
+	
 }
 endif;
 
-if ( ! function_exists( 'sonsa_post_format' ) ) :
+if ( ! function_exists( 'sonsa_get_post_format' ) ) :
 /**
  * Return post format element.
  *
  * @since 1.0.0
  */
-function sonsa_post_format() {
+function sonsa_get_post_format() {
 	
 	// Get post format.
 	$sonsa_post_format = get_post_format();
@@ -224,10 +183,24 @@ function sonsa_post_format() {
 		$sonsa_post_format = 'external';
 	}
 	
-	return '<div class="sonsa-post-format genericon genericon-' . $sonsa_post_format . '" aria-hidden="true"><span class="screen-reader-text">' . get_post_format_string( $sonsa_post_format ) . '</span></div>';
+	// Return output of post format icon.
+	$output = '';
 	
+	$output = '<div class="sonsa-post-format genericon genericon-' . esc_attr( $sonsa_post_format ) . '" aria-hidden="true"><span class="screen-reader-text">' . get_post_format_string( $sonsa_post_format ) . '</span></div>';
+	
+	return $output;
 }
 endif;
+
+/**
+ * Outputs post format icon.
+ *
+ * @since  1.0.0
+ * @return void
+ */
+function sonsa_post_format() {
+	echo sonsa_get_post_format();
+}
 
 /**
  * Returns true if a blog has more than 1 category.
@@ -235,6 +208,7 @@ endif;
  * @return bool
  */
 function sonsa_categorized_blog() {
+	
 	if ( false === ( $all_the_cool_cats = get_transient( 'sonsa_categories' ) ) ) {
 		// Create an array of all the categories that are attached to posts.
 		$all_the_cool_cats = get_categories( array(
@@ -258,6 +232,7 @@ function sonsa_categorized_blog() {
 		// This blog has only 1 category so sonsa_categorized_blog should return false.
 		return false;
 	}
+	
 }
 
 /**
