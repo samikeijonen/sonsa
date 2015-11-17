@@ -15,21 +15,28 @@
 	
 		<?php sonsa_post_thumbnail(); ?>
 	
-		<header class="entry-header">
-			<?php the_title( '<h1 class="entry-title" ' . hybrid_get_attr( 'entry-title' ) . '>', '</h1>' ); ?>
-		</header><!-- .entry-header -->
+		<div class="inner-wrap">
+	
+			<header class="entry-header">
+				<?php the_title( '<h1 class="entry-title" ' . hybrid_get_attr( 'entry-title' ) . '>', '</h1>' ); ?>
+			</header><!-- .entry-header -->
+		
+			<div class="entry-content" <?php hybrid_attr( 'entry-content' ); ?>>
+			
+				<?php the_content(); ?>
 
-		<div class="entry-content" <?php hybrid_attr( 'entry-content' ); ?>>
-			<?php the_content(); ?>
-			<?php
-				wp_link_pages( array(
-					'before'    => '<div class="page-links">' . __( 'Pages:', 'sonsa' ),
-					'after'     => '</div>',
-					'pagelink'  => '<span class="screen-reader-text">' . __( 'Page', 'sonsa' ) . ' </span>%',
-					'separator' => '<span class="screen-reader-text">,</span> ',
-				) );
-			?>
-		</div><!-- .entry-content -->
+				<?php
+					wp_link_pages( array(
+						'before'    => '<div class="page-links">' . esc_html__( 'Pages:', 'sonsa' ),
+						'after'     => '</div>',
+						'pagelink'  => '<span class="screen-reader-text">' . esc_html__( 'Page', 'sonsa' ) . ' </span>%',
+						'separator' => '<span class="screen-reader-text">,</span> ',
+					) );
+				?>
+				
+			</div><!-- entry-content -->
+			
+		</div><!-- .inner-wrap -->
 	
 	<?php else : ?>
 		
@@ -42,10 +49,6 @@
 				<header class="entry-header-info">
 					<?php the_title( '<h2 class="entry-title" ' . hybrid_get_attr( 'entry-title' ) . '>', '</h2>' ); ?>
 				</header><!-- .entry-header-info -->
-				
-				<div class="entry-summary screen-reader-text" <?php hybrid_attr( 'entry-summary' ); ?>>
-					<?php the_excerpt(); ?>
-				</div><!-- .entry-summary -->
 				
 			</div><!-- .entry-bg-image -->
 			
