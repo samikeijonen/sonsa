@@ -11,8 +11,8 @@ get_header(); ?>
 
 	<?php if ( have_posts() ) : ?>
 
-		<header class="page-header">
-			<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'sonsa' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+		<header class="page-header archive-header">
+			<h1 class="page-title archive-title"><?php printf( esc_html__( 'Search Results for: %s', 'sonsa' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 		</header><!-- .page-header -->
 
 		<?php /* Start the Loop */ ?>
@@ -28,14 +28,6 @@ get_header(); ?>
 			?>
 
 		<?php endwhile; ?>
-
-		<?php
-			the_posts_pagination( array(
-				'prev_text'          => __( 'Previous page', 'sonsa' ),
-				'next_text'          => __( 'Next page', 'sonsa' ),
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'sonsa' ) . ' </span>',
-			) );
-		?>
 
 	<?php else : ?>
 
