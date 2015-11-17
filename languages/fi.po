@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Sonsa 1.0.0\n"
 "Report-Msgid-Bugs-To: https://foxland.fi/contact/\n"
-"POT-Creation-Date: 2015-11-16 12:17+0200\n"
-"PO-Revision-Date: 2015-11-16 12:27+0200\n"
+"POT-Creation-Date: 2015-11-17 14:43+0200\n"
+"PO-Revision-Date: 2015-11-17 14:45+0200\n"
 "Last-Translator: Sami Keijonen <sami.keijonen@foxnet.fi>\n"
 "Language-Team: \n"
 "Language: fi\n"
@@ -19,11 +19,11 @@ msgstr ""
 msgid "404 page"
 msgstr "404-sivu"
 
-#: 404.php:26
+#: 404.php:29
 msgid "Oops! That page can&rsquo;t be found."
 msgstr "Ups! Tätä sivua ei löydy."
 
-#: 404.php:30
+#: 404.php:33
 msgid ""
 "It looks like nothing was found at this location. Maybe try one of the links "
 "below or a search?"
@@ -31,12 +31,12 @@ msgstr ""
 "Näyttää siltä, että mitään ei löytynyt tästä osoitteesta. Koita navigoida "
 "alla olevista linkeistä tai etsiä haluamaasi."
 
-#: 404.php:38
+#: 404.php:41
 msgid "Most Used Categories"
 msgstr "Käytetyimmät kategoriat"
 
 #. translators: %1$s: smiley
-#: 404.php:55
+#: 404.php:58
 msgid "Try looking in the monthly archives. %1$s"
 msgstr "Koita etsiä kuukausiarkistosta. %1$s"
 
@@ -48,36 +48,43 @@ msgstr "<span class=\"screen-reader-text\">Vastaa</span>"
 msgid "Your comment is awaiting moderation."
 msgstr "Kommenttisi odottaa hyväksymistä."
 
-#: comments.php:48
+#: comments.php:50
 msgid "Comment navigation"
 msgstr "Kommenttien selaus"
 
-#: comments.php:51
+#: comments.php:53
 msgid "Older Comments"
 msgstr "Vanhemmat kommentit"
 
-#: comments.php:52
+#: comments.php:54
 msgid "Newer Comments"
 msgstr "Uudemmat kommentit"
 
-#: comments.php:64
+#: comments.php:66
 msgid "Comments are closed."
 msgstr "Kommentointi on suljettu."
 
-#: footer.php:18 search.php:34
+#: entry-footer.php:11
+msgid "Categories"
+msgstr "Kategoriat"
+
+#: entry-footer.php:12
+msgid "Tags"
+msgstr "Avainsanat"
+
+#: footer.php:18
 msgid "Previous page"
 msgstr "Edellinen sivu"
 
-#: footer.php:19 search.php:35
+#: footer.php:19
 msgid "Next page"
 msgstr "Seuraava sivu"
 
-#: footer.php:20 search.php:36 template-parts/content-aside.php:31
-#: template-parts/content-audio.php:28 template-parts/content-chat.php:31
-#: template-parts/content-featured.php:33 template-parts/content-link.php:31
-#: template-parts/content-page.php:28 template-parts/content-quote.php:31
-#: template-parts/content-status.php:30 template-parts/content-video.php:28
-#: template-parts/content.php:31
+#: footer.php:20 pages/featured.php:37 template-parts/content-aside.php:33
+#: template-parts/content-audio.php:30 template-parts/content-chat.php:33
+#: template-parts/content-link.php:33 template-parts/content-page.php:32
+#: template-parts/content-quote.php:33 template-parts/content-status.php:33
+#: template-parts/content-video.php:30 template-parts/content.php:33
 msgid "Page"
 msgstr "Sivu"
 
@@ -106,19 +113,19 @@ msgstr ""
 "Sivupalkki, joka sijaitsee sivuston header-osiossa. On suositeltavaa käyttää "
 "vain yhtä lyhyttä vimpainta."
 
-#: functions.php:214 header.php:33
+#: functions.php:211 header.php:33
 msgid "Expand sidebar"
 msgstr "Avaa sivupalkki"
 
-#: functions.php:215 sidebar-primary.php:16
+#: functions.php:212 sidebar-primary.php:16
 msgid "Collapse sidebar"
 msgstr "Sulje sivupalkki"
 
-#: functions.php:216
+#: functions.php:213 header.php:55 header.php:61
 msgid "Expand header and social menu"
 msgstr "Avaa sivupalkki ja somevalikko"
 
-#: functions.php:217
+#: functions.php:214
 msgid "Collapse header and social menu"
 msgstr "Sulje sivupalkki ja somevalikko"
 
@@ -126,34 +133,30 @@ msgstr "Sulje sivupalkki ja somevalikko"
 msgid "Skip to content"
 msgstr "Hyppää sisältöön"
 
-#: header.php:55 header.php:61
-msgid "Toggle Header"
-msgstr ""
-
 #: header.php:82
 msgid "Site is loading"
 msgstr "Sivu latautuu"
 
-#: inc/customizer/functions-404.php:14
+#: inc/customizer/functions-404.php:12
 msgid "404 page image"
 msgstr "404-sivun kuva"
 
-#: inc/customizer/functions-404.php:35
+#: inc/customizer/functions-404.php:33
 msgid "404 Image"
 msgstr "404 Kuva"
 
-#: inc/customizer/functions-404.php:36
+#: inc/customizer/functions-404.php:34
 msgid "Add image which is displayed on 404 page. Recommended width is 960px."
 msgstr ""
 "Lisää kuva, joka näytetään sivuilla, jota ei löydy. Suositeltu leveys on "
 "960px."
 
-#: inc/customizer/functions-default-image.php:14
-#: inc/customizer/functions-default-image.php:35
+#: inc/customizer/functions-default-image.php:12
+#: inc/customizer/functions-default-image.php:33
 msgid "Default post image"
 msgstr "Oletusartikkelikuva"
 
-#: inc/customizer/functions-default-image.php:36
+#: inc/customizer/functions-default-image.php:34
 msgid ""
 "Add image which is displayed on post where you have not set featured image. "
 "It will be used home and archive pages. Recommended width is 960px."
@@ -162,38 +165,21 @@ msgstr ""
 "artikkelikuvaa. Se näytetään blogi- ja arkistosivuille. Suositeltu leveys on "
 "960px."
 
-#: inc/customizer.php:21
+#: inc/customizer.php:19
 msgid "Theme Settings"
 msgstr "Teeman asetukset"
-
-#. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:44 inc/template-tags.php:50
-msgid ", "
-msgstr ""
-
-#: inc/template-tags.php:46
-msgid "Posted in %1$s"
-msgstr "Artikkeli kategoriassa %1$s"
-
-#: inc/template-tags.php:52
-msgid "Tagged %1$s"
-msgstr "Avainsanat %1$s"
-
-#: inc/template-tags.php:58
-msgid "Leave a comment"
-msgstr "Jätä kommentti"
-
-#: inc/template-tags.php:58
-msgid "1 Comment"
-msgstr "Yksi kommentti"
-
-#: inc/template-tags.php:58
-msgid "% Comments"
-msgstr "% Kommenttia"
 
 #: menu-social.php:11 menu-social.php:12
 msgid "Social Menu"
 msgstr "Somevalikko"
+
+#: pages/featured.php:35 template-parts/content-aside.php:31
+#: template-parts/content-audio.php:28 template-parts/content-chat.php:31
+#: template-parts/content-link.php:31 template-parts/content-page.php:30
+#: template-parts/content-quote.php:31 template-parts/content-status.php:31
+#: template-parts/content-video.php:28 template-parts/content.php:31
+msgid "Pages:"
+msgstr "Sivut:"
 
 #: search.php:15
 msgid "Search Results for: %s"
@@ -211,40 +197,18 @@ msgstr "Seuraava artikkeli"
 msgid "Previous post"
 msgstr "Edellinen artikkeli"
 
-#: template-parts/content-aside.php:29 template-parts/content-audio.php:26
-#: template-parts/content-chat.php:29 template-parts/content-featured.php:31
-#: template-parts/content-link.php:29 template-parts/content-page.php:26
-#: template-parts/content-quote.php:29 template-parts/content-status.php:28
-#: template-parts/content-video.php:26 template-parts/content.php:29
-msgid "Pages:"
-msgstr "Sivut:"
-
-#: template-parts/content-aside.php:39 template-parts/content-audio.php:36
-#: template-parts/content-chat.php:39 template-parts/content-link.php:39
-#: template-parts/content-quote.php:39 template-parts/content-status.php:38
-#: template-parts/content-video.php:36 template-parts/content.php:39
-msgid "<span class=\"screen-reader-text\">Posted in</span> %s"
-msgstr "<span class=\"screen-reader-text\">Kategoriat</span> %s"
-
-#: template-parts/content-aside.php:40 template-parts/content-audio.php:37
-#: template-parts/content-chat.php:40 template-parts/content-link.php:40
-#: template-parts/content-quote.php:40 template-parts/content-status.php:39
-#: template-parts/content-video.php:37 template-parts/content.php:40
-msgid "<span class=\"screen-reader-text\">Tagged</span> %s"
-msgstr "<span class=\"screen-reader-text\">Avainsanat</span> %s"
-
-#: template-parts/content-none.php:15
+#: template-parts/content-none.php:17
 msgid "Nothing Found"
 msgstr "Mitään ei löytynyt"
 
-#: template-parts/content-none.php:21
+#: template-parts/content-none.php:23
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 "Oletko valmis julkaisemaan ensimmäisen kirjoituksesi? <a href=\"%1$s"
 "\">Aloita tästä</a>."
 
-#: template-parts/content-none.php:25
+#: template-parts/content-none.php:27
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
@@ -252,7 +216,7 @@ msgstr ""
 "Hakusi ei valitettavasti tuottanut yhtään tulosta. Yritä uudelleen eri "
 "hakusanoilla."
 
-#: template-parts/content-none.php:30
+#: template-parts/content-none.php:32
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
@@ -269,8 +233,10 @@ msgstr "https://theme.wordpress.com/themes/sonsa/"
 #. Description of the plugin/theme
 msgid ""
 "Sonsa is a modern and clean photo centric blog theme. It's perfect for "
-"sharing your stories with images."
+"sharing your stories with images, video and audio."
 msgstr ""
+"Sonsa on moderni ja kevyt teema, jossa kuvat ovat pääasemassa. Se on "
+"täydellinen teema, jos haluat kertoa tarinoita kuvin, videoin ja äänin."
 
 #. Author of the plugin/theme
 msgid "Sami Keijonen"
@@ -289,7 +255,7 @@ msgctxt "%1%s is for comment date"
 msgid "%1$s"
 msgstr "%1$s"
 
-#: comments.php:29
+#: comments.php:31
 msgctxt "comments title"
 msgid "One comment"
 msgid_plural "%1$s comments"
@@ -324,27 +290,27 @@ msgctxt "Roboto font: on or off"
 msgid "on"
 msgstr ""
 
-#: functions.php:326
+#: functions.php:323
 msgctxt "comment form placeholder for name"
 msgid "Name"
 msgstr "Nimi"
 
-#: functions.php:339
+#: functions.php:336
 msgctxt "comment form placeholder for email"
 msgid "Email"
 msgstr "Sähköposti"
 
-#: functions.php:352
+#: functions.php:349
 msgctxt "comment form placeholder for website"
 msgid "Website"
 msgstr "Kotisivu"
 
-#: functions.php:421
+#: functions.php:428
 msgctxt "mark after excerpt"
 msgid "&hellip;"
 msgstr " &hellip;"
 
-#: functions.php:438
+#: functions.php:445
 msgctxt "comment form placeholder for comment field. It is noun."
 msgid "Comment"
 msgstr "Kommentti"
@@ -360,7 +326,7 @@ msgid "Author"
 msgstr "Kirjoittaja"
 
 #. Translators: Separates tags, categories, etc. when displaying a post.
-#: inc/template-tags.php:94
+#: inc/template-tags.php:65
 msgctxt "taxonomy terms separator"
 msgid ", "
 msgstr ""
@@ -394,6 +360,27 @@ msgstr " &hellip;"
 msgctxt "dots after previous post link"
 msgid "&hellip;"
 msgstr " &hellip;"
+
+#~ msgid "Posted in %1$s"
+#~ msgstr "Artikkeli kategoriassa %1$s"
+
+#~ msgid "Tagged %1$s"
+#~ msgstr "Avainsanat %1$s"
+
+#~ msgid "Leave a comment"
+#~ msgstr "Jätä kommentti"
+
+#~ msgid "1 Comment"
+#~ msgstr "Yksi kommentti"
+
+#~ msgid "% Comments"
+#~ msgstr "% Kommenttia"
+
+#~ msgid "<span class=\"screen-reader-text\">Posted in</span> %s"
+#~ msgstr "<span class=\"screen-reader-text\">Kategoriat</span> %s"
+
+#~ msgid "<span class=\"screen-reader-text\">Tagged</span> %s"
+#~ msgstr "<span class=\"screen-reader-text\">Avainsanat</span> %s"
 
 #, fuzzy
 #~ msgid "http://underscores.me/"
