@@ -25,6 +25,7 @@ if ( has_nav_menu( 'primary' ) || is_active_sidebar( 'primary' ) ) : ?>
 						wp_nav_menu( array(
 							'menu_class'     => 'nav-menu',
 							'theme_location' => 'primary',
+							'depth'          => 2,
 						) );
 					?>
 				
