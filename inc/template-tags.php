@@ -13,22 +13,36 @@ if ( ! function_exists( 'sonsa_posted_on' ) ) :
  *
  * @since 1.0.0
  */
-function sonsa_posted_on() {
-
-	/* Set up entry date. */
-	printf( '<span class="entry-date"><span class="screen-reader-text">%1$s </span><a href="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s"' . hybrid_get_attr( 'entry-published' ) . '>%4$s</time></a></span>',
-		esc_html_x( 'Posted on', 'Used before publish date.', 'sonsa' ),
-		esc_url( get_permalink() ),
-		esc_attr( get_the_date( 'c' ) ),
-		esc_html( get_the_date() )
-	);
+function sonsa_posted_on( $human_diff = false ) {
 	
-	/* Set up byline. */
-	printf( '<span class="byline"><span class="entry-author" ' . hybrid_get_attr( 'entry-author' ) . '><span class="screen-reader-text">%1$s </span><a class="entry-author-link" href="%2$s" rel="author" itemprop="url"><span itemprop="name">%3$s</span></a></span></span>',
-		esc_html_x( 'Author', 'Used before post author name.', 'sonsa' ),
-		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-		get_the_author()
-	);
+	// If we only want human-readable time difference.
+	if ( $human_diff ) {
+		
+		// Set up entry date.
+		printf( '<span class="entry-date"><span class="screen-reader-text">%1$s </span><time class="entry-date-human" datetime="%2$s"' . hybrid_get_attr( 'entry-published' ) . '>%3$s</time></span>',
+			esc_html_x( 'Posted on', 'Used before publish date.', 'sonsa' ),
+			esc_attr( get_the_date( 'c' ) ),
+			sprintf( esc_html_x( '%s ago', '%s = human-readable time difference', 'sonsa' ), human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) )
+		);
+		
+	} else {
+
+		// Set up entry date.
+		printf( '<span class="entry-date"><span class="screen-reader-text">%1$s </span><a href="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s"' . hybrid_get_attr( 'entry-published' ) . '>%4$s</time></a></span>',
+			esc_html_x( 'Posted on', 'Used before publish date.', 'sonsa' ),
+			esc_url( get_permalink() ),
+			esc_attr( get_the_date( 'c' ) ),
+			esc_html( get_the_date() )
+		);
+	
+		// Set up byline.
+		printf( '<span class="byline"><span class="entry-author" ' . hybrid_get_attr( 'entry-author' ) . '><span class="screen-reader-text">%1$s </span><a class="entry-author-link" href="%2$s" rel="author" itemprop="url"><span itemprop="name">%3$s</span></a></span></span>',
+			esc_html_x( 'Author', 'Used before post author name.', 'sonsa' ),
+			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+			get_the_author()
+		);
+		
+	}
 
 }
 endif;
