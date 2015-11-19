@@ -6,7 +6,7 @@
  */
 ?>
 
-<?php if ( 'post' == get_post_type() ) : ?>
+<?php if ( 'post' == get_post_type() || 'jetpack-portfolio' == get_post_type() ) : ?>
 	<div class="entry-meta">
 		<?php sonsa_posted_on(); ?>
 		<?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
