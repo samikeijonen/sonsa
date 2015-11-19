@@ -46,11 +46,17 @@
 		<?php echo sonsa_post_format(); ?>
 		
 		<a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
+		
+			<header class="entry-header-info">
+				<?php sonsa_posted_on( $human_diff = true ); ?>
+			</header><!-- .entry-header-info -->
+			
 			<div class="entry-summary" <?php hybrid_attr( 'entry-summary' ); ?>>
 				<div class="wrap">
 					<?php the_excerpt(); ?>
 				</div><!-- .wrap -->
 			</div><!-- .entry-summary -->
+			
 		</a>
 
 	<?php endif; // End check single. ?>

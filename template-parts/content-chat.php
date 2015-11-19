@@ -49,6 +49,7 @@
 			
 			<header class="entry-header-info">
 				<?php the_title( '<h2 class="entry-title" ' . hybrid_get_attr( 'entry-title' ) . '>', '</h2>' ); ?>
+				<?php sonsa_posted_on( $human_diff = true ); ?>
 			</header><!-- .entry-header-info -->
 			
 			<div class="entry-content" <?php hybrid_attr( 'entry-content' ); ?>>
