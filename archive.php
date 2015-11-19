@@ -15,6 +15,10 @@ get_header(); ?>
 			<?php
 				the_archive_title( '<h1 class="page-title archive-title">', '</h1>' );
 				the_archive_description( '<div class="taxonomy-description archive-description">', '</div>' );
+				
+				if ( is_post_type_archive( 'jetpack-portfolio' ) || is_tax( 'jetpack-portfolio-type' ) || is_tax( 'jetpack-portfolio-tag' ) ) :
+					get_template_part( 'menu', 'portfolio' ); // Loads menu-portfolio.php template file.
+				endif;
 			?>
 		</header><!-- .page-header -->
 

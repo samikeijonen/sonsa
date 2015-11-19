@@ -46,10 +46,11 @@ function sonsa_setup() {
 	// Add custom image sizes.
 	add_image_size( 'sonsa-site-logo', 192, 192, true );
 
-	// This theme uses wp_nav_menu() in two locations.
+	// This theme uses wp_nav_menu() in three locations.
 	register_nav_menus( array(
-		'primary' => esc_html_x( 'Primary', 'nav menu location', 'sonsa' ),
-		'social'  => esc_html_x( 'Social', 'nav menu location', 'sonsa' ),
+		'primary'   => esc_html_x( 'Primary', 'nav menu location', 'sonsa' ),
+		'social'    => esc_html_x( 'Social', 'nav menu location', 'sonsa' ),
+		'portfolio' => esc_html_x( 'Portfolio', 'nav menu location', 'sonsa' ),
 	) );
 
 	/*
@@ -87,6 +88,9 @@ function sonsa_setup() {
 	
 	// Add theme support for responsive videos.
 	add_theme_support( 'jetpack-responsive-videos' );
+	
+	// Add theme support for Jetpack food menus.
+	add_theme_support( 'nova_menu_item' );
 	
 	/*
 	 * This theme styles the visual editor to resemble the theme style,
@@ -558,3 +562,8 @@ require get_template_directory() . '/inc/functions-formats.php';
  * Load chat format file.
  */
 require get_template_directory() . '/inc/class-chat.php';
+
+/**
+ * Load archive filters file.
+ */
+require get_template_directory() . '/inc/archive-filters.php';
