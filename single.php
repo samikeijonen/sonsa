@@ -19,9 +19,11 @@ get_header(); ?>
 			
 		// Previous/next post navigation.
 		the_post_navigation( array(
-			'next_text' => '<span class="next-post">' . esc_html__( 'Next post', 'sonsa' ) . '</span> ' .
+			'next_text' => '<span class="meta-nav next-post" aria-hidden="true">' . esc_html__( 'Next', 'sonsa' ) . '</span> ' .
+				'<span class="screen-reader-text">' . esc_html__( 'Next post:', 'sonsa' ) . '</span> ' .
 				'<span class="post-title">' . wp_trim_words( get_next_post_link( $format = '%link' ), absint( $number_of_words ), _x( '&hellip;', 'dots after next post link', 'sonsa' ) ) . '</span>',
-			'prev_text' => '<span class="previous-post">' . esc_html__( 'Previous post', 'sonsa' ) . '</span> ' .
+			'prev_text' => '<span class="meta-nav previous-post" aria-hidden="true">' . esc_html__( 'Previous', 'sonsa' ) . '</span> ' .
+				'<span class="screen-reader-text">' . esc_html__( 'Previous post:', 'sonsa' ) . '</span> ' .
 				'<span class="post-title">' . wp_trim_words( get_previous_post_link( $format = '%link' ), absint( $number_of_words ), _x( '&hellip;', 'dots after previous post link', 'sonsa' ) ) . '</span>',
 		) );
 		?>
