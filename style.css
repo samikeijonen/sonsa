@@ -1541,6 +1541,15 @@ a:active {
 	position: relative;
 }
 
+.layout-header-top .site-main {
+	display: flex;
+	flex-wrap: wrap;
+}
+.layout-header-top.blog .entry,
+.layout-header-top.archive .entry {
+	width: 50%;
+}
+
 .site-header,
 .page-header,
 .entry-footer,
@@ -1789,7 +1798,6 @@ body:not(.single) .entry.format-status {
 	background-color: rgba(0,0,0,0.8);
 	min-height: 450px;
 	max-height: 450px;
-	width: 100%;
 }
 body:not(.single) .entry.format-chat {
 	background-color: rgba(0,0,0,0.02);
@@ -1917,13 +1925,16 @@ body:not(.single) .entry.format-chat a {
 
 @media screen and (min-width: 960px) {
 	
-	.site > .site-wrapper {
+	.layout-header-left .site > .site-wrapper {
 		-webkit-flex-direction: row;
 		    -ms-flex-direction: row;
 		        flex-direction: row;
 		height: 100vh;
 	}
-	.admin-bar .site > .site-wrapper {
+	.layout-header-top .site > .site-wrapper {
+		flex-direction: column;
+	}
+	.layout-header-left.admin-bar .site > .site-wrapper {
 		min-height: calc(100vh - 32px);
 		height: calc(100vh - 32px);
 	}
@@ -1950,18 +1961,18 @@ body:not(.single) .entry.format-chat a {
 		        transform: translate3d(400px, 0, 0);;
 	}
 	
-	.site-header {
+	.layout-header-left .site-header {
 		text-align: left;
 		height: 100%;
 		-webkit-order: 2;
 		    -ms-flex-order: 2;
 		        order: 2;
 	}
-	.admin-bar .site-header {
+	.layout-header-left.admin-bar .site-header {
 		height: calc(100% + 32px); /* This will disable scrollbar when admin bar is around. */
 	}
 	
-	.site-content {
+	.layout-header-left .site-content {
 		box-shadow: inset 10px 0 5px -7px rgba( 0, 0, 0, 0.08 );
 		-webkit-order: 3;
 		    -ms-flex-order: 3;
@@ -2002,7 +2013,7 @@ body:not(.single) .entry.format-chat a {
 		height: 100%;
 	}
 	
-	.site-header,
+	.layout-header-left .site-header,
 	.site-content {
 		-webkit-flex: 1 1 50%;
 		    -ms-flex: 1 1 50%;
@@ -2017,7 +2028,7 @@ body:not(.single) .entry.format-chat a {
 		width: 20%;	
 	}
 	
-	.site-header > .wrap {
+	.layout-header-left .site-header > .wrap {
 		display: -webkit-flex;
 		display: -ms-flexbox;
 		display: flex;
@@ -2048,12 +2059,12 @@ body:not(.single) .entry.format-chat a {
 
 @media screen and (min-width: 1600px) {
 
-	.site-header {
+	.layout-header-left .site-header {
 		padding-left: 0;
 		padding-right: 0;
 	}
 	
-	.site-header > .wrap {
+	.layout-header-left .site-header > .wrap {
 		max-width: 55%;
 	}
 	

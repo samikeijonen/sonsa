@@ -22,6 +22,8 @@ function sonsa_customize_register( $wp_customize ) {
 	);
 	
 	// Load different part of the Customizer.
+	require_once( get_template_directory() . '/inc/customizer/functions-layout.php' );
+	
 	if( class_exists( 'WP_Customize_Cropped_Image_Control' ) ) {
 		require_once( get_template_directory() . '/inc/customizer/functions-default-image.php' );
 		require_once( get_template_directory() . '/inc/customizer/functions-404.php' );
@@ -29,6 +31,24 @@ function sonsa_customize_register( $wp_customize ) {
 	
 }
 add_action( 'customize_register', 'sonsa_customize_register' );
+
+/**
+ * Sanitize the Global layout value.
+ *
+ * @since 1.0.0
+ *
+ * @param string $layout Layout type.
+ * @return string Filtered layout type (header-left|header-top).
+ */
+function sonsa_sanitize_layout( $layout ) {
+
+	if ( ! in_array( $layout, array( 'header-left', 'header-top' ) ) ) {
+		$layout = 'header-left';
+	}
+
+	return $layout;
+	
+}
 
 /**
  * Add postMessage support for site title and description for the Theme Customizer.

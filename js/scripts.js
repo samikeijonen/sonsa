@@ -10,6 +10,11 @@
 	var header    = document.getElementById( 'masthead' );
 	var secondary = document.getElementById( 'secondary' );
 	
+	// Bail if we are using header top layout.
+	if ( ! scrollBar.enabled ) {
+		return;
+	}
+	
 	// Initiliaze scrollbar at certain breakpoint.
 	enquire.register( "screen and (min-width: 960px)", {
 		
