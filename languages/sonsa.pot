@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Sonsa 1.0.0\n"
 "Report-Msgid-Bugs-To: https://foxland.fi/contact/\n"
-"POT-Creation-Date: 2015-11-17 12:43:10+00:00\n"
+"POT-Creation-Date: 2015-11-20 08:18:21+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -61,11 +61,11 @@ msgstr ""
 msgid "Comments are closed."
 msgstr ""
 
-#: entry-footer.php:11
+#: entry-footer.php:12 template-parts/content-jetpack-portfolio.php:44
 msgid "Categories"
 msgstr ""
 
-#: entry-footer.php:12
+#: entry-footer.php:13 template-parts/content-jetpack-portfolio.php:45
 msgid "Tags"
 msgstr ""
 
@@ -79,9 +79,12 @@ msgstr ""
 
 #: footer.php:20 pages/featured.php:37 template-parts/content-aside.php:33
 #: template-parts/content-audio.php:30 template-parts/content-chat.php:33
-#: template-parts/content-link.php:33 template-parts/content-page.php:32
-#: template-parts/content-quote.php:33 template-parts/content-status.php:33
-#: template-parts/content-video.php:30 template-parts/content.php:33
+#: template-parts/content-jetpack-portfolio.php:33
+#: template-parts/content-link.php:33
+#: template-parts/content-nova_menu_item.php:48
+#: template-parts/content-page.php:32 template-parts/content-quote.php:33
+#: template-parts/content-status.php:33 template-parts/content-video.php:30
+#: template-parts/content.php:33
 msgid "Page"
 msgstr ""
 
@@ -97,29 +100,29 @@ msgstr ""
 msgid "Theme: %1$s by %2$s."
 msgstr ""
 
-#: functions.php:124
+#: functions.php:128
 msgid "The main sidebar. It is displayed in the off-canvas menu."
 msgstr ""
 
-#: functions.php:135
+#: functions.php:139
 msgid ""
 "A sidebar located in the header of the site. For optimal layout it is "
 "recommended to use only one short widget."
 msgstr ""
 
-#: functions.php:211 header.php:33
+#: functions.php:215 header.php:33
 msgid "Expand sidebar"
 msgstr ""
 
-#: functions.php:212 sidebar-primary.php:16
+#: functions.php:216 sidebar-primary.php:16
 msgid "Collapse sidebar"
 msgstr ""
 
-#: functions.php:213 header.php:55 header.php:61
+#: functions.php:217 header.php:55 header.php:61
 msgid "Expand header and social menu"
 msgstr ""
 
-#: functions.php:214
+#: functions.php:218
 msgid "Collapse header and social menu"
 msgstr ""
 
@@ -129,6 +132,10 @@ msgstr ""
 
 #: header.php:82
 msgid "Site is loading"
+msgstr ""
+
+#: inc/archive-filters.php:39
+msgid "Search results for &#8220;%s&#8221;"
 msgstr ""
 
 #: inc/customizer/functions-404.php:12
@@ -158,15 +165,31 @@ msgstr ""
 msgid "Theme Settings"
 msgstr ""
 
+#: menu-portfolio.php:9
+msgid "Porfolio Menu"
+msgstr ""
+
+#: menu-portfolio.php:10
+msgid "Portfolio Menu"
+msgstr ""
+
+#: menu-portfolio.php:36
+#. Translators: "All" is a link that points to the portfolio archive.
+msgid "All"
+msgstr ""
+
 #: menu-social.php:11 menu-social.php:12
 msgid "Social Menu"
 msgstr ""
 
 #: pages/featured.php:35 template-parts/content-aside.php:31
 #: template-parts/content-audio.php:28 template-parts/content-chat.php:31
-#: template-parts/content-link.php:31 template-parts/content-page.php:30
-#: template-parts/content-quote.php:31 template-parts/content-status.php:31
-#: template-parts/content-video.php:28 template-parts/content.php:31
+#: template-parts/content-jetpack-portfolio.php:31
+#: template-parts/content-link.php:31
+#: template-parts/content-nova_menu_item.php:46
+#: template-parts/content-page.php:30 template-parts/content-quote.php:31
+#: template-parts/content-status.php:31 template-parts/content-video.php:28
+#: template-parts/content.php:31
 msgid "Pages:"
 msgstr ""
 
@@ -179,11 +202,19 @@ msgid "Primary Menu"
 msgstr ""
 
 #: single.php:22
-msgid "Next post"
+msgid "Next"
 msgstr ""
 
-#: single.php:24
-msgid "Previous post"
+#: single.php:23
+msgid "Next post:"
+msgstr ""
+
+#: single.php:25
+msgid "Previous"
+msgstr ""
+
+#: single.php:26
+msgid "Previous post:"
 msgstr ""
 
 #: template-parts/content-none.php:17
@@ -204,6 +235,11 @@ msgstr ""
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
+msgstr ""
+
+#: template-parts/content-nova_menu_item.php:59
+#: template-parts/content-nova_menu_item.php:91
+msgid "Menu Labels:"
 msgstr ""
 
 #. Theme Name of the plugin/theme
@@ -232,6 +268,10 @@ msgstr ""
 msgid "Featured"
 msgstr ""
 
+#. Template Name of the plugin/theme
+msgid "Food Menu"
+msgstr ""
+
 #: comment.php:25
 msgctxt "%1%s is for comment date"
 msgid "%1$s"
@@ -254,17 +294,22 @@ msgctxt "nav menu location"
 msgid "Social"
 msgstr ""
 
-#: functions.php:123
+#: functions.php:53
+msgctxt "nav menu location"
+msgid "Portfolio"
+msgstr ""
+
+#: functions.php:127
 msgctxt "sidebar"
 msgid "Primary"
 msgstr ""
 
-#: functions.php:134
+#: functions.php:138
 msgctxt "sidebar"
 msgid "Header"
 msgstr ""
 
-#: functions.php:160
+#: functions.php:164
 #. Translators: If there are characters in your language that are not
 #. * supported by Roboto, translate this to 'off'. Do not translate
 #. * into your own language.
@@ -272,42 +317,47 @@ msgctxt "Roboto font: on or off"
 msgid "on"
 msgstr ""
 
-#: functions.php:323
+#: functions.php:327
 msgctxt "comment form placeholder for name"
 msgid "Name"
 msgstr ""
 
-#: functions.php:336
+#: functions.php:340
 msgctxt "comment form placeholder for email"
 msgid "Email"
 msgstr ""
 
-#: functions.php:349
+#: functions.php:353
 msgctxt "comment form placeholder for website"
 msgid "Website"
 msgstr ""
 
-#: functions.php:428
+#: functions.php:432
 msgctxt "mark after excerpt"
 msgid "&hellip;"
 msgstr ""
 
-#: functions.php:445
+#: functions.php:449
 msgctxt "comment form placeholder for comment field. It is noun."
 msgid "Comment"
 msgstr ""
 
-#: inc/template-tags.php:20
+#: inc/template-tags.php:23 inc/template-tags.php:32
 msgctxt "Used before publish date."
 msgid "Posted on"
 msgstr ""
 
-#: inc/template-tags.php:28
+#: inc/template-tags.php:25
+msgctxt "%s = human-readable time difference"
+msgid "%s ago"
+msgstr ""
+
+#: inc/template-tags.php:40
 msgctxt "Used before post author name."
 msgid "Author"
 msgstr ""
 
-#: inc/template-tags.php:65
+#: inc/template-tags.php:79
 #. Translators: Separates tags, categories, etc. when displaying a post.
 msgctxt "taxonomy terms separator"
 msgid ", "
@@ -333,12 +383,12 @@ msgctxt "Sidebar aria label"
 msgid "Header Sidebar"
 msgstr ""
 
-#: single.php:23
+#: single.php:24
 msgctxt "dots after next post link"
 msgid "&hellip;"
 msgstr ""
 
-#: single.php:25
+#: single.php:27
 msgctxt "dots after previous post link"
 msgid "&hellip;"
 msgstr ""
