@@ -23,8 +23,9 @@ if ( has_nav_menu( 'primary' ) || is_active_sidebar( 'primary' ) ) : ?>
 					<?php
 						// Primary navigation menu.
 						wp_nav_menu( array(
-							'menu_class'     => 'nav-menu',
 							'theme_location' => 'primary',
+							'menu_id'        => 'menu-primary-items',
+							'menu_class'     => 'menu-items',
 							'depth'          => 2,
 						) );
 					?>
