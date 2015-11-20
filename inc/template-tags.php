@@ -19,7 +19,7 @@ function sonsa_posted_on( $human_diff = false ) {
 	if ( $human_diff ) {
 		
 		// Set up entry date.
-		printf( '<span class="entry-date"><span class="screen-reader-text">%1$s </span><time class="entry-date-human" datetime="%2$s"' . hybrid_get_attr( 'entry-published' ) . '>%3$s</time></span>',
+		printf( '<span class="entry-date"><span class="screen-reader-text">%1$s </span><time class="entry-date-human" datetime="%2$s" ' . hybrid_get_attr( 'entry-published' ) . '>%3$s</time></span>',
 			esc_html_x( 'Posted on', 'Used before publish date.', 'sonsa' ),
 			esc_attr( get_the_date( 'c' ) ),
 			sprintf( esc_html_x( '%s ago', '%s = human-readable time difference', 'sonsa' ), human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) )
@@ -28,7 +28,7 @@ function sonsa_posted_on( $human_diff = false ) {
 	} else {
 
 		// Set up entry date.
-		printf( '<span class="entry-date"><span class="screen-reader-text">%1$s </span><a href="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s"' . hybrid_get_attr( 'entry-published' ) . '>%4$s</time></a></span>',
+		printf( '<span class="entry-date"><span class="screen-reader-text">%1$s </span><a href="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" ' . hybrid_get_attr( 'entry-published' ) . '>%4$s</time></a></span>',
 			esc_html_x( 'Posted on', 'Used before publish date.', 'sonsa' ),
 			esc_url( get_permalink() ),
 			esc_attr( get_the_date( 'c' ) ),
