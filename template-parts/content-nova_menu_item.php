@@ -21,14 +21,26 @@ $menu_item_price = get_post_meta( get_the_ID(), 'nova_price', true );
 		<div class="inner-wrap">
 	
 			<header class="entry-header">
-				<?php the_title( '<h1 class="entry-title" ' . hybrid_get_attr( 'entry-title' ) . '>', '</h1>' ); ?>
-				<?php get_template_part( 'entry', 'meta' ); // Loads the entry-meta.php template. ?>
+				<?php //the_title( '<h1 class="entry-title" ' . hybrid_get_attr( 'entry-title' ) . '>', '</h1>' ); ?>
+				
+				<h1 class="entry-title">
+					<?php
+						// the title.
+						the_title();
+						
+						// Menu item price.
+						if ( isset( $menu_item_price ) && ! empty( $menu_item_price ) ) :
+							echo '<span class="menu-item-price">' . esc_attr( $menu_item_price ) . '</span>';
+						endif;
+					?>
+				</h1>
+				
 			</header><!-- .entry-header -->
 		
 			<div class="entry-content" <?php hybrid_attr( 'entry-content' ); ?>>
 			
 				<?php the_content(); ?>
-
+				
 				<?php
 					wp_link_pages( array(
 						'before'    => '<div class="page-links">' . esc_html__( 'Pages:', 'sonsa' ),
@@ -44,8 +56,7 @@ $menu_item_price = get_post_meta( get_the_ID(), 'nova_price', true );
 		
 		<footer class="entry-footer">
 			<div class="entry-footer-wrap">
-				<?php sonsa_post_terms( array( 'taxonomy' => 'jetpack-portfolio-type', 'before' => '<div class="entry-categories"><span class="terms-title categories-title"><span class="terms-title-wrap screen-reader-text">' . esc_html__( 'Categories', 'sonsa' ) . '</span></span>', 'after' => '</div>' ) ); ?>
-				<?php sonsa_post_terms( array( 'taxonomy' => 'jetpack-portfolio-tag', 'before' => '<div class="entry-tags"><span class="terms-title tags-title"><span class="terms-title-wrap screen-reader-text">' . esc_html__( 'Tags', 'sonsa' ) . '</span></span>', 'after' => '</div>' ) ); ?>
+				<?php sonsa_post_terms( array( 'taxonomy' => 'nova_menu_item_label', 'sep' => ' ', 'before' => '<div class="entry-menu-label"><span class="terms-menu-item menu-label-title"><span class="terms-title-wrap screen-reader-text">' . esc_html__( 'Menu Labels:', 'sonsa' ) . '</span></span>', 'after' => '</div>' ) ); ?>
 			</div><!-- .entry-footer-wrap -->
 		</footer><!-- .entry-footer -->
 		
@@ -71,7 +82,7 @@ $menu_item_price = get_post_meta( get_the_ID(), 'nova_price', true );
 							echo '<span class="menu-item-price">' . esc_attr( $menu_item_price ) . '</span>';
 						endif;
 					?>
-			</h2>
+				</h2>
 			
 			</header><!-- .menu-entry-header -->
 		
