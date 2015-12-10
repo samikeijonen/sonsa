@@ -54,8 +54,6 @@
 					<?php sonsa_posted_on( $human_diff = true ); ?>
 				</header><!-- .entry-header-info -->
 				
-				<?php echo sonsa_post_format(); ?>
-				
 			</div><!-- .entry-bg-image -->
 			
 		</a>
