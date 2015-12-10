@@ -137,7 +137,7 @@ function sonsa_widgets_init() {
 		'id'            => 'header',
 		'name'          => esc_html_x( 'Header', 'sidebar', 'sonsa' ),
 		'description'   => esc_html__( 'A sidebar located in the header of the site. For optimal layout it is recommended to use only one short widget.', 'sonsa' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'before_widget' => '<section class="widget %1$s %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h3 class="widget-title">',
 		'after_title'   => '</h3>'
@@ -214,8 +214,6 @@ function sonsa_scripts() {
 	wp_localize_script( 'sonsa-settings', 'screenReaderText', array(
 		'expand'         => '<span class="screen-reader-text">' . esc_html__( 'Expand sidebar', 'sonsa' ) . '</span>',
 		'collapse'       => '<span class="screen-reader-text">' . esc_html__( 'Collapse sidebar', 'sonsa' ) . '</span>',
-		'expandHeader'   => '<span class="screen-reader-text">' . esc_html__( 'Expand header and social menu', 'sonsa' ) . '</span>',
-		'collapseHeader' => '<span class="screen-reader-text">' . esc_html__( 'Collapse header and social menu', 'sonsa' ) . '</span>',
 	) );
 	
 	// Enqueue skip link script.
@@ -516,6 +514,21 @@ add_action( 'wp_print_footer_scripts', 'sonsa_mejs_add_container_class' );
  */
 function sonsa_comment_callback( $comment, $args, $depth ) {
 	include( locate_template( 'comment.php') );
+}
+
+/**
+ * Function for grabbing a WP nav menu name based on theme location.
+ *
+ * @since  1.0.0
+ * @access public
+ * @param  string  $location
+ * @return string
+ */
+function sonsa_get_menu_name( $location ) {
+	
+	$locations = get_nav_menu_locations();
+	return isset( $locations[ $location ] ) ? wp_get_nav_menu_object( $locations[ $location ] )->name : '';
+	
 }
 
 /**
