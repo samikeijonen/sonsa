@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Sonsa 1.0.0\n"
 "Report-Msgid-Bugs-To: https://foxland.fi/contact/\n"
-"POT-Creation-Date: 2015-11-20 10:18+0200\n"
-"PO-Revision-Date: 2015-11-20 10:21+0200\n"
+"POT-Creation-Date: 2015-12-10 15:13+0200\n"
+"PO-Revision-Date: 2015-12-10 15:13+0200\n"
 "Last-Translator: Sami Keijonen <sami.keijonen@foxnet.fi>\n"
 "Language-Team: \n"
 "Language: fi\n"
@@ -124,19 +124,11 @@ msgstr "Avaa sivupalkki"
 msgid "Collapse sidebar"
 msgstr "Sulje sivupalkki"
 
-#: functions.php:217 header.php:55 header.php:61
-msgid "Expand header and social menu"
-msgstr "Avaa sivupalkki ja somevalikko"
-
-#: functions.php:218
-msgid "Collapse header and social menu"
-msgstr "Sulje sivupalkki ja somevalikko"
-
 #: header.php:28
 msgid "Skip to content"
 msgstr "Hyppää sisältöön"
 
-#: header.php:82
+#: header.php:78
 msgid "Site is loading"
 msgstr "Sivu latautuu"
 
@@ -189,7 +181,8 @@ msgstr "Portfolio-valikko"
 msgid "All"
 msgstr "Kaikki"
 
-#: menu-social.php:11 menu-social.php:12
+#: menu-social-narrow.php:11 menu-social-narrow.php:12 menu-social.php:11
+#: menu-social.php:12
 msgid "Social Menu"
 msgstr "Somevalikko"
 
@@ -208,7 +201,7 @@ msgstr "Sivut:"
 msgid "Search Results for: %s"
 msgstr "Hakutulokset haulle: %s"
 
-#: sidebar-primary.php:20 sidebar-primary.php:21
+#: sidebar-primary.php:49 sidebar-primary.php:50
 msgid "Primary Menu"
 msgstr "Päävalikko"
 
@@ -335,27 +328,27 @@ msgctxt "Roboto font: on or off"
 msgid "on"
 msgstr "on"
 
-#: functions.php:327
+#: functions.php:325
 msgctxt "comment form placeholder for name"
 msgid "Name"
 msgstr "Nimi"
 
-#: functions.php:340
+#: functions.php:338
 msgctxt "comment form placeholder for email"
 msgid "Email"
 msgstr "Sähköposti"
 
-#: functions.php:353
+#: functions.php:351
 msgctxt "comment form placeholder for website"
 msgid "Website"
 msgstr "Kotisivu"
 
-#: functions.php:432
+#: functions.php:430
 msgctxt "mark after excerpt"
 msgid "&hellip;"
 msgstr " &hellip;"
 
-#: functions.php:449
+#: functions.php:447
 msgctxt "comment form placeholder for comment field. It is noun."
 msgid "Comment"
 msgstr "Kommentti"
@@ -396,7 +389,7 @@ msgctxt "submit button"
 msgid "Search"
 msgstr "Hae"
 
-#: sidebar-header.php:12
+#: sidebar-header.php:12 sidebar-primary.php:27
 msgctxt "Sidebar aria label"
 msgid "Header Sidebar"
 msgstr "Vasemmalla olevat vimpaimet"
@@ -410,28 +403,3 @@ msgstr " &hellip;"
 msgctxt "dots after previous post link"
 msgid "&hellip;"
 msgstr " &hellip;"
-
-#~ msgid "Posted in %1$s"
-#~ msgstr "Artikkeli kategoriassa %1$s"
-
-#~ msgid "Tagged %1$s"
-#~ msgstr "Avainsanat %1$s"
-
-#~ msgid "Leave a comment"
-#~ msgstr "Jätä kommentti"
-
-#~ msgid "1 Comment"
-#~ msgstr "Yksi kommentti"
-
-#~ msgid "% Comments"
-#~ msgstr "% Kommenttia"
-
-#~ msgid "<span class=\"screen-reader-text\">Posted in</span> %s"
-#~ msgstr "<span class=\"screen-reader-text\">Kategoriat</span> %s"
-
-#~ msgid "<span class=\"screen-reader-text\">Tagged</span> %s"
-#~ msgstr "<span class=\"screen-reader-text\">Avainsanat</span> %s"
-
-#, fuzzy
-#~ msgid "http://underscores.me/"
-#~ msgstr "http://underscores.me/"
