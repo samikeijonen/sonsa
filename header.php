@@ -51,15 +51,11 @@
 					<?php endif; ?>
 					
 					<?php if ( is_active_sidebar( 'header' ) || has_nav_menu( 'social' ) ) : ?>
-							
-						<button id="header-social-button" class="header-social-button header-social-toggle button-toggle"><span class="screen-reader-text"><?php esc_html_e( 'Expand header and social menu', 'sonsa' ); ?></span></button>
-						
+										
 						<div id="header-social-wrap" class="header-social-wrap">
 						
 							<div class="wrap">
-							
-							<button id="header-social-close" class="header-social-close header-social-toggle button-toggle"><span class="screen-reader-text"><?php esc_html_e( 'Expand header and social menu', 'sonsa' ); ?></span></button>
-						
+													
 								<?php get_sidebar( 'header' ); // Loads the sidebar-header.php template. ?>
 								<?php get_template_part( 'menu', 'social' ); // Loads the menu-social.php template. ?>
 							
