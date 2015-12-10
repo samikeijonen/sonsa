@@ -96,7 +96,7 @@ grunt.initConfig({
 	
 	postcss: {
 		options: {
-		map: true, // inline sourcemaps
+		map: false, // inline sourcemaps
 
 		processors: [
 			require('autoprefixer')({browsers: 'last 3 versions'}), // add vendor prefixes
