@@ -6,6 +6,11 @@
  *
  * @package Sonsa
  */
+ 
+/**
+ * The current version of the theme.
+ */
+define( 'SONSA_VERSION', '1.0.0' );
 
 if ( ! function_exists( 'sonsa_setup' ) ) :
 /**
@@ -580,3 +585,11 @@ require get_template_directory() . '/inc/class-chat.php';
  * Load archive filters file.
  */
 require get_template_directory() . '/inc/archive-filters.php';
+
+/**
+ * Add theme settings for license.
+ */
+function sonsa_theme_updater() {
+	require_once( get_template_directory() . '/theme-updater/theme-updater.php' );
+}
+add_action( 'after_setup_theme', 'sonsa_theme_updater' );
