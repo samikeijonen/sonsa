@@ -1084,7 +1084,11 @@ a:active {
 .menu-social ul li {
 	border: 1px solid #333;
 	display: inline-block;
+	margin-right: 4px;
 	margin-bottom: 4px;
+}
+.menu-social ul li:last-child {
+	margin-right: 0;
 }
 
 .menu-social li a::before {
