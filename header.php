@@ -32,7 +32,7 @@
 			<?php if ( has_nav_menu( 'primary' ) || is_active_sidebar( 'primary' ) ) : ?>
 				<button id="sidebar-nav-toggle" class="sidebar-nav-toggle sidebar-nav-open button-toggle"><span class="screen-reader-text"><?php esc_html_e( 'Expand sidebar', 'sonsa' ); ?></span></button>
 			<?php endif; ?>
-		
+			
 			<div class="wrap">
 			
 				<?php if ( function_exists( 'jetpack_the_site_logo' ) ) jetpack_the_site_logo(); ?>
