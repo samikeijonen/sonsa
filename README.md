@@ -1,4 +1,4 @@
-# Munsa
+# Sonsa
 
 Sonsa is a modern and clean photo centric blog theme. It's perfect for sharing your stories with images, video and audio.
 
