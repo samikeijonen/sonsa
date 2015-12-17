@@ -7,7 +7,7 @@
  * @package Sonsa
  */
 
-if ( has_nav_menu( 'primary' ) || is_active_sidebar( 'primary' ) || is_active_sidebar( 'header' ) || has_nav_menu( 'social' ) ) : ?>
+if ( has_nav_menu( 'primary' ) || is_active_sidebar( 'sidebar-1' ) || is_active_sidebar( 'header' ) || has_nav_menu( 'social' ) ) : ?>
 
 	<div id="secondary" class="secondary">
 	
@@ -65,10 +65,10 @@ if ( has_nav_menu( 'primary' ) || is_active_sidebar( 'primary' ) || is_active_si
 			
 			<?php endif; ?>
 
-			<?php if ( is_active_sidebar( 'primary' ) ) : ?>
+			<?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
 		
 				<aside id="sidebar-primary" class="sidebar-primary sidebar" role="complementary" <?php hybrid_attr( 'sidebar', 'primary' ); ?>>
-					<?php dynamic_sidebar( 'primary' ); ?>
+					<?php dynamic_sidebar( 'sidebar-1' ); ?>
 				</aside><!-- .widget-area -->
 			
 			<?php endif; ?>

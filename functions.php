@@ -118,7 +118,7 @@ function sonsa_widgets_init() {
 	
 	// Primary widget arguments.
 	$sidebar_primary_args = array(
-		'id'            => 'primary',
+		'id'            => 'sidebar-1',
 		'name'          => esc_html_x( 'Primary', 'sidebar', 'sonsa' ),
 		'description'   => esc_html__( 'The main sidebar. It is displayed in the off-canvas menu.', 'sonsa' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
