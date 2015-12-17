@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Sonsa 1.0.0\n"
 "Report-Msgid-Bugs-To: https://foxland.fi/contact/\n"
-"POT-Creation-Date: 2015-12-11 08:24:50+00:00\n"
+"POT-Creation-Date: 2015-12-17 11:38:21+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -81,7 +81,7 @@ msgstr ""
 #: template-parts/content-audio.php:30 template-parts/content-chat.php:33
 #: template-parts/content-jetpack-portfolio.php:33
 #: template-parts/content-link.php:33
-#: template-parts/content-nova_menu_item.php:48
+#: template-parts/content-nova_menu_item.php:47
 #: template-parts/content-page.php:32 template-parts/content-quote.php:33
 #: template-parts/content-status.php:33 template-parts/content-video.php:30
 #: template-parts/content.php:33
@@ -100,21 +100,21 @@ msgstr ""
 msgid "Theme: %1$s by %2$s."
 msgstr ""
 
-#: functions.php:133
+#: functions.php:122
 msgid "The main sidebar. It is displayed in the off-canvas menu."
 msgstr ""
 
-#: functions.php:144
+#: functions.php:133
 msgid ""
 "A sidebar located in the header of the site. For optimal layout it is "
 "recommended to use only one short widget."
 msgstr ""
 
-#: functions.php:220 header.php:33
+#: functions.php:209 header.php:33
 msgid "Expand sidebar"
 msgstr ""
 
-#: functions.php:221 sidebar-primary.php:16
+#: functions.php:210 sidebar-primary.php:16
 msgid "Collapse sidebar"
 msgstr ""
 
@@ -179,7 +179,7 @@ msgstr ""
 #: template-parts/content-audio.php:28 template-parts/content-chat.php:31
 #: template-parts/content-jetpack-portfolio.php:31
 #: template-parts/content-link.php:31
-#: template-parts/content-nova_menu_item.php:46
+#: template-parts/content-nova_menu_item.php:45
 #: template-parts/content-page.php:30 template-parts/content-quote.php:31
 #: template-parts/content-status.php:31 template-parts/content-video.php:28
 #: template-parts/content.php:31
@@ -230,8 +230,8 @@ msgid ""
 "searching can help."
 msgstr ""
 
-#: template-parts/content-nova_menu_item.php:59
-#: template-parts/content-nova_menu_item.php:91
+#: template-parts/content-nova_menu_item.php:58
+#: template-parts/content-nova_menu_item.php:90
 msgid "Menu Labels:"
 msgstr ""
 
@@ -354,11 +354,6 @@ msgstr ""
 msgid "Food Menu"
 msgstr ""
 
-#: comment.php:25
-msgctxt "%1%s is for comment date"
-msgid "%1$s"
-msgstr ""
-
 #: comments.php:31
 msgctxt "comments title"
 msgid "One comment"
@@ -381,17 +376,17 @@ msgctxt "nav menu location"
 msgid "Portfolio"
 msgstr ""
 
-#: functions.php:132
+#: functions.php:121
 msgctxt "sidebar"
 msgid "Primary"
 msgstr ""
 
-#: functions.php:143
+#: functions.php:132
 msgctxt "sidebar"
 msgid "Header"
 msgstr ""
 
-#: functions.php:169
+#: functions.php:158
 #. Translators: If there are characters in your language that are not
 #. * supported by Roboto, translate this to 'off'. Do not translate
 #. * into your own language.
@@ -399,27 +394,27 @@ msgctxt "Roboto font: on or off"
 msgid "on"
 msgstr ""
 
-#: functions.php:330
+#: functions.php:319
 msgctxt "comment form placeholder for name"
 msgid "Name"
 msgstr ""
 
-#: functions.php:343
+#: functions.php:332
 msgctxt "comment form placeholder for email"
 msgid "Email"
 msgstr ""
 
-#: functions.php:356
+#: functions.php:345
 msgctxt "comment form placeholder for website"
 msgid "Website"
 msgstr ""
 
-#: functions.php:435
+#: functions.php:424
 msgctxt "mark after excerpt"
 msgid "&hellip;"
 msgstr ""
 
-#: functions.php:452
+#: functions.php:441
 msgctxt "comment form placeholder for comment field. It is noun."
 msgid "Comment"
 msgstr ""
