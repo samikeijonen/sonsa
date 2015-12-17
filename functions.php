@@ -50,7 +50,8 @@ function sonsa_setup() {
 	
 	// Add custom image sizes.
 	add_image_size( 'sonsa-site-logo', 192, 192, true );
-
+	add_image_size( 'sonsa-thumbnail', 150, 150, true );
+	
 	// This theme uses wp_nav_menu() in three locations.
 	register_nav_menus( array(
 		'primary'   => esc_html_x( 'Primary', 'nav menu location', 'sonsa' ),
@@ -194,8 +195,19 @@ function sonsa_scripts() {
 	// Enqueue active theme styles.
 	wp_enqueue_style( 'sonsa-style', get_stylesheet_uri() );
 	
+	// Load the Internet Explorer 9 specific stylesheet.
+	wp_enqueue_style( 'sonsa-ie9', trailingslashit( get_template_directory_uri() ) . 'css/ie9.css', array( 'sonsa-style' ), '20150815' );
+	wp_style_add_data( 'sonsa-ie9', 'conditional', 'IE 9' );
+	
 	// Enqueue perfect scrollbar script.
 	wp_enqueue_script( 'sonsa-perfect-scrollbar', trailingslashit( get_template_directory_uri() ). 'js/perfect-scrollbar.js', array(), '20150815', true );
+	
+	// Load the matchMedia polyfill.
+	wp_enqueue_script( 'sonsa-matchmedia', trailingslashit( get_template_directory_uri() ) . 'js/matchMedia.js', array(), '20150815', true );
+	wp_script_add_data( 'sonsa-matchmedia', 'conditional', 'IE 9' );
+	
+	wp_enqueue_script( 'sonsa-matchmedia-addlistener', trailingslashit( get_template_directory_uri() ) . 'js/matchMedia.addListener.js', array( 'sonsa-matchmedia' ), '20150815', true );
+	wp_script_add_data( 'sonsa-matchmedia-addlistener', 'conditional', 'IE 9' );
 	
 	// Enqueue enquire script.
 	wp_enqueue_script( 'sonsa-enquire', trailingslashit( get_template_directory_uri() ). 'js/enquire.js', array(), '20150815', true );
@@ -262,7 +274,7 @@ function sonsa_post_nav_background() {
 	}
 	
 	if ( $previous &&  has_post_thumbnail( $previous->ID ) ) {
-		$prevthumb = wp_get_attachment_image_src( get_post_thumbnail_id( $previous->ID ), 'thumbnail' );
+		$prevthumb = wp_get_attachment_image_src( get_post_thumbnail_id( $previous->ID ), 'sonsa-thumbnail' );
 		$css .= '
 			@media screen and (min-width: 300px) {
 				.post-navigation .nav-previous { background-image: url(' . esc_url( $prevthumb[0] ) . '); }
@@ -275,7 +287,7 @@ function sonsa_post_nav_background() {
 	}
 	
 	if ( $next && has_post_thumbnail( $next->ID ) ) {
-		$nextthumb = wp_get_attachment_image_src( get_post_thumbnail_id( $next->ID ), 'thumbnail' );
+		$nextthumb = wp_get_attachment_image_src( get_post_thumbnail_id( $next->ID ), 'sonsa-thumbnail' );
 		$css .= '
 			@media screen and (min-width: 300px) {
 				.post-navigation .nav-next { background-image: url(' . esc_url( $nextthumb[0] ) . '); }
