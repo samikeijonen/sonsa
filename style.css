@@ -35,15 +35,16 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 7.  Alignments
 8.  Clearings
 9.  Widgets
-10. Content
-      10.1 Posts and pages
-      10.2 Comments
-11. Infinite scroll
-12. Media
+10. Layout
+11. Content
+      11.1 Posts and pages
+      11.2 Comments
+12. Infinite scroll
+13. Media
       12.1 Captions
       12.2 Galleries
-13. Animations
-14. Plugins
+14. Animations
+15. Plugins
 --------------------------------------------------------------*/
 
 
@@ -901,6 +902,7 @@ a:active {
 	color: #606060;
 }
 
+
 a:focus,
 .secondary.open .sidebar-nav-close:focus {
 	outline: thin dotted;
@@ -1227,6 +1229,7 @@ a:active {
 .menu-social li a:hover,
 .menu-social li a:focus ,
 .menu-social li a:active  {
+	color: #ffcc00;
 	text-decoration: none;
 }
 .menu-social li a[href*="digg.com"]:hover::before,
@@ -1604,7 +1607,7 @@ a:active {
 
 
 /*--------------------------------------------------------------
-# Layout
+10. Layout
 --------------------------------------------------------------*/
 
 .site {
@@ -1646,9 +1649,11 @@ a:active {
 .entry-footer-wrap,
 .comments-area > .comments-wrap,
 .page-content,
-.no-js body:not(.single) .menu-items {
+.no-js body:not(.single) .menu-items,
+.edit-link-single-p {
 	max-width: 640px;
-	margin: 0 auto;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .entry-summary {
@@ -1842,6 +1847,7 @@ body:not(.single) .entry.format-status,
 body:not(.single) .entry.type-post.format-status:not(.has-post-thumbnail) {
 	background-color: rgba(42,26,42,0.90);
 }
+
 body:not(.single) .entry.format-aside,
 body:not(.single) .entry.type-post.format-aside:not(.has-post-thumbnail) {
 	background-color: rgba(42,26,26,0.90);
@@ -2203,6 +2209,7 @@ body:not(.single) .entry.format-chat a {
 	left: 42px;
 	top: 42px;
 	padding-right: calc(5.25% + 68px);
+	z-index: 100;
 }
 .entry-header-info,
 .entry-header-info .entry-title,
@@ -2238,29 +2245,43 @@ body:not(.single) .entry.format-chat a {
 .page-template-featured .entry-inner {
 	background-color: rgba(42,34,26,0.90);
 	color: #fff;
-	opacity: 0;
 }
-.page-template-featured .entry-title {
+.page-template-featured .entry-title,
+.page-template-featured .entry-content > * {
 	color: #fff;
 }
-
-.entry:hover .entry-header-info .entry-title,
-.entry:focus .entry-header-info .entry-title,
-.entry:active .entry-header-info .entry-title,
-.entry a:focus .entry-header-info .entry-title,
-.entry a:active .entry-header-info .entry-title,
-.entry:hover .entry-header-info .entry-date,
-.entry:focus .entry-header-info .entry-date,
-.entry:active .entry-header-info .entry-date,
-.entry a:focus .entry-header-info .entry-date,
-.entry a:active .entry-header-info .entry-date,
-.page-template-featured .entry:hover .entry-inner,
-.page-template-featured .entry:focus .entry-inner,
-.page-template-featured .entry.focus .entry-inner,
-.page-template-featured .entry:active .entry-inner {
-	opacity: 1;
+.page-template-featured .entry-content pre {
+	background-color: #000;
+}
+.page-template-featured .comments-area {
+	margin-top: 48px;
 }
 
+@media screen and (min-width: 960px) {
+	
+	.page-template-featured .entry-inner {
+		opacity: 0;
+	}
+
+	.entry:hover .entry-header-info .entry-title,
+	.entry:focus .entry-header-info .entry-title,
+	.entry:active .entry-header-info .entry-title,
+	.entry a:focus .entry-header-info .entry-title,
+	.entry a:active .entry-header-info .entry-title,
+	.entry:hover .entry-header-info .entry-date,
+	.entry:focus .entry-header-info .entry-date,
+	.entry:active .entry-header-info .entry-date,
+	.entry a:focus .entry-header-info .entry-date,
+	.entry a:active .entry-header-info .entry-date,
+	.page-template-featured .entry:hover .entry-inner,
+	.page-template-featured .entry:focus .entry-inner,
+	.page-template-featured .entry.focus .entry-inner,
+	.page-template-featured .entry:active .entry-inner {
+		opacity: 1;
+	}
+
+}
+	
 .post-thumbnail > img {
 	display: block;
 	margin-left: auto;
@@ -2273,7 +2294,11 @@ body:not(.single) .entry.format-chat a {
 	position: absolute;
 	right: 36px;
 	top: 36px;
-	text-shadow: 1px 2px 1px rgba(0,0,0,0.35);	
+	text-shadow: 1px 2px 1px rgba(0,0,0,0.35);
+	z-index: 100;
+}
+.sonsa-post-format.genericon-chat {
+	color: #f2f2f2;
 }
 
 .entry-header,
@@ -2301,7 +2326,7 @@ body:not(.single) .entry.format-chat a {
 	}
 
 }
-
+	
 .entry-header,
 .page-header,
 .entry-meta {
@@ -2335,6 +2360,12 @@ body:not(.single) .entry.format-chat a {
 .secondary a:visited  {
 	color: #777;
 	text-decoration: none;
+}
+
+.entry-meta a:hover,
+.entry-meta a:focus,
+.entry-meta a:active {
+	color: #000;
 }
 
 .byline,
@@ -2393,6 +2424,11 @@ body:not(.single) .entry.format-chat a {
 }
 .entry-terms a {
 	text-decoration: none;
+}
+.entry-terms a:hover,
+.entry-terms a:focus,
+.entry-terms a:active {
+	color: #000;
 }
 
 @media screen and (min-width: 77.5em) {
@@ -2534,7 +2570,7 @@ ol.comment-list ol.children ul {
 	margin-bottom: 0;
 }
 ol.comment-list ol.children {
-	margin-left: 1%;
+	margin-left: 3%;
 }
 
 /* === Individual comments */
