@@ -21,7 +21,6 @@ $menu_item_price = get_post_meta( get_the_ID(), 'nova_price', true );
 		<div class="inner-wrap">
 	
 			<header class="entry-header">
-				<?php //the_title( '<h1 class="entry-title" ' . hybrid_get_attr( 'entry-title' ) . '>', '</h1>' ); ?>
 				
 				<h1 class="entry-title">
 					<?php
@@ -30,7 +29,7 @@ $menu_item_price = get_post_meta( get_the_ID(), 'nova_price', true );
 						
 						// Menu item price.
 						if ( isset( $menu_item_price ) && ! empty( $menu_item_price ) ) :
-							echo '<span class="menu-item-price">' . esc_attr( $menu_item_price ) . '</span>';
+							echo '<span class="menu-item-price">' . esc_html( $menu_item_price ) . '</span>';
 						endif;
 					?>
 				</h1>
@@ -79,7 +78,7 @@ $menu_item_price = get_post_meta( get_the_ID(), 'nova_price', true );
 						
 						// Menu item price.
 						if ( isset( $menu_item_price ) && ! empty( $menu_item_price ) ) :
-							echo '<span class="menu-item-price">' . esc_attr( $menu_item_price ) . '</span>';
+							echo '<span class="menu-item-price">' . esc_html( $menu_item_price ) . '</span>';
 						endif;
 					?>
 				</h2>
