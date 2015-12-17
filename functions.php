@@ -86,17 +86,6 @@ function sonsa_setup() {
 		'video',
 	) );
 	
-	// Add theme support for site logo.
-	add_theme_support( 'site-logo', array(
-		'size' => 'sonsa-site-logo',
-	) );
-	
-	// Add theme support for responsive videos.
-	add_theme_support( 'jetpack-responsive-videos' );
-	
-	// Add theme support for Jetpack food menus.
-	add_theme_support( 'nova_menu_item' );
-	
 	/*
 	 * This theme styles the visual editor to resemble the theme style,
 	 * specifically font, colors, icons, and column width.
@@ -497,9 +486,9 @@ function sonsa_mejs_add_container_class() {
 	(function() {
 		var settings = window._wpmejsSettings || {};
 		settings.features = settings.features || mejs.MepDefaults.features;
-		settings.features.push( 'exampleclass' );
+		settings.features.push( 'SonsaClass' );
 
-		MediaElementPlayer.prototype.buildexampleclass = function( player ) {
+		MediaElementPlayer.prototype.buildSonsaClass = function( player ) {
 			player.container.addClass( 'sonsa-mejs-container' );
 		};
 	})();
