@@ -16,7 +16,7 @@ function sonsa_customize_register( $wp_customize ) {
 	$wp_customize->add_panel(
 		'theme',
 		array(
-			'title'    => esc_html__( 'Theme Settings', 'sonsa' ),
+			'title'    => esc_html__( 'Theme Options', 'sonsa' ),
 			'priority' => 10
 		)
 	);
