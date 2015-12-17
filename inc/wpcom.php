@@ -19,11 +19,11 @@ function sonsa_wpcom_setup() {
 	// Set theme colors for third party services.
 	if ( ! isset( $themecolors ) ) {
 		$themecolors = array(
-			'bg'     => '',
-			'border' => '',
-			'text'   => '',
-			'link'   => '',
-			'url'    => '',
+			'bg'     => 'ffffff',
+			'border' => 'e5e5e5',
+			'text'   => '444444',
+			'link'   => '000000',
+			'url'    => '000000',
 		);
 	}
 }
