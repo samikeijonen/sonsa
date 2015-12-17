@@ -35,6 +35,18 @@
 					) );
 				?>
 				
+				<?php
+					edit_post_link(
+						sprintf(
+						/* translators: %s: Name of current post */
+						esc_html__( 'Edit %s', 'sonsa' ),
+						the_title( '<span class="screen-reader-text">"', '"</span>', false )
+						),
+						'<p class="edit-link-p edit-link-portfolio-p"><span class="edit-link">',
+						'</span></p>'
+					);
+				?>
+				
 			</div><!-- entry-content -->
 			
 		</div><!-- .inner-wrap -->
@@ -50,7 +62,7 @@
 	
 		<?php $sonsa_bg = sonsa_post_background(); // Get featured image as post background image. ?>
 			
-		<a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
+		<a href="<?php the_permalink(); ?>" rel="bookmark">
 			
 			<div class="entry-bg-image"<?php if ( false !== $sonsa_bg ) echo ' style="background-image:url(' . esc_url( $sonsa_bg ) . ');"' ?>>
 				

@@ -45,7 +45,7 @@
 	
 		<?php echo sonsa_post_format(); ?>
 		
-		<a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
+		<a href="<?php the_permalink(); ?>" rel="bookmark">
 		
 			<header class="entry-header-info">
 				<?php sonsa_posted_on( $human_diff = true ); ?>

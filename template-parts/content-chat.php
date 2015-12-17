@@ -45,20 +45,20 @@
 	
 		<div class="inner-wrap">
 		
-		<a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
+			<a href="<?php the_permalink(); ?>" rel="bookmark">
 			
-			<header class="entry-header-info">
-				<?php the_title( '<h2 class="entry-title" ' . hybrid_get_attr( 'entry-title' ) . '>', '</h2>' ); ?>
-				<?php sonsa_posted_on( $human_diff = true ); ?>
-			</header><!-- .entry-header-info -->
+				<header class="entry-header-info">
+					<?php the_title( '<h2 class="entry-title" ' . hybrid_get_attr( 'entry-title' ) . '>', '</h2>' ); ?>
+					<?php sonsa_posted_on( $human_diff = true ); ?>
+				</header><!-- .entry-header-info -->
 			
-			<div class="entry-content" <?php hybrid_attr( 'entry-content' ); ?>>
-				<?php the_content(); ?>
-			</div><!-- .entry-content -->
+				<div class="entry-content" <?php hybrid_attr( 'entry-content' ); ?>>
+					<?php the_content(); ?>
+				</div><!-- .entry-content -->
 			
-			<?php echo sonsa_post_format(); ?>
+				<?php echo sonsa_post_format(); ?>
 			
-		</a>
+			</a>
 			
 		</div><!-- .inner-wrap -->
 

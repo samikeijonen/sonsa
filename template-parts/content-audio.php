@@ -42,7 +42,7 @@
 	
 		<?php $sonsa_bg = sonsa_post_background(); // Get featured image as post background image. ?>
 			
-		<a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
+		<a href="<?php the_permalink(); ?>" rel="bookmark">
 			
 			<div class="entry-bg-image"<?php if ( false !== $sonsa_bg ) echo ' style="background-image:url(' . esc_url( $sonsa_bg ) . ');"' ?>>
 				

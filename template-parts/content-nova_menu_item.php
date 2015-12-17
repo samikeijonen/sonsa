@@ -49,6 +49,18 @@ $menu_item_price = get_post_meta( get_the_ID(), 'nova_price', true );
 					) );
 				?>
 				
+				<?php
+					edit_post_link(
+						sprintf(
+						/* translators: %s: Name of current post */
+						esc_html__( 'Edit %s', 'sonsa' ),
+						the_title( '<span class="screen-reader-text">"', '"</span>', false )
+						),
+						'<p class="edit-link-p edit-link-menu-p"><span class="edit-link">',
+						'</span></p>'
+					);
+				?>
+				
 			</div><!-- entry-content -->
 			
 		</div><!-- .inner-wrap -->
@@ -87,6 +99,19 @@ $menu_item_price = get_post_meta( get_the_ID(), 'nova_price', true );
 		
 			<div class="menu-entry-content" <?php hybrid_attr( 'entry-content' ); ?>>
 				<?php the_content(); ?>
+				
+				<?php
+					edit_post_link(
+						sprintf(
+						/* translators: %s: Name of current post */
+						esc_html__( 'Edit %s', 'sonsa' ),
+						the_title( '<span class="screen-reader-text">"', '"</span>', false )
+						),
+						'<p class="edit-link-p edit-link-menu-p"><span class="edit-link">',
+						'</span></p>'
+					);
+				?>
+				
 				<?php sonsa_post_terms( array( 'taxonomy' => 'nova_menu_item_label', 'sep' => ' ', 'before' => '<div class="entry-menu-label"><span class="terms-menu-item menu-label-title"><span class="terms-title-wrap screen-reader-text">' . esc_html__( 'Menu Labels:', 'sonsa' ) . '</span></span>', 'after' => '</div>' ) ); ?>
 			</div><!-- entry-content -->
 			
