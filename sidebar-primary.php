@@ -49,7 +49,7 @@ if ( has_nav_menu( 'primary' ) || is_active_sidebar( 'primary' ) || is_active_si
 				<nav id="site-navigation" class="main-navigation menu" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'sonsa' ); ?>" <?php hybrid_attr( 'menu', 'primary' ); ?>>
 					<h2 class="screen-reader-text"><?php esc_attr_e( 'Primary Menu', 'sonsa' ); ?></h2>
 				
-					<h3 class="widget-title sonsa-menu-title"><?php echo esc_attr( sonsa_get_menu_name( 'primary' ) ) ?></h3>
+					<h3 class="widget-title sonsa-menu-title"><?php echo esc_html( sonsa_get_menu_name( 'primary' ) ) ?></h3>
 					
 					<?php
 						// Primary navigation menu.
@@ -57,7 +57,7 @@ if ( has_nav_menu( 'primary' ) || is_active_sidebar( 'primary' ) || is_active_si
 							'theme_location' => 'primary',
 							'menu_id'        => 'menu-primary-items',
 							'menu_class'     => 'menu-items',
-							'depth'          => 2,
+							'depth'          => 4,
 						) );
 					?>
 				
