@@ -34,6 +34,6 @@
 			Ps.destroy( secondary );
 		}
 
-	});
+	}, true );
 
 } )();

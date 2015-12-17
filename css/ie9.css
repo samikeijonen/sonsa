@@ -1,0 +1,28 @@
+@media screen and (min-width: 960px) {
+
+	.site-header,
+	.site-content {
+		float: left;
+		width: 50%;
+	}
+	
+}
+
+@media screen and (min-width: 1440px) {
+
+	.post-navigation .nav-previous,
+	.post-navigation .nav-next {
+		width: 100%;
+	}
+	
+}
+
+.site-title {
+	text-align: center;
+}
+
+.site-logo {
+	display: block;
+	margin: 0 auto 0.5em;
+}
+	
