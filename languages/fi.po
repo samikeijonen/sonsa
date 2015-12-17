@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Sonsa 1.0.0\n"
 "Report-Msgid-Bugs-To: https://foxland.fi/contact/\n"
-"POT-Creation-Date: 2015-12-11 09:14+0200\n"
-"PO-Revision-Date: 2015-12-11 09:14+0200\n"
+"POT-Creation-Date: 2015-12-17 14:00+0200\n"
+"PO-Revision-Date: 2015-12-17 14:03+0200\n"
 "Last-Translator: Sami Keijonen <sami.keijonen@foxnet.fi>\n"
 "Language-Team: \n"
 "Language: fi\n"
@@ -64,11 +64,19 @@ msgstr "Uudemmat kommentit"
 msgid "Comments are closed."
 msgstr "Kommentointi on suljettu."
 
-#: entry-footer.php:12 template-parts/content-jetpack-portfolio.php:44
+#. translators: %s: Name of current post
+#: entry-footer.php:17 template-parts/content-jetpack-portfolio.php:42
+#: template-parts/content-nova_menu_item.php:56
+#: template-parts/content-nova_menu_item.php:107
+#: template-parts/content-page.php:41
+msgid "Edit %s"
+msgstr "Muokkaa %s"
+
+#: entry-footer.php:26 template-parts/content-jetpack-portfolio.php:56
 msgid "Categories"
 msgstr "Kategoriat"
 
-#: entry-footer.php:13 template-parts/content-jetpack-portfolio.php:45
+#: entry-footer.php:27 template-parts/content-jetpack-portfolio.php:57
 msgid "Tags"
 msgstr "Avainsanat"
 
@@ -84,7 +92,7 @@ msgstr "Seuraava sivu"
 #: template-parts/content-audio.php:30 template-parts/content-chat.php:33
 #: template-parts/content-jetpack-portfolio.php:33
 #: template-parts/content-link.php:33
-#: template-parts/content-nova_menu_item.php:48
+#: template-parts/content-nova_menu_item.php:47
 #: template-parts/content-page.php:32 template-parts/content-quote.php:33
 #: template-parts/content-status.php:33 template-parts/content-video.php:30
 #: template-parts/content.php:33
@@ -103,12 +111,12 @@ msgstr "Voimanlähteenä %s"
 msgid "Theme: %1$s by %2$s."
 msgstr "Teeman %1$s on tehnyt %2$s."
 
-#: functions.php:133
+#: functions.php:123
 msgid "The main sidebar. It is displayed in the off-canvas menu."
 msgstr ""
 "Pääsivupalkki, jonka vimpaimet tulevat näkyviin ruudun vasemmasta reunasta."
 
-#: functions.php:144
+#: functions.php:134
 msgid ""
 "A sidebar located in the header of the site. For optimal layout it is "
 "recommended to use only one short widget."
@@ -116,11 +124,11 @@ msgstr ""
 "Sivupalkki, joka sijaitsee sivuston header-osiossa. On suositeltavaa käyttää "
 "vain yhtä lyhyttä vimpainta."
 
-#: functions.php:220 header.php:33
+#: functions.php:221 header.php:33
 msgid "Expand sidebar"
 msgstr "Avaa sivupalkki"
 
-#: functions.php:221 sidebar-primary.php:16
+#: functions.php:222 sidebar-primary.php:16
 msgid "Collapse sidebar"
 msgstr "Sulje sivupalkki"
 
@@ -165,7 +173,7 @@ msgstr ""
 "960px."
 
 #: inc/customizer.php:19
-msgid "Theme Settings"
+msgid "Theme Options"
 msgstr "Teeman asetukset"
 
 #: menu-portfolio.php:9
@@ -190,7 +198,7 @@ msgstr "Somevalikko"
 #: template-parts/content-audio.php:28 template-parts/content-chat.php:31
 #: template-parts/content-jetpack-portfolio.php:31
 #: template-parts/content-link.php:31
-#: template-parts/content-nova_menu_item.php:46
+#: template-parts/content-nova_menu_item.php:45
 #: template-parts/content-page.php:30 template-parts/content-quote.php:31
 #: template-parts/content-status.php:31 template-parts/content-video.php:28
 #: template-parts/content.php:31
@@ -246,8 +254,8 @@ msgid ""
 "searching can help."
 msgstr "Emme valitettavasti löytäneet etsimääsi. Ehkä hakutoiminnosta on apua."
 
-#: template-parts/content-nova_menu_item.php:59
-#: template-parts/content-nova_menu_item.php:91
+#: template-parts/content-nova_menu_item.php:70
+#: template-parts/content-nova_menu_item.php:115
 msgid "Menu Labels:"
 msgstr "Ruokalistan avainsanat:"
 
@@ -377,11 +385,6 @@ msgstr "Nostot"
 msgid "Food Menu"
 msgstr "Ruokalista"
 
-#: comment.php:25
-msgctxt "%1%s is for comment date"
-msgid "%1$s"
-msgstr "%1$s"
-
 #: comments.php:31
 msgctxt "comments title"
 msgid "One comment"
@@ -389,27 +392,27 @@ msgid_plural "%1$s comments"
 msgstr[0] "Yksi kommentti"
 msgstr[1] "%1$s Kommenttia"
 
-#: functions.php:56
+#: functions.php:57
 msgctxt "nav menu location"
 msgid "Primary"
 msgstr "Päävalikko"
 
-#: functions.php:57
+#: functions.php:58
 msgctxt "nav menu location"
 msgid "Social"
 msgstr "Some"
 
-#: functions.php:58
+#: functions.php:59
 msgctxt "nav menu location"
 msgid "Portfolio"
 msgstr "Portfolio"
 
-#: functions.php:132
+#: functions.php:122
 msgctxt "sidebar"
 msgid "Primary"
 msgstr "Sivupalkki"
 
-#: functions.php:143
+#: functions.php:133
 msgctxt "sidebar"
 msgid "Header"
 msgstr "Sivupalkki vasemmalla"
@@ -417,32 +420,32 @@ msgstr "Sivupalkki vasemmalla"
 #. Translators: If there are characters in your language that are not
 #. * supported by Roboto, translate this to 'off'. Do not translate
 #. * into your own language.
-#: functions.php:169
+#: functions.php:159
 msgctxt "Roboto font: on or off"
 msgid "on"
 msgstr "on"
 
-#: functions.php:330
+#: functions.php:331
 msgctxt "comment form placeholder for name"
 msgid "Name"
 msgstr "Nimi"
 
-#: functions.php:343
+#: functions.php:344
 msgctxt "comment form placeholder for email"
 msgid "Email"
 msgstr "Sähköposti"
 
-#: functions.php:356
+#: functions.php:357
 msgctxt "comment form placeholder for website"
 msgid "Website"
 msgstr "Kotisivu"
 
-#: functions.php:435
+#: functions.php:436
 msgctxt "mark after excerpt"
 msgid "&hellip;"
 msgstr " &hellip;"
 
-#: functions.php:452
+#: functions.php:453
 msgctxt "comment form placeholder for comment field. It is noun."
 msgid "Comment"
 msgstr "Kommentti"
