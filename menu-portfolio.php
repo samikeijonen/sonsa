@@ -30,7 +30,7 @@
 			<?php $type = get_post_type_object( 'jetpack-portfolio' ); ?>
 
 			<li <?php echo is_post_type_archive( 'jetpack-portfolio' ) ? 'class="current-cat"' : ''; ?>>
-				<a href="<?php echo get_post_type_archive_link( 'jetpack-portfolio' ); ?>">
+				<a href="<?php echo esc_url( get_post_type_archive_link( 'jetpack-portfolio' ) ); ?>">
 					<?php 
 						/* Translators: "All" is a link that points to the portfolio archive. */
 						esc_html_e( 'All', 'sonsa' );
