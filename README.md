@@ -13,6 +13,7 @@ The following resources are included within the theme package.
 * [Genericons](http://genericons.com/) by Automattic - Licensed under the [GPL, version 2 or later](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html).
 * [Perfect Scrollbar](https://github.com/noraesae/perfect-scrollbar) by Hyunje Alex Jun - Licensed under the [MIT License](http://opensource.org/licenses/MIT).
 * [Enquire](http://wicky.nillia.ms/enquire.js) by Nick Williams - Licensed under the [MIT License](http://opensource.org/licenses/MIT).
+* [Media grabber, Schema.org and post format functions](http://themehybrid.com/) by Justin Tadlock - Licensed under the [GPL, version 2 or later](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html).
 
 The following recources are used in `style.css` for styling elements.
 
@@ -25,6 +26,6 @@ All other resources and theme elements are licensed under the [GNU GPL](http://w
 
 ## Changelog
 
-### Version 1.0.0 - December 11, 2015
+### Version 1.0.0 - December 20, 2015
 
 * Everything's new!
