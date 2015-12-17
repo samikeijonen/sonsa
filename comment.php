@@ -22,13 +22,13 @@
 			
 				<p class="comment-meta">
 					<cite class="comment-author" <?php hybrid_attr( 'comment-author' ); ?>><?php comment_author_link(); ?></span></cite>
-					<a class="comment-permalink" <?php hybrid_attr( 'comment-permalink' ); ?> href="<?php echo esc_url( get_comment_link( $comment->comment_ID, $args ) ); ?>"><time class="comment-published" datetime="<?php comment_time( 'c' ); ?>" <?php hybrid_attr( 'comment-published' ); ?>><?php printf( _x( '%1$s', '%1%s is for comment date', 'sonsa' ), get_comment_date() ); ?></time></a>
-					<?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( '<span class="screen-reader-text">Reply</span>', 'sonsa' ), 'add_below' => 'div-comment', 'depth' => $depth, 'max_depth' => $args['max_depth'], 'before' => '<span class="reply">', 'after' => '</span><!-- .reply -->' ) ) ); ?>
+					<a class="comment-permalink" <?php hybrid_attr( 'comment-permalink' ); ?> href="<?php echo esc_url( get_comment_link( $comment->comment_ID, $args ) ); ?>"><time class="comment-published" datetime="<?php comment_time( 'c' ); ?>" <?php hybrid_attr( 'comment-published' ); ?>><?php echo get_comment_date(); ?></time></a>
+					<?php comment_reply_link( array_merge( $args, array( 'reply_text' => wp_kses( __( '<span class="screen-reader-text">Reply</span>', 'sonsa' ), array( 'span' => array( 'class' => array() ) ) ), 'add_below' => 'div-comment', 'depth' => $depth, 'max_depth' => $args['max_depth'], 'before' => '<span class="reply">', 'after' => '</span><!-- .reply -->' ) ) ); ?>
 				</p><!-- .comment-meta -->
 			
 				<?php if ( '0' == $comment->comment_approved ) : ?>
 					<p>	
-						<em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'sonsa' ); ?></em>
+						<em class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'sonsa' ); ?></em>
 					</p>
 				<?php endif; ?>
 				
