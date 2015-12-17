@@ -4,7 +4,7 @@ Theme URI: https://theme.wordpress.com/themes/sonsa/
 Author: Sami Keijonen
 Author URI: http://foxland.fi/
 Description: Sonsa is a modern and clean photo centric blog theme. It's perfect for sharing your stories with images, video and audio. 
-Version: 1.0.0
+Version: 1.0.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: sonsa
@@ -1105,32 +1105,38 @@ a:active {
 	text-decoration: none;
 }
 
+.menu-social li a::before,
 .menu-social li a[href*="codepen.io"]::before,
 .menu-social li a[href*="digg.com"]::before,
 .menu-social li a[href*="dri9f9f9fle.com"]::before,
+.menu-social li a[href*="dropbox.com"]::before,
 .menu-social li a[href*="facebook.com"]::before,
 .menu-social li a[href*="flickr.com"]::before,
+.menu-social li a[href*="foursquare.com"]::before,
 .menu-social li a[href*="plus.google.com"]::before,
 .menu-social li a[href*="github.com"]::before,
 .menu-social li a[href*="instagram.com"]::before,
 .menu-social li a[href*="linkedin.com"]::before,
+.menu-social li a[href*="mailto:"]::before,
 .menu-social li a[href*="pinterest.com"]::before,
-.menu-social li a[href*="polldaddy.com"]::before,
 .menu-social li a[href*="getpocket.com"]::before,
+.menu-social li a[href*="polldaddy.com"]::before,
 .menu-social li a[href*="reddit.com"]::before,
+.menu-social li a[href$="/feed/"]::before,
 .menu-social li a[href*="skype.com"]::before,
 .menu-social li a[href*="skype:"]::before,
 .menu-social li a[href*="soundcloud.com"]::before,
 .menu-social li a[href*="spotify.com"]::before,
 .menu-social li a[href*="stumbleupon.com"]::before,
 .menu-social li a[href*="tumblr.com"]::before,
+.menu-social li a[href*="twitch.tv"]::before,
 .menu-social li a[href*="twitter.com"]::before,
 .menu-social li a[href*="vimeo.com"]::before,
 .menu-social li a[href*="wordpress.org"]::before,
 .menu-social li a[href*="wordpress.com"]::before,
 .menu-social li a[href*="youtube.com"]::before {
 	display: inline-block;
-	content: '\f409';
+	content: '\f408';
 	-webkit-font-smoothing: antialiased;
 	vertical-align: middle;
 }
@@ -1143,11 +1149,17 @@ a:active {
 .menu-social li a[href*="dri9f9f9fle.com"]::before {
 	content: '\f201';
 }
+.menu-social li a[href*="dropbox.com"]::before {
+	content: '\f225';
+}
 .menu-social li a[href*="facebook.com"]::before {
 	content: '\f204';
 }
 .menu-social li a[href*="flickr.com"]::before {
 	content: '\f211';
+}
+.menu-social li a[href*="foursquare.com"]::before {
+	content: '\f226';
 }
 .menu-social li a[href*="plus.google.com"]::before {
 	content: '\f206';
@@ -1161,17 +1173,23 @@ a:active {
 .menu-social li a[href*="linkedin.com"]::before {
 	content: '\f208';
 }
+.menu-social li a[href*="mailto:"]::before {
+	content: '\f410';
+}
 .menu-social li a[href*="pinterest.com"]::before {
 	content: '\f210';
-}
-.menu-social li a[href*="polldaddy.com"]::before {
-	content: '\f217';
 }
 .menu-social li a[href*="getpocket.com"]::before {
 	content: '\f224';
 }
+.menu-social li a[href*="polldaddy.com"]::before {
+	content: '\f217';
+}
 .menu-social li a[href*="reddit.com"]::before {
 	content: '\f222';
+}
+.menu-social li a[href$="/feed/"]::before {
+	content: '\f413';
 }
 .menu-social li a[href*="skype.com"]::before,
 .menu-social li a[href*="skype:"]::before {
@@ -1189,6 +1207,9 @@ a:active {
 .menu-social li a[href*="tumblr.com"]::before {
 	content: '\f214';
 }
+.menu-social li a[href*="twitch.tv"]::before {
+	content: '\f516';
+}
 .menu-social li a[href*="twitter.com"]::before {
 	content: '\f202';
 }
@@ -1202,7 +1223,6 @@ a:active {
 .menu-social li a[href*="youtube.com"]::before {
 	content: '\f213';
 }
-
 
 .menu-social li a:hover,
 .menu-social li a:focus ,
@@ -1219,6 +1239,11 @@ a:active {
 .menu-social li a[href*="dri9f9f9fle.com"]:active::before {
 	color: #ea4c89;
 }
+.menu-social li a[href*="dropbox.com"]:hover::before,
+.menu-social li a[href*="dropbox.com"]:focus::before,
+.menu-social li a[href*="dropbox.com"]:active::before {
+	color: #007ee5;
+}
 .menu-social li a[href*="facebook.com"]:hover::before,
 .menu-social li a[href*="facebook.com"]:focus::before,
 .menu-social li a[href*="facebook.com"]:active::before {
@@ -1228,6 +1253,11 @@ a:active {
 .menu-social li a[href*="flickr.com"]:focus::before,
 .menu-social li a[href*="flickr.com"]:active::before {
 	color: #ff0084;
+}
+.menu-social li a[href*="foursquare.com"]:hover::before,
+.menu-social li a[href*="foursquare.com"]:focus::before,
+.menu-social li a[href*="foursquare.com"]:active::before {
+	color: #f94877;
 }
 .menu-social li a[href*="plus.google.com"]:hover::before,
 .menu-social li a[href*="plus.google.com"]:focus::before,
@@ -1254,20 +1284,25 @@ a:active {
 .menu-social li a[href*="pinterest.com"]:active::before {
 	color: #c8232c;
 }
-.menu-social li a[href*="polldaddy.com"]:hover::before,
-.menu-social li a[href*="polldaddy.com"]:focus::before,
-.menu-social li a[href*="polldaddy.com"]:active::before {
-	color: #bc0b0b;
-}
 .menu-social li a[href*="getpocket.com"]:hover::before,
 .menu-social li a[href*="getpocket.com"]:focus::before,
 .menu-social li a[href*="getpocket.com"]:active::before {
 	color: #ee4056;
 }
+.menu-social li a[href*="polldaddy.com"]:hover::before,
+.menu-social li a[href*="polldaddy.com"]:focus::before,
+.menu-social li a[href*="polldaddy.com"]:active::before {
+	color: #bc0b0b;
+}
 .menu-social li a[href*="reddit.com"]:hover::before,
 .menu-social li a[href*="reddit.com"]:focus::before,
 .menu-social li a[href*="reddit.com"]:active::before { 
 	color: #336699;
+}
+.menu-social li a[href$="/feed/"]:hover::before,
+.menu-social li a[href$="/feed/"]:focus::before,
+.menu-social li a[href$="/feed/"]:active::before { 
+	color: #ff6600;
 }
 .menu-social li a[href*="skype.com"]:hover::before,
 .menu-social li a[href*="skype.com"]:focus::before,
@@ -1296,6 +1331,11 @@ a:active {
 .menu-social li a[href*="tumblr.com"]:focus::before,
 .menu-social li a[href*="tumblr.com"]:active::before {
 	color: #34526f;
+}
+.menu-social li a[href*="twitch.tv"]:hover::before,
+.menu-social li a[href*="twitch.tv"]:focus::before,
+.menu-social li a[href*="twitch.tv"]:active::before {
+	color: #6441A5;
 }
 .menu-social li a[href*="twitter.com"]:hover::before,
 .menu-social li a[href*="twitter.com"]:focus::before,
@@ -1457,11 +1497,10 @@ a:active {
 .widget_nav_menu ul ul {
 	padding-left: 1em;
 } 
-.main-navigation li,
-.menu-item-has-children > a {
+.main-navigation li {
 	padding-bottom: 6px;
 }
-.main-navigation .menu-item-has-children {
+.main-navigation .sub-menu li {
 	padding-bottom: 0;
 }
 
@@ -1503,7 +1542,8 @@ a:active {
 .menu-portfolio-items a:hover,
 .menu-portfolio-items a:focus,
 .menu-portfolio-items a:active,
-.menu-portfolio-items .current-menu-item > a {
+.menu-portfolio-items .current-menu-item > a,
+.menu-portfolio-items .current-cat > a {
 	color: #000;
 }
 
@@ -1798,19 +1838,23 @@ body:not(.single) .entry.format-aside,
 body:not(.single) .entry.format-chat,
 body:not(.single) .entry.format-link,
 body:not(.single) .entry.format-quote,
-body:not(.single) .entry.format-status {
+body:not(.single) .entry.format-status,
+body:not(.single) .entry.type-post.format-status:not(.has-post-thumbnail) {
 	background-color: rgba(42,26,42,0.90);
 }
-body:not(.single) .entry.format-aside {
+body:not(.single) .entry.format-aside,
+body:not(.single) .entry.type-post.format-aside:not(.has-post-thumbnail) {
 	background-color: rgba(42,26,26,0.90);
 }
 body:not(.single) .entry.format-chat {
 	background-color: transparent;
 }
-body:not(.single) .entry.format-link {
+body:not(.single) .entry.format-link,
+body:not(.single) .entry.type-post.format-link:not(.has-post-thumbnail) {
 	background-color: rgba(26,30,42,0.90);
 }
-body:not(.single) .entry.format-quote {
+body:not(.single) .entry.format-quote,
+body:not(.single) .entry.type-post.format-quote:not(.has-post-thumbnail) {
 	background-color: rgba(42,34,26,0.90);
 }
 
@@ -2014,6 +2058,15 @@ body:not(.single) .entry.format-chat a {
 		width: 20%;	
 	}
 	
+	.site-header {
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-flex-direction: column;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
+	}
+	
 	.site-header > .wrap {
 		display: -webkit-flex;
 		display: -ms-flexbox;
@@ -2029,7 +2082,7 @@ body:not(.single) .entry.format-chat a {
 		        justify-content: center;
 		margin-left: auto;
 		margin-right: auto;
-		max-width: 440px;
+		width: 440px;
 		min-height: 100vh;
 	}
 	
@@ -2051,7 +2104,7 @@ body:not(.single) .entry.format-chat a {
 	}
 	
 	.site-header > .wrap {
-		max-width: 55%;
+		width: 55%;
 	}
 	
 }
@@ -2223,9 +2276,7 @@ body:not(.single) .entry.format-chat a {
 	text-shadow: 1px 2px 1px rgba(0,0,0,0.35);	
 }
 
-.entry-header {
-	padding-top: 90px;
-}
+.entry-header,
 .page .entry-header {
 	padding-top: 54px;
 }
@@ -2241,6 +2292,14 @@ body:not(.single) .entry.format-chat a {
 		border-top: none;
 	}
 	
+}
+
+@media screen and (min-width: 960px) {
+	
+	.entry-header {
+		padding-top: 90px;
+	}
+
 }
 
 .entry-header,
@@ -2653,7 +2712,7 @@ body .wp-playlist-tracks {
 .sonsa-mejs-container.mejs-container .mejs-controls .mejs-time-rail .mejs-time-float-corner,
 .sonsa-mejs-container.mejs-container .mejs-controls .mejs-time-rail .mejs-time-total,
 .sonsa-mejs-container.mejs-container .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-total {
-	background-color: #fafafa;
+	background-color: #e5e5e5;
 }
 .sonsa-mejs-container.mejs-container .mejs-controls .mejs-time-rail .mejs-time-current {
 	background-color: #000;
@@ -2683,6 +2742,9 @@ body .wp-playlist-item {
 	margin-bottom: 1.5em;
 	max-width: 100%;
 }
+.wp-caption.alignnone {
+	margin: 0 0 1.5em;
+}
 
 .wp-caption img[class*="wp-image-"] {
 	display: block;
@@ -2695,6 +2757,7 @@ body .wp-playlist-item {
 }
 
 .wp-caption-text {
+	font-style: italic;
 	text-align: center;
 }
 
@@ -2708,6 +2771,7 @@ body .wp-playlist-item {
 
 .gallery-item {
 	display: inline-block;
+	margin: 1em 0;
 	text-align: center;
 	vertical-align: top;
 	width: 100%;
@@ -3043,8 +3107,12 @@ Copyright (c) 2015 Daniel Eden
 14. Plugins
 --------------------------------------------------------------*/
 
-/* Jetpack food menu. */
+/* Responsive videos. */
+.entry-media .jetpack-video-wrapper {
+	margin-bottom: 0;
+}
 
+/* Jetpack food menu. */
 .page-template-food-menu .entry-content {
 	text-align: center;
 }
