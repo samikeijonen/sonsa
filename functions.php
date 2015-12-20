@@ -66,7 +66,6 @@ function sonsa_setup() {
 	add_theme_support( 'html5', array(
 		'search-form',
 		'comment-form',
-		'comment-list',
 		'gallery',
 		'caption',
 	) );
@@ -203,14 +202,14 @@ function sonsa_scripts() {
 	wp_enqueue_script( 'sonsa-perfect-scrollbar', trailingslashit( get_template_directory_uri() ). 'js/perfect-scrollbar.js', array(), '20150815', true );
 	
 	// Load the matchMedia polyfill.
-	wp_enqueue_script( 'sonsa-matchmedia', trailingslashit( get_template_directory_uri() ) . 'js/matchMedia.js', array(), '20150815', true );
-	wp_script_add_data( 'sonsa-matchmedia', 'conditional', 'IE 9' );
-	
 	wp_enqueue_script( 'sonsa-matchmedia-addlistener', trailingslashit( get_template_directory_uri() ) . 'js/matchMedia.addListener.js', array( 'sonsa-matchmedia' ), '20150815', true );
 	wp_script_add_data( 'sonsa-matchmedia-addlistener', 'conditional', 'IE 9' );
 	
+	wp_enqueue_script( 'sonsa-matchmedia', trailingslashit( get_template_directory_uri() ) . 'js/matchMedia.js', array(), '20150815', true );
+	wp_script_add_data( 'sonsa-matchmedia', 'conditional', 'IE 9' );
+	
 	// Enqueue enquire script.
-	wp_enqueue_script( 'sonsa-enquire', trailingslashit( get_template_directory_uri() ). 'js/enquire.js', array(), '20150815', true );
+	wp_enqueue_script( 'sonsa-enquire', trailingslashit( get_template_directory_uri() ). 'js/enquire.js', array( 'sonsa-matchmedia-addlistener', 'sonsa-matchmedia' ), '20150815', true );
 	
 	// Enqueue theme scripts.
 	wp_enqueue_script( 'sonsa-scripts', trailingslashit( get_template_directory_uri() ) . 'js/scripts.js', array( 'sonsa-perfect-scrollbar', 'sonsa-enquire' ), '20150815', true );
@@ -280,8 +279,12 @@ function sonsa_post_nav_background() {
 				.post-navigation .nav-previous { background-image: url(' . esc_url( $prevthumb[0] ) . '); }
 				.post-navigation .nav-previous { background-repeat: no-repeat; }
 				.post-navigation .nav-previous { background-position: left center; }
+				.rtl .post-navigation .nav-previous { background-position: right center; }
 				.post-navigation .nav-previous { padding-left: 0; }
 				.post-navigation .nav-previous a { padding-left: 171px; }
+				.rtl .post-navigation .nav-previous { padding-right: 0; }
+				.rtl .post-navigation .nav-previous a { padding-right: 171px; }
+				.rtl .post-navigation .nav-previous a { padding-left: 0; }
 			}
 		';
 	}
@@ -293,8 +296,12 @@ function sonsa_post_nav_background() {
 				.post-navigation .nav-next { background-image: url(' . esc_url( $nextthumb[0] ) . '); }
 				.post-navigation .nav-next { background-repeat: no-repeat; }
 				.post-navigation .nav-next { background-position: right center; }
+				.rtl .post-navigation .nav-next { background-position: left center; }
 				.post-navigation .nav-next { padding-right: 0; }
 				.post-navigation .nav-next a { padding-right: 171px; }
+				.rtl .post-navigation .nav-next { padding-left: 0; }
+				.rtl .post-navigation .nav-next a { padding-left: 171px; }
+				.rtl .post-navigation .nav-next a { padding-right: 0; }
 			}
 		';
 	}
@@ -313,79 +320,6 @@ function sonsa_post_nav_background() {
 	
 }
 add_action( 'wp_enqueue_scripts', 'sonsa_post_nav_background' );
-
-/**
- * Add placeholders for comment form.
- *
- * @since 1.0.0
- */
-function sonsa_comment_form_fields( $fields ) {
-	
-	// Required field.
-	$req = get_option( 'require_name_email' );
-	
-	// Add placeholder for name.
-	$fields['author'] = str_replace(
-		'<input',
-		'<input placeholder="'
-			. esc_html_x(
-				'Name',
-				'comment form placeholder for name',
-				'sonsa'
-				)
-			. ( $req ? ' *' : '' ) . '"',
-		$fields['author']
-	);
-	
-	// Add placeholder for email.
-	$fields['email'] = str_replace(
-		'<input',
-		'<input placeholder="'
-			. esc_html_x(
-				'Email',
-				'comment form placeholder for email',
-				'sonsa'
-				)
-			. ( $req ? ' *' : '' ) . '"',
-		$fields['email']
-	);
-	
-	// Add placeholder for url.
-	$fields['url'] = str_replace(
-		'<input',
-		'<input placeholder="'
-			. esc_html_x(
-				'Website',
-				'comment form placeholder for website',
-				'sonsa'
-				)
-			. '"',
-		$fields['url']
-	);
-	
-	// Add screen reader class for labels.
-	$fields['author'] = str_replace(
-		'<label',
-		'<label class="screen-reader-text"',
-		$fields['author']
-	);
-	
-	$fields['email'] = str_replace(
-		'<label',
-		'<label class="screen-reader-text"',
-		$fields['email']
-	);
-
-	$fields['url'] = str_replace(
-		'<label',
-		'<label class="screen-reader-text"',
-		$fields['url']
-	);
- 
-	return $fields;
-	
-}
-add_filter( 'comment_form_default_fields', 'sonsa_comment_form_fields' );
 
 /**
  * Add body classes.
@@ -438,39 +372,6 @@ function sonsa_excerpt_more() {
 
 }
 add_filter( 'excerpt_more', 'sonsa_excerpt_more' );
-
-/**
- * Add placeholder for comment form textarea field.
- *
- * @since 1.0.0
- */
-function sonsa_comment_form_textarea( $fields ) {
-
-	// Add placeholder for textarea.
-	$fields['comment_field'] = str_replace(
-		'<textarea',
-		'<textarea placeholder="'
-			. esc_html_x(
-				'Comment',
-				'comment form placeholder for comment field. It is noun.',
-				'sonsa'
-				)
-			. '"',
-		$fields['comment_field']
-	);
-	
-	// Add screen reader class for comment field.
-	$fields['comment_field'] = str_replace(
-		'<label',
-		'<label class="screen-reader-text"',
-		$fields['comment_field']
-	);
-
-	return $fields;
-
-}
-
-add_filter( 'comment_form_defaults', 'sonsa_comment_form_textarea' );
 
 /**
  * Add an HTML class to MediaElement.js container elements to aid styling.
@@ -586,6 +487,11 @@ require get_template_directory() . '/inc/class-chat.php';
  * Load archive filters file.
  */
 require get_template_directory() . '/inc/archive-filters.php';
+
+/**
+ * Load placeholders file.
+ */
+require get_template_directory() . '/inc/placeholders.php';
 
 /**
  * Add theme settings for license.
