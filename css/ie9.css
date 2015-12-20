@@ -6,6 +6,25 @@
 		width: 50%;
 	}
 	
+	.site-header > .wrap {
+		position: relative;
+	}
+
+	.site-logo {
+		margin-top: -48px;
+		position: absolute;
+		top: 40%;
+	}
+	
+	.has-site-logo .site-branding {
+		margin-left: 96px;
+	}
+	
+	.rtl.has-site-logo .site-branding {
+		margin-left: 0;
+		margin-right: 96px;
+	}
+	
 }
 
 @media screen and (min-width: 1440px) {
@@ -15,14 +34,5 @@
 		width: 100%;
 	}
 	
-}
-
-.site-title {
-	text-align: center;
-}
-
-.site-logo {
-	display: block;
-	margin: 0 auto 0.5em;
 }
 	
