@@ -2088,9 +2088,17 @@ body:not(.single) .entry.format-chat a {
 		        justify-content: center;
 		margin-left: auto;
 		margin-right: auto;
-		width: 440px;
+		width: 400px;
 		min-height: 100vh;
 	}
+	
+		@media screen and (min-width: 1060px) {
+			
+			.site-header > .wrap {
+				width: 440px;
+			}
+				
+		}
 	
 	.site-logo-link {
 		width: 96px;
@@ -2250,7 +2258,9 @@ body:not(.single) .entry.format-chat a {
 .page-template-featured .entry-content > * {
 	color: #fff;
 }
-.page-template-featured .entry-content pre {
+.page-template-featured .entry-content pre,
+.page-template-featured .entry-content mark,
+.page-template-featured .entry-content ins  {
 	background-color: #000;
 }
 .page-template-featured .comments-area {
