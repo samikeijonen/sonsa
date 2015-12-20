@@ -997,7 +997,6 @@ a:active {
 	.post-navigation .nav-links .nav-previous:not(:empty) + .nav-next:not(:empty) {
 		border-left: 1px solid #e5e5e5;
 		border-top: none;
-		padding-left: 0.5em;
 	}
 	
 
@@ -1462,7 +1461,11 @@ a:active {
 .site-content:before,
 .site-content:after,
 .site-footer:before,
-.site-footer:after {
+.site-footer:after,
+.portfolio-wrapper:before,
+.portfolio-wrapper:after,
+.infinite-wrap:before,
+.infinite-wrap:after {
 	content: "";
 	display: table;
 	table-layout: fixed;
@@ -1473,7 +1476,9 @@ a:active {
 .comment-content:after,
 .site-header:after,
 .site-content:after,
-.site-footer:after {
+.site-footer:after,
+.portfolio-wrapper:after,
+.infinite-wrap:after {
 	clear: both;
 }
 
@@ -2125,30 +2130,12 @@ body:not(.single) .entry.format-chat a {
 
 /* Portfolio Layout. */
 
-.post-type-archive-jetpack-portfolio .site-main,
-.tax-jetpack-portfolio-type .site-main,
-.tax-jetpack-portfolio-tag .site-main {
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-flex-wrap: wrap;
-	    -ms-flex-wrap: wrap;
-	        flex-wrap: wrap;
-}
-.post-type-archive-jetpack-portfolio .page-header,
-.tax-jetpack-portfolio-type .page-header,
-.tax-jetpack-portfolio-tag .page-header,
-.post-type-archive-jetpack-portfolio .entry,
-.tax-jetpack-portfolio-type .entry,
-.tax-jetpack-portfolio-tag .entry {
-	width: 100%;
-}
-
 @media screen and (min-width: 30em) {
 
 	.post-type-archive-jetpack-portfolio .entry,
 	.tax-jetpack-portfolio-type .entry,
 	.tax-jetpack-portfolio-tag .entry {
+		float: left;
 		width: 50%;
 	}
 
@@ -2260,7 +2247,7 @@ body:not(.single) .entry.format-chat a {
 }
 .page-template-featured .entry-content pre,
 .page-template-featured .entry-content mark,
-.page-template-featured .entry-content ins  {
+.page-template-featured .entry-content ins {
 	background-color: #000;
 }
 .page-template-featured .comments-area {
@@ -2643,6 +2630,7 @@ ol.comment-list dl dl {
 #infinite-handle {
 	margin-top: 36px;
 	text-align: center;
+	width: 100%;
 }
 
 body .infinite-loader {
