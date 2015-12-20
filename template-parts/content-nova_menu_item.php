@@ -75,7 +75,7 @@ $menu_item_price = get_post_meta( get_the_ID(), 'nova_price', true );
 	
 		<?php if ( has_post_thumbnail() ) : ?>
 			<div class="menu-item-thumbnail">
-				<?php the_post_thumbnail( 'thumbnail' ); ?>
+				<?php the_post_thumbnail( 'sonsa-thumbnail' ); ?>
 			</div><!-- .post-thumbnail -->
 		<?php endif; ?>
 		
