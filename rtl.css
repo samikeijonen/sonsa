@@ -1,0 +1,555 @@
+/*
+Theme Name: Sonsa
+Description: Adds support for languages written in a Right To Left (RTL) direction.
+It's overwriting all the horizontal positioning attributes
+of your CSS stylesheet in a separate stylesheet file named rtl.css.
+
+See: https://codex.wordpress.org/Right_to_Left_Language_Support
+*/
+
+body {
+	direction: rtl;
+	unicode-bidi: embed;
+}
+
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.  Normalize
+2.  Typography
+3.  Elements
+      3.1 Genericons
+4.  Forms
+5.  Navigation
+	  5.1 Links
+      5.2 Menus
+6.  Accessibility
+7.  Alignments
+8.  Clearings
+9.  Widgets
+10. Layout
+11. Content
+      11.1 Posts and pages
+      11.2 Comments
+12. Infinite scroll
+13. Media
+      12.1 Captions
+      12.2 Galleries
+14. Animations
+15. Plugins
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+1. Normalize
+--------------------------------------------------------------*/
+
+fieldset {
+	border: 1px solid #c0c0c0;
+	margin: 0 2px;
+	padding: 0.35em 0.625em 0.75em;
+}
+
+/*--------------------------------------------------------------
+2. Preloader
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+2. Typography
+--------------------------------------------------------------*/
+
+blockquote {
+	border-right: 1px solid #e5e5e5;
+	border-left: none;
+}
+
+
+/*--------------------------------------------------------------
+3. Elements
+--------------------------------------------------------------*/
+
+ul,
+ol {
+	margin: 0 1.5em 1.5em 0;
+}
+
+li > ul,
+li > ol {
+	margin-right: 1.5em;
+}
+
+dd {
+	margin: 0 1.5em 1.5em;
+}
+
+/* Tables. */
+caption,
+th,
+td {
+	text-align: right;
+}
+
+/* wp-calendar <table> */
+#wp-calendar #prev {
+	text-align: right;
+}
+#wp-calendar #next {
+	text-align: left;
+}
+
+/* === 3.1 Genericons === */
+
+.search-submit:before {
+	right: 2px;
+	left: auto;
+}
+
+.entry-date a,
+.byline .entry-author a,
+.entry-permalink a,
+.comments-link a,
+.comment-edit-link {
+	margin-left: 8px;
+	margin-right: 0;
+}
+
+a[href^="mailto:"]::before,
+a[href^="tel:"]::before,
+.entry-date a::before,
+.byline .entry-author a::before,
+.comment-edit-link::before,
+.comments-link a::before,
+.comment-reply-link::before,
+.entry-permalink a::before {
+	padding-left: 4px;
+	padding-right: 0;
+}
+
+
+/*--------------------------------------------------------------
+4. Forms
+--------------------------------------------------------------*/
+
+input[type="search"].search-field {
+	padding-left: 50px;
+	padding-right: 0;
+}
+.search-submit {
+	left: 0;
+	right: auto;
+}
+
+
+/*--------------------------------------------------------------
+5. Navigation
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+5.1 Links
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+5.2 Menus
+--------------------------------------------------------------*/
+
+.post-navigation .nav-next {
+	text-align: left;
+}
+
+@media screen and (min-width: 960px) {
+
+	.post-navigation {
+		margin-right: 4px;
+		margin-left: 0;
+	}
+
+}
+
+@media screen and (min-width: 1440px) {
+	
+	.post-navigation .nav-links .nav-previous:not(:empty) + .nav-next:not(:empty) {
+		border-right: 1px solid #e5e5e5;
+		border-left: none;
+	}
+	
+
+}
+
+.comment-navigation .nav-previous a {
+	padding: 10px 2px 10px 10px;
+}
+.comment-navigation .nav-next a {
+	padding: 10px 10px 10px 2px;
+}
+
+.comment-navigation .nav-next a:after {
+	content: '\f503';
+	margin-right: 8px;
+	margin-left: 0;
+}
+.comment-navigation .nav-previous a::before {
+	content: '\f501';
+	margin-left: 8px;
+	margin-right: 0;
+}
+
+/* Social menu. */
+
+.menu-social ul li {
+	margin-left: 4px;
+	margin-right: 0;
+}
+.menu-social ul li:last-child {
+	margin-left: 0;
+}
+
+
+/*--------------------------------------------------------------
+6. Accessibility
+--------------------------------------------------------------*/
+
+.screen-reader-text:focus {
+	right: 16px;
+	left: auto;
+}
+
+
+/*--------------------------------------------------------------
+7. Alignments
+--------------------------------------------------------------*/
+
+.alignleft {
+	float: right;
+	margin-left: 1.5em;
+	margin-right: 0;
+}
+
+.alignright {
+	float: left;
+	margin-right: 1.5em;
+	margin-left: 0;
+}
+
+
+/*--------------------------------------------------------------
+8. Clearings
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+9. Widgets
+--------------------------------------------------------------*/
+
+.main-navigation ul,
+.widget_nav_menu ul,
+.menu-portfolio-items {
+	padding-right: 0;
+	margin-right: 0;
+}
+.main-navigation .sub-menu,
+.widget_nav_menu ul ul {
+	padding-right: 1em;
+	padding-left: 0;
+}
+
+.menu-portfolio-items li {
+	padding-left: 21px;
+	padding-right: 0;
+}
+.menu-portfolio-items li:last-child {
+	padding-left: 0;
+}
+
+.widget_tag_cloud a,
+.widget_tag_cloud a:visited,
+.entry-terms.nova_menu_item_label a,
+.entry-terms.nova_menu_item_label a:visited {
+	margin: 0 0 6px 2px;
+}
+
+
+/*--------------------------------------------------------------
+10. Layout
+--------------------------------------------------------------*/
+
+.post-navigation .nav-next {
+	padding-left: 5%;
+	padding-right: 0;
+}
+.post-navigation .nav-previous {
+	padding-right: 5%;
+	padding-left: 0;
+}
+
+@media screen and (min-width: 1440px)  {
+	
+	.post-navigation .nav-next {
+		padding-left: 10%;
+		padding-right: 0;
+	}
+	.post-navigation .nav-previous {
+		padding-right: 10%;
+		padding-left: 0;
+	}
+
+}
+
+.sidebar-nav-open {
+	right: 16px;
+	left: auto;
+}
+
+.js .secondary {
+	right: 0;
+	-webkit-transform: translate3d(100%, 0, 0);
+	        transform: translate3d(100%, 0, 0);
+}
+
+.js .main-navigation-open .site-wrapper {
+	-webkit-transform: translate3d(-50%, 0, 0);
+	        transform: translate3d(-50%, 0, 0);
+}
+
+.entry.format-aside .entry-summary > .wrap,
+.entry.format-chat .entry-summary > .wrap,
+.entry.format-link .entry-summary > .wrap,
+.entry.format-quote .entry-summary > .wrap,
+.entry.format-status .entry-summary > .wrap {
+	right: 0;
+	-webkit-transform: translate(0,-50%);
+	    -ms-transform: translate(0,-50%);
+	        transform: translate(0,-50%);
+}
+
+.chat-author {
+	padding-right: 8px;
+	padding-left: 0;
+}
+.chat-text:after {
+	right: 18px;
+	margin-right: -6px;
+}
+
+@media screen and (min-width: 960px) {
+	
+	.js .main-navigation-open .site-wrapper {
+		-webkit-transform: translate3d(-400px, 0, 0);
+		        transform: translate3d(-400px, 0, 0);;
+	}
+	
+	.site-content {
+		box-shadow: inset -10px 0 5px -7px rgba( 0, 0, 0, 0.08 );
+	}
+	
+	.site-header {
+		text-align: right;
+		-webkit-order: 2;
+		    -ms-flex-order: 2;
+		        order: 2;
+	}
+	
+	.site-content {
+		-webkit-order: 3;
+		    -ms-flex-order: 3;
+		        order: 3;
+	}
+
+	.has-site-logo .site-branding {
+		padding-right: 48px; /* Half the size of logo. */
+		padding-left: 0;
+	}
+
+}
+
+/* Portfolio Layout. */
+
+.jetpack-portfolio .entry-header-info {
+	padding-left: 42px;
+	padding-right: 0;
+}
+
+
+/*--------------------------------------------------------------
+10. Content
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+10.1 Posts and pages
+--------------------------------------------------------------*/
+
+.entry-header-info {
+	right: 42px;
+	left: auto;
+	padding-left: calc(5.25% + 68px);
+	padding-right: 0;
+}
+
+.sonsa-post-format {
+	left: 36px;
+	right: auto;
+}
+
+@media screen and (min-width: 77.5em) {
+	
+	.entry-terms.category {
+		padding-left: 0.5em;
+		padding-right: 0;
+	}
+	
+}
+
+/*--------------------------------------------------------------
+10.2 Comments
+--------------------------------------------------------------*/
+
+/* Layout for comments. */
+
+@media screen and (min-width: 30em) {
+	
+	.reply {
+		left: 0;
+		right: auto;
+	}
+	
+}
+
+ol.comment-list ol.children {
+	margin-right: 3%;
+	margin-left: 0;
+}
+
+/* === Individual comments */
+
+.bypostauthor  > .comment-body > .comment-content > .comment-avatar-wrapper:before {
+	right: -10px;
+	left: auto;
+}
+
+.comment-content .avatar {
+	margin-left: 21px;
+	margin-right: 0;
+}
+
+.comment-reply-link::before {
+    padding: 12px;
+}
+
+/*--------------------------------------------------------------
+11. Infinite scroll
+--------------------------------------------------------------*/
+
+body .infinite-loader .spinner {
+	right: 50% !important;
+	left: auto;
+}
+
+
+/*--------------------------------------------------------------
+12. Media
+--------------------------------------------------------------*/
+
+/* Players. */
+
+.sonsa-mejs-container.mejs-container .mejs-controls .mejs-button button {
+	left: 0;
+	right: 0;
+}
+.sonsa-mejs-container.mejs-container .mejs-controls .mejs-button button:before {
+	left: 0;
+	right: 3px;
+}
+
+
+/*--------------------------------------------------------------
+12.1 Captions
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+12.2 Galleries
+--------------------------------------------------------------*/
+
+/* Perfect Scrollbar CSS. */
+@media screen and (min-width: 960px) {
+
+	.ps-container > .ps-scrollbar-y-rail {
+		left: 3px;
+	}
+	.ps-container > .ps-scrollbar-y-rail > .ps-scrollbar-y {
+		left: 0;
+	}
+	  
+}
+
+
+/*--------------------------------------------------------------
+16. Animations
+--------------------------------------------------------------*/
+
+
+@-webkit-keyframes fadeInLeft {
+	from {
+		-webkit-transform: translate3d(100%, 0, 0);
+	transform: translate3d(100%, 0, 0);
+	}
+
+	to {
+		-webkit-transform: none;
+	transform: none;
+	}
+}
+
+@keyframes fadeInLeft {
+	from {
+		-webkit-transform: translate3d(100%, 0, 0);
+		transform: translate3d(100%, 0, 0);
+	}
+
+	to {
+		-webkit-transform: none;
+		transform: none;
+	}
+}
+
+.fadeInLeft {
+	-webkit-animation-name: fadeInLeft;
+	animation-name: fadeInLeft;
+}
+
+@-webkit-keyframes fadeOutLeft {
+	from {
+	}
+
+	to {
+		-webkit-transform: translate3d(100%, 0, 0);
+		transform: translate3d(100%, 0, 0);
+	}
+}
+
+@keyframes fadeOutLeft {
+	from {
+	}
+
+	to {
+		-webkit-transform: translate3d(100%, 0, 0);
+		transform: translate3d(100%, 0, 0);
+	}
+}
+
+.fadeOutLeft {
+	-webkit-animation-name: fadeOutLeft;
+	animation-name: fadeOutLeft;
+}
+
+
+/*--------------------------------------------------------------
+14. Plugins
+--------------------------------------------------------------*/
+
+.menu-group-header,
+.nova_menu_item:not(.has-post-thumbnail) {
+	padding-right: 111px;
+	padding-left: 0;
+}
