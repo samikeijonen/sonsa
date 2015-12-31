@@ -439,11 +439,6 @@ function sonsa_get_menu_name( $location ) {
 }
 
 /**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
-
-/**
  * Implement the Custom Background feature.
  */
 require get_template_directory() . '/inc/custom-background.php';
@@ -489,9 +484,9 @@ require get_template_directory() . '/inc/class-chat.php';
 require get_template_directory() . '/inc/archive-filters.php';
 
 /**
- * Load placeholders file.
+ * Implement the Custom Header feature.
  */
-require get_template_directory() . '/inc/placeholders.php';
+require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Add theme settings for license.
