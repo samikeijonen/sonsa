@@ -976,6 +976,15 @@ a:active {
 	.post-navigation {
 		margin-left: 4px;
 	}
+	
+	.post-navigation .nav-links {
+		position: relative;
+	}
+	
+	.post-navigation .nav-previous,
+	.post-navigation .nav-next {
+		z-index: 10;
+	}
 
 }
 
@@ -1454,6 +1463,8 @@ a:active {
 .clear:after,
 .entry-content:before,
 .entry-content:after,
+.entry-footer:before,
+.entry-footer:after,
 .comment-content:before,
 .comment-content:after,
 .site-header:before,
@@ -1473,6 +1484,7 @@ a:active {
 
 .clear:after,
 .entry-content:after,
+.entry-footer:after,
 .comment-content:after,
 .site-header:after,
 .site-content:after,
@@ -1857,7 +1869,8 @@ body:not(.single) .entry.format-aside,
 body:not(.single) .entry.type-post.format-aside:not(.has-post-thumbnail) {
 	background-color: rgba(42,26,26,0.90);
 }
-body:not(.single) .entry.format-chat {
+body:not(.single) .entry.format-chat,
+body:not(.single) .entry.type-post.format-chat:not(.has-post-thumbnail) {
 	background-color: transparent;
 }
 body:not(.single) .entry.format-link,
@@ -2108,6 +2121,12 @@ body:not(.single) .entry.format-chat a {
 	.site-logo-link {
 		width: 96px;
 	}
+	
+	.site-branding {
+		display: block;
+		max-width: 100%;
+	}
+	
 	.has-site-logo .site-branding {
 		padding-left: 48px; /* Half the size of logo. */
 		width: calc(100% - 96px); /* 94px is width of logo. */
@@ -2228,6 +2247,20 @@ body:not(.single) .entry.format-chat a {
 	opacity: 0;
 	padding: 6px 12px;
 }
+
+.entry:hover .entry-header-info .entry-title,
+.entry:focus .entry-header-info .entry-title,
+.entry:active .entry-header-info .entry-title,
+.entry a:focus .entry-header-info .entry-title,
+.entry a:active .entry-header-info .entry-title,
+.entry:hover .entry-header-info .entry-date,
+.entry:focus .entry-header-info .entry-date,
+.entry:active .entry-header-info .entry-date,
+.entry a:focus .entry-header-info .entry-date,
+.entry a:active .entry-header-info .entry-date {
+	opacity: 1;
+}
+	
 .entry-header-info .entry-title {
 	margin-bottom: 8px;
 }
@@ -2252,31 +2285,6 @@ body:not(.single) .entry.format-chat a {
 }
 .page-template-featured .comments-area {
 	margin-top: 48px;
-}
-
-@media screen and (min-width: 960px) {
-	
-	.page-template-featured .entry-inner {
-		opacity: 0;
-	}
-
-	.entry:hover .entry-header-info .entry-title,
-	.entry:focus .entry-header-info .entry-title,
-	.entry:active .entry-header-info .entry-title,
-	.entry a:focus .entry-header-info .entry-title,
-	.entry a:active .entry-header-info .entry-title,
-	.entry:hover .entry-header-info .entry-date,
-	.entry:focus .entry-header-info .entry-date,
-	.entry:active .entry-header-info .entry-date,
-	.entry a:focus .entry-header-info .entry-date,
-	.entry a:active .entry-header-info .entry-date,
-	.page-template-featured .entry:hover .entry-inner,
-	.page-template-featured .entry:focus .entry-inner,
-	.page-template-featured .entry.focus .entry-inner,
-	.page-template-featured .entry:active .entry-inner {
-		opacity: 1;
-	}
-
 }
 	
 .post-thumbnail > img {
@@ -2402,12 +2410,14 @@ body:not(.single) .entry.format-chat a {
 
 .terms-title {
 	margin-top: -4px;
-	width: 40px;
+	margin-right: 8px;
 }
 .entry-terms {
+	display: block;
 	-webkit-flex: 1;
 	    -ms-flex: 1;
 	        flex: 1;
+	max-width: 100%;
 }
 
 .entry-categories {
