@@ -286,6 +286,27 @@ function sonsa_post_nav_background() {
 				.rtl .post-navigation .nav-previous a { padding-right: 171px; }
 				.rtl .post-navigation .nav-previous a { padding-left: 0; }
 			}
+			
+			@media screen and (min-width: 960px) {
+				
+				.post-navigation {
+					margin-left: 0;
+				}
+				.rtl .post-navigation {
+					margin-right: 0;
+				}
+				
+				.post-navigation .nav-previous::before {
+					box-shadow: inset 10px 0 5px -7px rgba( 0, 0, 0, 0.08 );
+					display: block;
+					content: "";
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					z-index: -1;
+				}
+			}
+			
 		';
 	}
 	
