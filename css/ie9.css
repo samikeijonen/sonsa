@@ -1,9 +1,31 @@
+
+.js .main-navigation-open .site-wrapper {
+    margin-left: 100%;
+}
+.js .rtl.main-navigation-open .site-wrapper {
+    margin-left: 0;
+	margin-right: 100%;
+}
+
 @media screen and (min-width: 960px) {
+	
+	.js .main-navigation-open .site-wrapper {
+		margin-left: 400px;
+	}
+	.js .rtl.main-navigation-open .site-wrapper {
+		margin-left: 0;
+		margin-right: 400px;
+	}
 
 	.site-header,
 	.site-content {
 		float: left;
 		width: 50%;
+	}
+	
+	.rtl .site-header {
+		float: right;
+		clear: left;
 	}
 	
 	.site-header > .wrap {
@@ -35,4 +57,65 @@
 	}
 	
 }
+
+/* Chat. */
+body:not(.single) .entry.type-post.format-chat:not(.has-post-thumbnail),
+body:not(.single) .entry.format-chat {
+	background-color: #f8f8f8;
+}
+
+/* Terms. */
+.entry-categories:before,
+.entry-categories:after,
+.entry-tags:before,
+.entry-tags:after {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+.entry-categories:after,
+.entry-tags:after {
+	clear: both;
+}
+
+.entry-categories > *,
+.entry-tags > * {
+	float: left;
+}
+
+.rtl .entry-categories > *,
+.rtl .entry-tags > * {
+	float: right;
+	clear: left;
+}
+
+
+@media screen and (min-width: 77.5em) {
 	
+	.entry-footer-wrap > * {
+		float: left;
+	}
+	
+	.rtl .entry-footer-wrap > * {
+		float: right;
+		clear: left;
+	}
+	
+}
+
+/* Food Menu. */
+.page-template-food-menu .site-footer {
+	clear: both;
+}
+.nova_menu_item > .menu-item-thumbnail,
+.nova_menu_item > .entry-wrap {
+	float: left;
+}
+.rtl .nova_menu_item > .menu-item-thumbnail,
+.rtl .nova_menu_item > .entry-wrap {
+	float: right;
+	clear: left;
+}
+.nova_menu_item > .entry-wrap {
+	width: calc(100% - 111px);
+}
