@@ -392,6 +392,11 @@ input[type="search"].search-field {
 	right: auto;
 }
 
+.terms-title {
+	margin-left: 8px;
+	margin-right: 0;
+}
+
 @media screen and (min-width: 77.5em) {
 	
 	.entry-terms.category {
