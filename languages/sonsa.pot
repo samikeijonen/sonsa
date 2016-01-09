@@ -1,14 +1,14 @@
-# Copyright (C) 2015 Sami Keijonen
+# Copyright (C) 2016 Sami Keijonen
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
 "Project-Id-Version: Sonsa 1.0.0\n"
 "Report-Msgid-Bugs-To: https://foxland.fi/contact/\n"
-"POT-Creation-Date: 2015-12-31 07:14:48+00:00\n"
+"POT-Creation-Date: 2016-01-09 14:25:26+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 0.5.0\n"
@@ -61,19 +61,19 @@ msgstr ""
 msgid "Comments are closed."
 msgstr ""
 
-#: entry-footer.php:17 template-parts/content-jetpack-portfolio.php:42
-#: template-parts/content-nova_menu_item.php:56
-#: template-parts/content-nova_menu_item.php:107
-#: template-parts/content-page.php:41
+#: entry-footer.php:17 template-parts/content-jetpack-portfolio.php:44
+#: template-parts/content-nova_menu_item.php:58
+#: template-parts/content-nova_menu_item.php:109
+#: template-parts/content-page.php:43
 #. translators: %s: Name of current post
 msgid "Edit %s"
 msgstr ""
 
-#: entry-footer.php:26 template-parts/content-jetpack-portfolio.php:56
+#: entry-footer.php:26 template-parts/content-jetpack-portfolio.php:58
 msgid "Categories"
 msgstr ""
 
-#: entry-footer.php:27 template-parts/content-jetpack-portfolio.php:57
+#: entry-footer.php:27 template-parts/content-jetpack-portfolio.php:59
 msgid "Tags"
 msgstr ""
 
@@ -85,14 +85,14 @@ msgstr ""
 msgid "Next page"
 msgstr ""
 
-#: footer.php:20 pages/featured.php:37 template-parts/content-aside.php:33
-#: template-parts/content-audio.php:30 template-parts/content-chat.php:33
-#: template-parts/content-jetpack-portfolio.php:33
-#: template-parts/content-link.php:33
-#: template-parts/content-nova_menu_item.php:47
-#: template-parts/content-page.php:32 template-parts/content-quote.php:33
-#: template-parts/content-status.php:33 template-parts/content-video.php:30
-#: template-parts/content.php:33
+#: footer.php:20 pages/featured.php:37 template-parts/content-aside.php:35
+#: template-parts/content-audio.php:32 template-parts/content-chat.php:35
+#: template-parts/content-jetpack-portfolio.php:35
+#: template-parts/content-link.php:35
+#: template-parts/content-nova_menu_item.php:49
+#: template-parts/content-page.php:34 template-parts/content-quote.php:35
+#: template-parts/content-status.php:35 template-parts/content-video.php:32
+#: template-parts/content.php:35
 msgid "Page"
 msgstr ""
 
@@ -118,7 +118,7 @@ msgid ""
 "recommended to use only one short widget."
 msgstr ""
 
-#: functions.php:220 header.php:33
+#: functions.php:220 header.php:36
 msgid "Expand sidebar"
 msgstr ""
 
@@ -130,7 +130,7 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
-#: header.php:78
+#: header.php:83
 msgid "Site is loading"
 msgstr ""
 
@@ -198,7 +198,7 @@ msgstr ""
 msgid "Search Results for: %s"
 msgstr ""
 
-#: sidebar-primary.php:49 sidebar-primary.php:50
+#: sidebar-primary.php:38 sidebar-primary.php:39
 msgid "Primary Menu"
 msgstr ""
 
@@ -238,8 +238,8 @@ msgid ""
 "searching can help."
 msgstr ""
 
-#: template-parts/content-nova_menu_item.php:70
-#: template-parts/content-nova_menu_item.php:115
+#: template-parts/content-nova_menu_item.php:72
+#: template-parts/content-nova_menu_item.php:117
 msgid "Menu Labels:"
 msgstr ""
 
@@ -402,7 +402,7 @@ msgctxt "Roboto font: on or off"
 msgid "on"
 msgstr ""
 
-#: functions.php:370
+#: functions.php:391
 msgctxt "mark after excerpt"
 msgid "&hellip;"
 msgstr ""
@@ -443,7 +443,7 @@ msgctxt "submit button"
 msgid "Search"
 msgstr ""
 
-#: sidebar-header.php:12 sidebar-primary.php:27
+#: sidebar-header.php:12
 msgctxt "Sidebar aria label"
 msgid "Header Sidebar"
 msgstr ""
