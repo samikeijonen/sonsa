@@ -23,15 +23,19 @@
 				suppressScrollX: true,
 			});
 			
-			Ps.initialize( secondary, {
-				suppressScrollX: true,
-			});
+			if ( secondary ) {
+				Ps.initialize( secondary, {
+					suppressScrollX: true,
+				});
+			}
 			
 		},  
 		unmatch : function() {
 			Ps.destroy( content );
 			Ps.destroy( header );
-			Ps.destroy( secondary );
+			if ( secondary ) {
+				Ps.destroy( secondary );
+			}
 		}
 
 	}, true );
