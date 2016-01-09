@@ -10,6 +10,7 @@
 /**
  * Adds support for wp.com-specific theme functions.
  *
+ * @since  1.0.0
  * @global array $themecolors
  */
 function sonsa_wpcom_setup() {
@@ -28,3 +29,33 @@ function sonsa_wpcom_setup() {
 	}
 }
 add_action( 'after_setup_theme', 'sonsa_wpcom_setup' );
+
+/**
+ * De-queue Google fonts if custom fonts are being used instead.
+ *
+ * @since 1.0.0
+ */
+function sonsa_dequeue_fonts() {
+	
+	if ( class_exists( 'TypekitData' ) && class_exists( 'CustomDesign' ) && CustomDesign::is_upgrade_active() ) {
+		
+		$custom_fonts = TypekitData::get( 'families' );
+			
+		if ( $custom_fonts && $custom_fonts['headings']['id'] && $custom_fonts['body-text']['id'] ) {
+			wp_dequeue_style( 'sonsa-fonts' );
+		}
+		
+	}
+	
+}
+add_action( 'wp_enqueue_scripts', 'sonsa_dequeue_fonts' );
+
+/**
+ * Enqueue WordPress.com-specific styles.
+ *
+ * @since 1.0.0
+ */
+function sonsa_wpcom_styles() {
+	wp_enqueue_style( 'sonsa-wpcom', get_template_directory_uri() . '/inc/style-wpcom.css', '20160105' );
+}
+add_action( 'wp_enqueue_scripts', 'sonsa_wpcom_styles' );

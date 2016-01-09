@@ -1,0 +1,68 @@
+/* = Styles for WordPress.com
+----------------------------------------------- */
+
+/* Stats */
+#wpstats {
+	display: none;
+}
+
+/* Widgets */
+
+.widget_author_grid ul {
+	margin-left: 0;
+}
+.rtl .widget_author_grid ul {
+	margin-right: 0;
+}
+
+.widget_authors ul {
+	list-style: none;
+	margin-left: 0;
+}
+.rtl .widget_authors ul {
+	margin-right: 0;
+}
+.widget_authors ul ul {
+	list-style: disc;
+	margin-left: 1.5em;
+	margin-bottom: 1.5em;
+}
+.rtl .widget_authors ul ul {
+	margin-left: 0;
+	margin-right: 1.5em;
+}
+
+.rtl .widget_author_grid ul li {
+	clear: left !important;
+	float: right !important;
+}
+
+#am_headline,
+.widget-grofile h4 {
+	color: #aaa;
+}
+
+.widget_tag_cloud a {
+	margin: 0 2px 6px 0 !important;
+}
+
+body #flickr_badge_wrapper {
+	background-color: transparent;
+}
+body #flickr_badge_uber_wrapper a,
+body #flickr_badge_uber_wrapper a:link {
+	color: #aaa;
+}
+body #flickr_badge_uber_wrapper a:hover,
+body #flickr_badge_uber_wrapper a:active,
+body #flickr_badge_uber_wrapper a:focus {
+	color: #fff;
+}
+
+/* Ratings */
+.sd-rating {
+	margin-bottom: 1.5em;
+}
+.entry-summary .sd-rating {
+	display: none;
+}
