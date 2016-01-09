@@ -275,24 +275,15 @@ input[type="search"].search-field {
 10. Layout
 --------------------------------------------------------------*/
 
-.post-navigation .nav-next {
-	padding-left: 5%;
-	padding-right: 0;
-}
-.post-navigation .nav-previous {
-	padding-right: 5%;
-	padding-left: 0;
-}
-
 @media screen and (min-width: 1440px)  {
 	
 	.post-navigation .nav-next {
 		padding-left: 10%;
-		padding-right: 0;
+		padding-right: 0.5em;
 	}
 	.post-navigation .nav-previous {
 		padding-right: 10%;
-		padding-left: 0;
+		padding-left: 0.5em;
 	}
 
 }

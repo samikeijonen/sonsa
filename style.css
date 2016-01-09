@@ -8,7 +8,7 @@ Version: 1.0.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: sonsa
-Tags: black, white, light, one-column, fluid-layout, responsive-layout, accessibility-ready, custom-background, custom-header, custom-menu, editor-style, featured-images, infinite-scroll, site-logo, theme-options, translation-ready, art, artwork, blog, design, fashion, photoblogging, photography, travel, clean, light, minimal, simple
+Tags: black, white, light, one-column, fluid-layout, responsive-layout, accessibility-ready, custom-background, custom-menu, editor-style, featured-images, infinite-scroll, site-logo, theme-options, translation-ready, art, artwork, blog, design, fashion, photoblogging, photography, travel, clean, light, minimal, simple
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -336,15 +336,20 @@ h6,
 	margin-bottom: 54px;
 }
 
-
 h1,
 .site-title {
 	font-size: 1.6875rem; /* 1.6875 = 27 / 16 */
 	line-height: 1.25;
 }
-.site-title {
-	font-size: 3rem;
+
+@media screen and (min-width: 600px) {
+
+	.site-title {
+		font-size: 3rem;
+	}
+	
 }
+	
 .site-title,
 .site-title a {
 	font-weight: 700;
@@ -399,7 +404,7 @@ i {
 
 blockquote {
 	border-left: 1px solid #e5e5e5;
-	font-size: 1.5rem;
+	font-size: 1.25rem;
 	padding: 0 5%;
 	margin: 0;
 }
@@ -1056,7 +1061,8 @@ a:active {
 }
 
 .pagination .page-numbers,
-.page-links a {
+.page-links a,
+.page-links > span {
 	border: 1px solid #e5e5e5;
 	font-size: 0.875em;
 	display: inline-block;
@@ -1067,7 +1073,8 @@ a:active {
 	margin-bottom: 4px;
 	text-transform: uppercase;
 }
-.pagination .page-numbers.current {
+.pagination .page-numbers.current,
+.page-links > span {
 	background-color: #fafafa;
 }
 .pagination .page-numbers.dots {
@@ -1078,7 +1085,7 @@ a:active {
 
 /* Social menu. */
 
-.site-header .header-social-wrap {
+.site-header .menu-social {
 	display: none;
 }
 
@@ -1115,10 +1122,10 @@ a:active {
 	text-decoration: none;
 }
 
-.menu-social li a::before,
+.menu-social li a[href]::before,
 .menu-social li a[href*="codepen.io"]::before,
 .menu-social li a[href*="digg.com"]::before,
-.menu-social li a[href*="dri9f9f9fle.com"]::before,
+.menu-social li a[href*="dribbble.com"]::before,
 .menu-social li a[href*="dropbox.com"]::before,
 .menu-social li a[href*="facebook.com"]::before,
 .menu-social li a[href*="flickr.com"]::before,
@@ -1148,6 +1155,7 @@ a:active {
 	display: inline-block;
 	content: '\f408';
 	-webkit-font-smoothing: antialiased;
+	transition: all 0.1s ease-out;
 	vertical-align: middle;
 }
 .menu-social li a[href*="codepen.io"]::before {
@@ -1156,7 +1164,7 @@ a:active {
 .menu-social li a[href*="digg.com"]::before {
 	content: '\f221';
 }
-.menu-social li a[href*="dri9f9f9fle.com"]::before {
+.menu-social li a[href*="dribbble.com"]::before {
 	content: '\f201';
 }
 .menu-social li a[href*="dropbox.com"]::before {
@@ -1234,9 +1242,9 @@ a:active {
 	content: '\f213';
 }
 
-.menu-social li a:hover,
-.menu-social li a:focus ,
-.menu-social li a:active  {
+.menu-social li a[href]:hover,
+.menu-social li a[href]:focus ,
+.menu-social li a[href]:active  {
 	color: #ffcc00;
 	text-decoration: none;
 }
@@ -1245,9 +1253,9 @@ a:active {
 .menu-social li a[href*="digg.com"]:active::before {
 	color: #fff;
 }
-.menu-social li a[href*="dri9f9f9fle.com"]:hover::before,
-.menu-social li a[href*="dri9f9f9fle.com"]:focus::before,
-.menu-social li a[href*="dri9f9f9fle.com"]:active::before {
+.menu-social li a[href*="dribbble.com"]:hover::before,
+.menu-social li a[href*="dribbble.com"]:focus::before,
+.menu-social li a[href*="dribbble.com"]:active::before {
 	color: #ea4c89;
 }
 .menu-social li a[href*="dropbox.com"]:hover::before,
@@ -1374,10 +1382,10 @@ a:active {
 
 @media screen and (min-width: 960px) {
 	
-	.site-header .header-social-wrap  {
+	.site-header .menu-social {
 		display: block;
 	}
-	.secondary .header-social-wrap  {
+	.secondary .menu-social {
 		display: none;
 	}
 	
@@ -1439,12 +1447,20 @@ a:active {
 	margin-right: 1.5em;
 	margin-bottom: 1.5em;
 }
+.wp-caption.alignleft {
+	margin-left: 0;
+	margin-top: 0.25em;
+}
 
 .alignright {
 	display: inline;
 	float: right;
 	margin-left: 1.5em;
 	margin-bottom: 1.5em;
+}
+.wp-caption.alignright {
+	margin-right: 0;
+	margin-top: 0.25em;
 }
 
 .aligncenter {
@@ -1588,6 +1604,8 @@ a:active {
 
 .widget_tag_cloud a,
 .widget_tag_cloud a:visited,
+.wp_widget_tag_cloud a,
+.wp_widget_tag_cloud a:visited,
 .entry-terms.nova_menu_item_label a,
 .entry-terms.nova_menu_item_label a:visited {
 	background-color: #777;
@@ -1605,12 +1623,17 @@ a:active {
 	color: #000;
 }
 .secondary .widget_tag_cloud a,
-.secondary  .widget_tag_cloud a:visited {
+.secondary .widget_tag_cloud a:visited,
+.secondary .wp_widget_tag_cloud a,
+.secondary .wp_widget_tag_cloud a:visited {
 	color: #fff;
 }
 .widget_tag_cloud a:hover,
 .widget_tag_cloud a:focus,
 .widget_tag_cloud a:active,
+.wp_widget_tag_cloud a:hover,
+.wp_widget_tag_cloud a:focus,
+.wp_widget_tag_cloud a:active,
 .entry-terms.nova_menu_item_label a:hover,
 .entry-terms.nova_menu_item_label a:focus,
 .entry-terms.nova_menu_item_label a:active {
@@ -1678,11 +1701,10 @@ a:active {
 	padding-right: 10%;
 }
 
-.post-navigation .nav-next {
-	padding-right: 5%;
-}
+.post-navigation .nav-next,
 .post-navigation .nav-previous {
 	padding-left: 5%;
+	padding-right: 5%;
 }
 
 @media screen and (min-width: 1440px)  {
@@ -1701,10 +1723,12 @@ a:active {
 	}
 	
 	.post-navigation .nav-next {
+		padding-left: 0.5em;
 		padding-right: 10%;
 	}
 	.post-navigation .nav-previous {
 		padding-left: 10%;
+		padding-right: 0.5em;
 	}
 
 }
@@ -1888,7 +1912,7 @@ body:not(.single) .entry.type-post.format-quote:not(.has-post-thumbnail) {
 .entry.format-quote .entry-summary,
 .entry.format-status .entry-summary {
 	color: #fff;
-	font-size: 1.5rem;
+	font-size: 1.25rem;
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -1902,9 +1926,6 @@ body:not(.single) .entry.type-post.format-quote:not(.has-post-thumbnail) {
 .entry.format-aside .entry-content,
 .entry.format-link .entry-summary {
 	font-size: 1.125rem;
-}
-.entry.format-status .entry-content {
-	font-size: 1.5rem;
 }
 body:not(.single) .entry.format-chat {
 	background-image: linear-gradient(#fff, #f8f8f8 80%);
@@ -1995,7 +2016,8 @@ body:not(.single) .entry.format-chat a {
 		height: calc(100vh - 32px);
 	}
 	
-	.header-social-toggle {
+	.header-social-toggle,
+	.header-social-links-only {
 		display: none;
 	}
 	
@@ -2110,14 +2132,6 @@ body:not(.single) .entry.format-chat a {
 		min-height: 100vh;
 	}
 	
-		@media screen and (min-width: 1060px) {
-			
-			.site-header > .wrap {
-				width: 440px;
-			}
-				
-		}
-	
 	.site-logo-link {
 		width: 96px;
 	}
@@ -2132,6 +2146,14 @@ body:not(.single) .entry.format-chat a {
 		width: calc(100% - 96px); /* 94px is width of logo. */
 	}
 
+}
+
+@media screen and (min-width: 1060px) {
+			
+	.site-header > .wrap {
+		width: 440px;
+	}
+				
 }
 
 @media screen and (min-width: 1600px) {
@@ -2680,6 +2702,7 @@ body #infinite-handle span {
 embed,
 iframe,
 object {
+	margin-bottom: 1.5em !important;
 	max-width: 100%;
 }
 
@@ -2691,6 +2714,10 @@ body .wp-playlist-item {
 }
 body .wp-playlist-item {
 	padding-bottom: 8px;
+}
+
+.entry-content .mejs-container {
+	margin-bottom: 1.5em;
 }
 
 .sonsa-mejs-container.mejs-container,
@@ -3227,4 +3254,31 @@ body:not(.single) .entry-menu-label {
 
 .single .menu-group-header {
 	display: none;
+}
+
+/* Jetpack contact form. */
+body .contact-form input[type='text'],
+body .contact-form input[type='email'],
+body .contact-form textarea {
+	width: 100%;
+	max-width: 100%;
+}
+
+/* Jetpack Widgets. */
+.jetpack-display-remote-posts h4 {
+	font-size: 1.25em;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}
+.jetpack-display-remote-posts h4 a,
+.jetpack-display-remote-posts h4 a:visited {
+	color: #aaa;
+}
+.widget_jetpack_display_posts_widget .jetpack-display-remote-posts p {
+	margin: 1.5em 0 3em !important;
+}
+
+/* PollDaddy. */
+.PDS_Poll {
+	margin-bottom: 1.5em;
 }
