@@ -128,7 +128,9 @@ grunt.initConfig({
           '!**/Gruntfile.js',
           '!**/package.json',
           '!**/*~',
-		  '!style-rtl.css'
+		  '!style-rtl.css',
+		  '!inc/style-wpcom.css',
+		  '!inc/wpcom.php',
         ],
         dest: 'build/<%= pkg.name %>/'
       }
