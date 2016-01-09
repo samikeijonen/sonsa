@@ -7,7 +7,7 @@
  * @package Sonsa
  */
 
-if ( has_nav_menu( 'primary' ) || is_active_sidebar( 'sidebar-1' ) || is_active_sidebar( 'header' ) || has_nav_menu( 'social' ) ) : ?>
+if ( has_nav_menu( 'primary' ) || is_active_sidebar( 'sidebar-1' ) || has_nav_menu( 'social' ) ) : ?>
 
 	<div id="secondary" class="secondary">
 	
@@ -19,18 +19,7 @@ if ( has_nav_menu( 'primary' ) || is_active_sidebar( 'sidebar-1' ) || is_active_
 						
 				<div id="header-social-wrap-narrow" class="header-social-wrap header-social-wrap-narrow">
 						
-					<div class="wrap">	
-						
-						<?php if ( is_active_sidebar( 'header' ) ) : ?>
-							
-							<aside id="sidebar-header-narrow" class="sidebar-header sidebar" role="complementary" <?php hybrid_attr( 'sidebar', 'header' ); ?>>
-								<h2 class="screen-reader-text" id="sidebar-header-header-narrow"><?php echo esc_attr_x( 'Header Sidebar', 'Sidebar aria label', 'sonsa' ); ?></h2>
-							
-								<?php dynamic_sidebar( 'header' ); // Loads the header sidebar. ?>
-								
-							</aside><!-- #sidebar-header-narrow .sidebar -->
-							
-						<?php endif; // End for header sidebar check. ?>
+					<div class="wrap">
 						
 						<?php
 							if ( has_nav_menu( 'social' ) ) :

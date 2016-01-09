@@ -29,9 +29,14 @@
 
 		<header id="masthead" class="site-header" role="banner" <?php hybrid_attr( 'header' ); ?>>
 	
-			<?php if ( has_nav_menu( 'primary' ) || is_active_sidebar( 'primary' ) ) : ?>
-				<button id="sidebar-nav-toggle" class="sidebar-nav-toggle sidebar-nav-open button-toggle"><span class="screen-reader-text"><?php esc_html_e( 'Expand sidebar', 'sonsa' ); ?></span></button>
-			<?php endif; ?>
+			<?php 
+				if ( has_nav_menu( 'primary' ) || is_active_sidebar( 'sidebar-1' ) || has_nav_menu( 'social' ) ) :
+					// Extra class for checking there is only header or social menu active.
+					$extra_class = ( ! has_nav_menu( 'primary' ) && ! is_active_sidebar( 'sidebar-1' ) && has_nav_menu( 'social' ) ) ? ' header-social-links-only' : ''; ?>
+					<button id="sidebar-nav-toggle" class="sidebar-nav-toggle sidebar-nav-open button-toggle<?php echo $extra_class; ?>"><span class="screen-reader-text"><?php esc_html_e( 'Expand sidebar', 'sonsa' ); ?></span></button>
+			<?php 
+				endif;
+			?>
 			
 			<div class="wrap">
 			
