@@ -131,7 +131,7 @@ function sonsa_widgets_init() {
 		'id'            => 'header',
 		'name'          => esc_html_x( 'Header', 'sidebar', 'sonsa' ),
 		'description'   => esc_html__( 'A sidebar located in the header of the site. For optimal layout it is recommended to use only one short widget.', 'sonsa' ),
-		'before_widget' => '<section class="widget %1$s %2$s">',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h3 class="widget-title">',
 		'after_title'   => '</h3>'
@@ -276,7 +276,7 @@ function sonsa_post_nav_background() {
 		$prevthumb = wp_get_attachment_image_src( get_post_thumbnail_id( $previous->ID ), 'sonsa-thumbnail' );
 		$css .= '
 			@media screen and (min-width: 300px) {
-				.post-navigation .nav-previous { background-image: url(' . esc_url( $prevthumb[0] ) . '); }
+				.post-navigation .nav-previous { background-image: url(' . esc_url_raw( $prevthumb[0] ) . '); }
 				.post-navigation .nav-previous { background-repeat: no-repeat; }
 				.post-navigation .nav-previous { background-position: left center; }
 				.rtl .post-navigation .nav-previous { background-position: right center; }
@@ -314,7 +314,7 @@ function sonsa_post_nav_background() {
 		$nextthumb = wp_get_attachment_image_src( get_post_thumbnail_id( $next->ID ), 'sonsa-thumbnail' );
 		$css .= '
 			@media screen and (min-width: 300px) {
-				.post-navigation .nav-next { background-image: url(' . esc_url( $nextthumb[0] ) . '); }
+				.post-navigation .nav-next { background-image: url(' . esc_url_raw( $nextthumb[0] ) . '); }
 				.post-navigation .nav-next { background-repeat: no-repeat; }
 				.post-navigation .nav-next { background-position: right center; }
 				.rtl .post-navigation .nav-next { background-position: left center; }
