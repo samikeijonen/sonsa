@@ -25,10 +25,12 @@
 
 				<?php
 					wp_link_pages( array(
-						'before'    => '<div class="page-links">' . esc_html__( 'Pages:', 'sonsa' ),
-						'after'     => '</div>',
-						'pagelink'  => '<span class="screen-reader-text">' . esc_html__( 'Page', 'sonsa' ) . ' </span>%',
-						'separator' => '<span class="screen-reader-text">,</span> ',
+						'before'      => '<div class="page-links">' . esc_html__( 'Pages:', 'sonsa' ),
+						'after'       => '</div>',
+						'link_before' => '<span>',
+						'link_after'  => '</span>',
+						'pagelink'    => '<span class="screen-reader-text">' . esc_html__( 'Page', 'sonsa' ) . ' </span>%',
+						'separator'   => '<span class="screen-reader-text">,</span> ',
 					) );
 				?>
 				
