@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Sonsa 1.0.0\n"
 "Report-Msgid-Bugs-To: https://foxland.fi/contact/\n"
-"POT-Creation-Date: 2016-01-09 16:30+0200\n"
-"PO-Revision-Date: 2016-01-09 16:30+0200\n"
+"POT-Creation-Date: 2016-01-13 12:19+0200\n"
+"PO-Revision-Date: 2016-01-13 12:19+0200\n"
 "Last-Translator: Sami Keijonen <sami.keijonen@foxnet.fi>\n"
 "Language-Team: \n"
 "Language: fi\n"
@@ -111,12 +111,12 @@ msgstr "Voimanlähteenä %s"
 msgid "Theme: %1$s by %2$s."
 msgstr "Teeman %1$s on tehnyt %2$s."
 
-#: functions.php:122
+#: functions.php:121
 msgid "The main sidebar. It is displayed in the off-canvas menu."
 msgstr ""
 "Pääsivupalkki, jonka vimpaimet tulevat näkyviin ruudun vasemmasta reunasta."
 
-#: functions.php:133
+#: functions.php:132
 msgid ""
 "A sidebar located in the header of the site. For optimal layout it is "
 "recommended to use only one short widget."
@@ -124,11 +124,11 @@ msgstr ""
 "Sivupalkki, joka sijaitsee sivuston header-osiossa. On suositeltavaa käyttää "
 "vain yhtä lyhyttä vimpainta."
 
-#: functions.php:220 header.php:36
+#: functions.php:219 header.php:36
 msgid "Expand sidebar"
 msgstr "Avaa sivupalkki"
 
-#: functions.php:221 sidebar-primary.php:16
+#: functions.php:220 sidebar-primary.php:16
 msgid "Collapse sidebar"
 msgstr "Sulje sivupalkki"
 
@@ -209,7 +209,7 @@ msgstr "Sivut:"
 msgid "Search Results for: %s"
 msgstr "Hakutulokset haulle: %s"
 
-#: sidebar-primary.php:38 sidebar-primary.php:39
+#: sidebar-primary.php:38 sidebar-primary.php:41
 msgid "Primary Menu"
 msgstr "Päävalikko"
 
@@ -407,12 +407,12 @@ msgctxt "nav menu location"
 msgid "Portfolio"
 msgstr "Portfolio"
 
-#: functions.php:121
+#: functions.php:120
 msgctxt "sidebar"
 msgid "Primary"
 msgstr "Sivupalkki"
 
-#: functions.php:132
+#: functions.php:131
 msgctxt "sidebar"
 msgid "Header"
 msgstr "Sivupalkki vasemmalla"
@@ -420,17 +420,22 @@ msgstr "Sivupalkki vasemmalla"
 #. Translators: If there are characters in your language that are not
 #. * supported by Roboto, translate this to 'off'. Do not translate
 #. * into your own language.
-#: functions.php:158
+#: functions.php:157
 msgctxt "Roboto font: on or off"
 msgid "on"
 msgstr "on"
 
-#: functions.php:391
+#: functions.php:395
 msgctxt "mark after excerpt"
 msgid "&hellip;"
 msgstr " &hellip;"
 
-#: inc/template-tags.php:23 inc/template-tags.php:32
+#: inc/template-tags.php:23
+msgctxt "Used before publish date."
+msgid "Posted"
+msgstr "Kirjoitettu"
+
+#: inc/template-tags.php:32
 msgctxt "Used before publish date."
 msgid "Posted on"
 msgstr "Kirjoitettu"
@@ -465,11 +470,6 @@ msgstr "Etsi &hellip;"
 msgctxt "submit button"
 msgid "Search"
 msgstr "Hae"
-
-#: sidebar-header.php:12
-msgctxt "Sidebar aria label"
-msgid "Header Sidebar"
-msgstr "Vasemmalla olevat vimpaimet"
 
 #: single.php:24
 msgctxt "dots after next post link"

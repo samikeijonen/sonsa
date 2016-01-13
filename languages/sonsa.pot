@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Sonsa 1.0.0\n"
+"Project-Id-Version: Sonsa 1.0.1\n"
 "Report-Msgid-Bugs-To: https://foxland.fi/contact/\n"
-"POT-Creation-Date: 2016-01-09 14:25:26+00:00\n"
+"POT-Creation-Date: 2016-01-13 10:20:37+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -108,21 +108,21 @@ msgstr ""
 msgid "Theme: %1$s by %2$s."
 msgstr ""
 
-#: functions.php:122
+#: functions.php:121
 msgid "The main sidebar. It is displayed in the off-canvas menu."
 msgstr ""
 
-#: functions.php:133
+#: functions.php:132
 msgid ""
 "A sidebar located in the header of the site. For optimal layout it is "
 "recommended to use only one short widget."
 msgstr ""
 
-#: functions.php:220 header.php:36
+#: functions.php:219 header.php:36
 msgid "Expand sidebar"
 msgstr ""
 
-#: functions.php:221 sidebar-primary.php:16
+#: functions.php:220 sidebar-primary.php:16
 msgid "Collapse sidebar"
 msgstr ""
 
@@ -198,7 +198,7 @@ msgstr ""
 msgid "Search Results for: %s"
 msgstr ""
 
-#: sidebar-primary.php:38 sidebar-primary.php:39
+#: sidebar-primary.php:38 sidebar-primary.php:41
 msgid "Primary Menu"
 msgstr ""
 
@@ -384,17 +384,17 @@ msgctxt "nav menu location"
 msgid "Portfolio"
 msgstr ""
 
-#: functions.php:121
+#: functions.php:120
 msgctxt "sidebar"
 msgid "Primary"
 msgstr ""
 
-#: functions.php:132
+#: functions.php:131
 msgctxt "sidebar"
 msgid "Header"
 msgstr ""
 
-#: functions.php:158
+#: functions.php:157
 #. Translators: If there are characters in your language that are not
 #. * supported by Roboto, translate this to 'off'. Do not translate
 #. * into your own language.
@@ -402,12 +402,17 @@ msgctxt "Roboto font: on or off"
 msgid "on"
 msgstr ""
 
-#: functions.php:391
+#: functions.php:395
 msgctxt "mark after excerpt"
 msgid "&hellip;"
 msgstr ""
 
-#: inc/template-tags.php:23 inc/template-tags.php:32
+#: inc/template-tags.php:23
+msgctxt "Used before publish date."
+msgid "Posted"
+msgstr ""
+
+#: inc/template-tags.php:32
 msgctxt "Used before publish date."
 msgid "Posted on"
 msgstr ""
@@ -441,11 +446,6 @@ msgstr ""
 #: searchform.php:14
 msgctxt "submit button"
 msgid "Search"
-msgstr ""
-
-#: sidebar-header.php:12
-msgctxt "Sidebar aria label"
-msgid "Header Sidebar"
 msgstr ""
 
 #: single.php:24
