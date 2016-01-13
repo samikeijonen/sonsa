@@ -20,7 +20,7 @@ function sonsa_posted_on( $human_diff = false ) {
 		
 		// Set up entry date.
 		printf( '<span class="entry-date"><span class="screen-reader-text">%1$s </span><time class="entry-date-human" datetime="%2$s" ' . hybrid_get_attr( 'entry-published' ) . '>%3$s</time></span>',
-			esc_html_x( 'Posted on', 'Used before publish date.', 'sonsa' ),
+			esc_html_x( 'Posted', 'Used before publish date.', 'sonsa' ),
 			esc_attr( get_the_date( 'c' ) ),
 			sprintf( esc_html_x( '%s ago', '%s = human-readable time difference', 'sonsa' ), human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) )
 		);
