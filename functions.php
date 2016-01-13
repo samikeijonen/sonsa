@@ -64,7 +64,6 @@ function sonsa_setup() {
 	 * to output valid HTML5.
 	 */
 	add_theme_support( 'html5', array(
-		'search-form',
 		'comment-form',
 		'gallery',
 		'caption',
@@ -364,6 +363,11 @@ function sonsa_extra_body_classes( $classes ) {
 	// Adds a class to 404 page if there is image set in the Customizer.
 	if ( is_404() && get_theme_mod( '404_image' ) ) {
 		$classes[] = 'has-404-image';
+	}
+	
+	// Adds a class if there is default feature image set in the Customizer.
+	if ( get_theme_mod( 'default_post_image' ) ) {
+		$classes[] = 'has-default-feature-image';
 	}
 	
     return $classes;
