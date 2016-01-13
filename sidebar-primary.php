@@ -36,9 +36,12 @@ if ( has_nav_menu( 'primary' ) || is_active_sidebar( 'sidebar-1' ) || has_nav_me
 			<?php if ( has_nav_menu( 'primary' ) ) : ?>
 			
 				<nav id="site-navigation" class="main-navigation menu" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'sonsa' ); ?>" <?php hybrid_attr( 'menu', 'primary' ); ?>>
-					<h2 class="screen-reader-text"><?php esc_attr_e( 'Primary Menu', 'sonsa' ); ?></h2>
-				
-					<h3 class="widget-title sonsa-menu-title"><?php echo esc_html( sonsa_get_menu_name( 'primary' ) ) ?></h3>
+					
+					<?php if ( empty( sonsa_get_menu_name( 'primary' ) ) ) : ?>
+						<h2 class="screen-reader-text"><?php esc_attr_e( 'Primary Menu', 'sonsa' ); ?></h2>
+					<?php else : ?>
+						<h3 class="widget-title sonsa-menu-title"><?php echo esc_html( sonsa_get_menu_name( 'primary' ) ) ?></h3>
+					<?php endif; // End check do we have menu name or not. ?>
 					
 					<?php
 						// Primary navigation menu.
