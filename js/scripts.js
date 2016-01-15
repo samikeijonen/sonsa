@@ -8,7 +8,7 @@
 	// Initialize perfect scrollbar.
 	var content   = document.getElementById( 'content' );
 	var header    = document.getElementById( 'masthead' );
-	var secondary = document.getElementById( 'secondary' );
+	var secondary = document.getElementById( 'sonsa-secondary' );
 	
 	// Initiliaze scrollbar at certain breakpoint.
 	enquire.register( "screen and (min-width: 960px)", {

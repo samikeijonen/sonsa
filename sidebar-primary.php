@@ -9,7 +9,7 @@
 
 if ( has_nav_menu( 'primary' ) || is_active_sidebar( 'sidebar-1' ) || has_nav_menu( 'social' ) ) : ?>
 
-	<div id="secondary" class="secondary">
+	<div id="sonsa-secondary" class="sonsa-secondary">
 	
 		<div class="wrap">
 		
@@ -69,6 +69,6 @@ if ( has_nav_menu( 'primary' ) || is_active_sidebar( 'sidebar-1' ) || has_nav_me
 			
 		</div><!-- .wrap -->
 
-	</div><!-- .secondary -->
+	</div><!-- .sonsa-secondary -->
 
 <?php endif; ?>
