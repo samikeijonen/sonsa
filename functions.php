@@ -129,7 +129,7 @@ function sonsa_widgets_init() {
 	$sidebar_header_args = array(
 		'id'            => 'header',
 		'name'          => esc_html_x( 'Header', 'sidebar', 'sonsa' ),
-		'description'   => esc_html__( 'A sidebar located in the header of the site. For optimal layout it is recommended to use only one short widget.', 'sonsa' ),
+		'description'   => esc_html__( 'A widget area located in the header of the site. For optimal layout it is recommended to use only one short widget.', 'sonsa' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h3 class="widget-title">',
