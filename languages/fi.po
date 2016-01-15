@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Sonsa 1.0.0\n"
 "Report-Msgid-Bugs-To: https://foxland.fi/contact/\n"
-"POT-Creation-Date: 2016-01-13 12:19+0200\n"
-"PO-Revision-Date: 2016-01-13 12:19+0200\n"
+"POT-Creation-Date: 2016-01-15 14:23+0200\n"
+"PO-Revision-Date: 2016-01-15 14:23+0200\n"
 "Last-Translator: Sami Keijonen <sami.keijonen@foxnet.fi>\n"
 "Language-Team: \n"
 "Language: fi\n"
@@ -118,11 +118,11 @@ msgstr ""
 
 #: functions.php:132
 msgid ""
-"A sidebar located in the header of the site. For optimal layout it is "
+"A widget area located in the header of the site. For optimal layout it is "
 "recommended to use only one short widget."
 msgstr ""
-"Sivupalkki, joka sijaitsee sivuston header-osiossa. On suositeltavaa käyttää "
-"vain yhtä lyhyttä vimpainta."
+"Vimpainalue, joka sijaitsee sivuston header-osiossa. On suositeltavaa "
+"käyttää vain yhtä lyhyttä vimpainta."
 
 #: functions.php:219 header.php:36
 msgid "Expand sidebar"
@@ -209,7 +209,7 @@ msgstr "Sivut:"
 msgid "Search Results for: %s"
 msgstr "Hakutulokset haulle: %s"
 
-#: sidebar-primary.php:38 sidebar-primary.php:41
+#: sidebar-primary.php:38 sidebar-primary.php:43
 msgid "Primary Menu"
 msgstr "Päävalikko"
 
