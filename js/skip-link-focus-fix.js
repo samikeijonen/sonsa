@@ -3,14 +3,12 @@
  *
  * Helps with accessibility for keyboard only users.
  *
- * Learn more: https://github.com/Automattic/Sonsa/pull/136
+ * Learn more: https://github.com/Automattic/_s/pull/136
  */
-( function() {
-	var is_webkit = navigator.userAgent.toLowerCase().indexOf( 'webkit' ) > -1,
-	    is_opera  = navigator.userAgent.toLowerCase().indexOf( 'opera' )  > -1,
-	    is_ie     = navigator.userAgent.toLowerCase().indexOf( 'msie' )   > -1;
+(function() {
+	var isIe = /(trident|msie)/i.test( navigator.userAgent );
 
-	if ( ( is_webkit || is_opera || is_ie ) && document.getElementById && window.addEventListener ) {
+	if ( isIe && document.getElementById && window.addEventListener ) {
 		window.addEventListener( 'hashchange', function() {
 			var id = location.hash.substring( 1 ),
 				element;
