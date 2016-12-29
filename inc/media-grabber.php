@@ -424,8 +424,12 @@ class Hybrid_Media_Grabber {
 	 * @return string
 	 */
 	public function split_media( $content ) {
+		if ( ! post_password_required() && get_the_ID() === (int) $this->args['post_id'] ) {
+			$content = str_replace( $this->original_media, '', $content );
+			$content = wp_kses_post( $content );
+		}
 
-		return get_the_ID() === $this->args['post_id'] ? str_replace( $this->original_media, '', $content ) : $content;
+		return $content;
 	}
 
 	/**
