@@ -10,7 +10,7 @@
 /**
  * The current version of the theme.
  */
-define( 'SONSA_VERSION', '1.0.0' );
+define( 'SONSA_VERSION', '1.1.0' );
 
 if ( ! function_exists( 'sonsa_setup' ) ) :
 /**
@@ -84,6 +84,15 @@ function sonsa_setup() {
 		'status',
 		'video',
 	) );
+	
+	// Add support for logo.
+	add_theme_support( 'custom-logo', apply_filters( 'sonsa_custom_logo_args', array(
+		'height' => 192,
+		'width'  => 192,
+	) ) );
+	
+	// Add theme support for refresh widgets. 
+	add_theme_support( 'customize-selective-refresh-widgets' );
 	
 	/*
 	 * This theme styles the visual editor to resemble the theme style,
@@ -187,41 +196,41 @@ function sonsa_scripts() {
 	
 	// Enqueue parent theme styles if using child theme.
 	if ( is_child_theme() ) {
-		wp_enqueue_style( 'sonsa-parent-style', trailingslashit( get_template_directory_uri() ) . 'style.css', array() );
+		wp_enqueue_style( 'sonsa-parent-style', trailingslashit( get_template_directory_uri() ) . 'style.css', array(), SONSA_VERSION );
 	}
 	
 	// Enqueue active theme styles.
-	wp_enqueue_style( 'sonsa-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'sonsa-style', get_stylesheet_uri(), array(), sonsa_theme_version() );
 	
 	// Load the Internet Explorer 9 specific stylesheet.
-	wp_enqueue_style( 'sonsa-ie9', trailingslashit( get_template_directory_uri() ) . 'css/ie9.css', array( 'sonsa-style' ), '20150815' );
+	wp_enqueue_style( 'sonsa-ie9', trailingslashit( get_template_directory_uri() ) . 'css/ie9.css', array( 'sonsa-style' ), '20161229' );
 	wp_style_add_data( 'sonsa-ie9', 'conditional', 'IE 9' );
 	
 	// Enqueue perfect scrollbar script.
-	wp_enqueue_script( 'sonsa-perfect-scrollbar', trailingslashit( get_template_directory_uri() ). 'js/perfect-scrollbar.js', array(), '20150815', true );
+	wp_enqueue_script( 'sonsa-perfect-scrollbar', trailingslashit( get_template_directory_uri() ). 'js/perfect-scrollbar.js', array(), '20161229', true );
 	
 	// Load the matchMedia polyfill.
-	wp_enqueue_script( 'sonsa-matchmedia-addlistener', trailingslashit( get_template_directory_uri() ) . 'js/matchMedia.addListener.js', array( 'sonsa-matchmedia' ), '20150815', true );
+	wp_enqueue_script( 'sonsa-matchmedia-addlistener', trailingslashit( get_template_directory_uri() ) . 'js/matchMedia.addListener.js', array( 'sonsa-matchmedia' ), '20161229', true );
 	wp_script_add_data( 'sonsa-matchmedia-addlistener', 'conditional', 'IE 9' );
 	
-	wp_enqueue_script( 'sonsa-matchmedia', trailingslashit( get_template_directory_uri() ) . 'js/matchMedia.js', array(), '20150815', true );
+	wp_enqueue_script( 'sonsa-matchmedia', trailingslashit( get_template_directory_uri() ) . 'js/matchMedia.js', array(), '20161229', true );
 	wp_script_add_data( 'sonsa-matchmedia', 'conditional', 'IE 9' );
 	
 	// Enqueue enquire script.
-	wp_enqueue_script( 'sonsa-enquire', trailingslashit( get_template_directory_uri() ). 'js/enquire.js', array( 'sonsa-matchmedia-addlistener', 'sonsa-matchmedia' ), '20150815', true );
+	wp_enqueue_script( 'sonsa-enquire', trailingslashit( get_template_directory_uri() ). 'js/enquire.js', array( 'sonsa-matchmedia-addlistener', 'sonsa-matchmedia' ), '20161229', true );
 	
 	// Enqueue theme scripts.
-	wp_enqueue_script( 'sonsa-scripts', trailingslashit( get_template_directory_uri() ) . 'js/scripts.js', array( 'sonsa-perfect-scrollbar', 'sonsa-enquire' ), '20150815', true );
+	wp_enqueue_script( 'sonsa-scripts', trailingslashit( get_template_directory_uri() ) . 'js/scripts.js', array( 'sonsa-perfect-scrollbar', 'sonsa-enquire' ), '20161229', true );
 	
 	// Enqueue theme settings.
-	wp_enqueue_script( 'sonsa-settings', trailingslashit( get_template_directory_uri() ) . 'js/settings.js', array( 'jquery' ), '20150815', true );
+	wp_enqueue_script( 'sonsa-settings', trailingslashit( get_template_directory_uri() ) . 'js/settings.js', array( 'jquery' ), '20161229', true );
 	wp_localize_script( 'sonsa-settings', 'screenReaderText', array(
 		'expand'         => '<span class="screen-reader-text">' . esc_html__( 'Expand sidebar', 'sonsa' ) . '</span>',
 		'collapse'       => '<span class="screen-reader-text">' . esc_html__( 'Collapse sidebar', 'sonsa' ) . '</span>',
 	) );
 	
 	// Enqueue skip link script.
-	wp_enqueue_script( 'sonsa-skip-link-focus-fix', trailingslashit( get_template_directory_uri() ). 'js/skip-link-focus-fix.js', array(), '20150815', true );
+	wp_enqueue_script( 'sonsa-skip-link-focus-fix', trailingslashit( get_template_directory_uri() ). 'js/skip-link-focus-fix.js', array(), '20161229', true );
 		
 	// Enqueue comment reply script.
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -230,6 +239,17 @@ function sonsa_scripts() {
 
 }
 add_action( 'wp_enqueue_scripts', 'sonsa_scripts' );
+
+/**
+ * Get theme version number, works also for child themes.
+ *
+ * @since  1.1.0
+ * @return string $theme_version
+ */
+function sonsa_theme_version() {
+	$theme = is_child_theme() ? wp_get_theme( get_stylesheet() ) : wp_get_theme( get_template() );
+	return $theme_version = $theme->get( 'Version' );
+}
 
 /**
  * JavaScript Detection.
