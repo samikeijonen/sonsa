@@ -22,9 +22,17 @@ The following recources are used in `style.css` for styling elements.
 
 All other resources and theme elements are licensed under the [GNU GPL](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html), version 2 or later.
 
-2015 &copy; [Sami Keijonen](https://foxland.fi).
+2015-2016 &copy; [Sami Keijonen](https://foxland.fi).
 
 ## Changelog
+
+### Version 1.1.0 - December 29, 2016
+
+* Switch using WordPress Core Logo feature. Before logo feature was from Jetpack.
+* Fix skip to content script.
+* Remove rel="designer" from the footer.
+* Update screen-reader-text class by adding word-wrap: normal.
+* Update perfect scrollbar scripts.
 
 ### Version 1.0.0 - December 20, 2015
 
