@@ -29,6 +29,7 @@ All other resources and theme elements are licensed under the [GNU GPL](http://w
 ### Version 1.1.0 - December 29, 2016
 
 * Switch using WordPress Core Logo feature. Before logo feature was from Jetpack.
+* Add selective refresh for widgets.
 * Fix skip to content script.
 * Remove rel="designer" from the footer.
 * Update screen-reader-text class by adding word-wrap: normal.
