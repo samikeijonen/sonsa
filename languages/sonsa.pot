@@ -2,16 +2,16 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Sonsa 1.0.0\n"
+"Project-Id-Version: Sonsa 1.1.0\n"
 "Report-Msgid-Bugs-To: https://foxland.fi/contact/\n"
-"POT-Creation-Date: 2016-01-17 10:27:55+00:00\n"
+"POT-Creation-Date: 2016-12-29 18:47:52+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"X-Generator: grunt-wp-i18n 0.5.0\n"
+"X-Generator: grunt-wp-i18n 0.5.4\n"
 "Language: en_US\n"
 
 #: 404.php:19
@@ -108,21 +108,21 @@ msgstr ""
 msgid "Theme: %1$s by %2$s."
 msgstr ""
 
-#: functions.php:121
+#: functions.php:130
 msgid "The main sidebar. It is displayed in the off-canvas menu."
 msgstr ""
 
-#: functions.php:132
+#: functions.php:141
 msgid ""
 "A widget area located in the header of the site. For optimal layout it is "
 "recommended to use only one short widget."
 msgstr ""
 
-#: functions.php:219 header.php:36
+#: functions.php:228 header.php:36
 msgid "Expand sidebar"
 msgstr ""
 
-#: functions.php:220 sidebar-primary.php:16
+#: functions.php:229 sidebar-primary.php:16
 msgid "Collapse sidebar"
 msgstr ""
 
@@ -337,7 +337,7 @@ msgid "Sonsa"
 msgstr ""
 
 #. Theme URI of the plugin/theme
-msgid "https://theme.wordpress.com/themes/sonsa/"
+msgid "https://foxland.fi/downloads/sonsa/"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -384,25 +384,24 @@ msgctxt "nav menu location"
 msgid "Portfolio"
 msgstr ""
 
-#: functions.php:120
+#: functions.php:129
 msgctxt "sidebar"
 msgid "Primary"
 msgstr ""
 
-#: functions.php:131
+#: functions.php:140
 msgctxt "sidebar"
 msgid "Header"
 msgstr ""
 
-#: functions.php:157
-#. Translators: If there are characters in your language that are not
-#. * supported by Roboto, translate this to 'off'. Do not translate
-#. * into your own language.
+#: functions.php:166
+#. Translators: If there are characters in your language that are not supported
+#. by Roboto, translate this to 'off'. Do not translate into your own language.
 msgctxt "Roboto font: on or off"
 msgid "on"
 msgstr ""
 
-#: functions.php:395
+#: functions.php:415
 msgctxt "mark after excerpt"
 msgid "&hellip;"
 msgstr ""
