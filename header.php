@@ -40,7 +40,7 @@
 			
 			<div class="wrap">
 			
-				<?php if ( function_exists( 'jetpack_the_site_logo' ) ) jetpack_the_site_logo(); ?>
+				<?php if ( function_exists( 'the_custom_logo' ) ) the_custom_logo(); ?>
 		
 				<div id="site-branding" class="site-branding">
 			
