@@ -4,11 +4,11 @@ Theme URI: https://foxland.fi/downloads/sonsa/
 Author: Sami Keijonen
 Author URI: http://foxland.fi/
 Description: Sonsa is a modern and clean photo centric blog theme. It's perfect for sharing your stories with images, video and audio. 
-Version: 1.0.0
+Version: 1.1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: sonsa
-Tags: black, white, light, one-column, fluid-layout, responsive-layout, accessibility-ready, custom-background, custom-menu, editor-style, featured-images, infinite-scroll, rtl-language-support, site-logo, theme-options, translation-ready, art, artwork, blog, design, fashion, photoblogging, photography, travel, clean, light, minimal, simple
+Tags: one-column, grid-layout, accessibility-ready, custom-background, custom-menu, editor-style, featured-images, infinite-scroll, rtl-language-support, custom-logo, theme-options, translation-ready
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -522,7 +522,8 @@ img {
 	max-width: 100%; /* Adhere to container width. */
 }
 
-.site-logo {
+.site-logo,
+.custom-logo {
 	max-width: 96px;
 	max-height: 96px;
 }
@@ -1435,6 +1436,7 @@ a:active {
 	height: 1px;
 	width: 1px;
 	overflow: hidden;
+	word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
 }
 
 .screen-reader-text:focus {
@@ -1813,7 +1815,9 @@ a:active {
 	-webkit-transform: translate3d(-100%, 0, 0);
 	        transform: translate3d(-100%, 0, 0);
 	transition: -webkit-transform 0.5s, visibility 0s 0.5s;
+	transition: visibility 0s 0.5s, -webkit-transform 0.5s;
 	transition: transform 0.5s, visibility 0s 0.5s;
+	transition: transform 0.5s, visibility 0s 0.5s, -webkit-transform 0.5s;
 }
 
 @media screen and (max-width: 959px) {
@@ -1852,6 +1856,7 @@ a:active {
 .site-wrapper {
 	transition: -webkit-transform 0.5s;
 	transition: transform 0.5s;
+	transition: transform 0.5s, -webkit-transform 0.5s;
 }
 
 .js .main-navigation-open .site-wrapper {
@@ -1866,6 +1871,7 @@ a:active {
 	        transform: translate3d(0, 0, 0);
 	transition: -webkit-transform 0.5s;
 	transition: transform 0.5s;
+	transition: transform 0.5s, -webkit-transform 0.5s;
 }
 
 .site-footer,
@@ -2151,7 +2157,8 @@ body:not(.single) .entry.format-chat a {
 		min-height: 100vh;
 	}
 	
-	.site-logo-link {
+	.site-logo-link,
+	.custom-logo-link {
 		width: 96px;
 	}
 	
@@ -2160,7 +2167,8 @@ body:not(.single) .entry.format-chat a {
 		max-width: 100%;
 	}
 	
-	.has-site-logo .site-branding {
+	.has-site-logo .site-branding,
+	.wp-custom-logo .site-branding {
 		padding-left: 48px; /* Half the size of logo. */
 		width: calc(100% - 96px); /* 94px is width of logo. */
 	}
